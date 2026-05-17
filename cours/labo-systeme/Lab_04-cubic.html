@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Lab_04 cubic</title>
+    <meta name="created-at" content="25-03-2026 07:36 PM" />
+    <meta name="updated-at" content="28-03-2026 10:34 AM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>Lab_04 cubic</h1>
+    <p data-block-id="5kflfnX6" data-spacing="double"><br></p><h1 data-block-id="4ZVd5i-O">Synthèse — Labo Live CD avec Cubic</h1><h2 data-block-id="S3-5mHdI">Objectif</h2><p data-block-id="2IBi4odg" data-spacing="double">Créer un <strong>Live CD / Live USB personnalisé</strong> à partir d’une image ISO existante (Linux Mint ou dérivé d’Ubuntu), qui servira de <strong>boîte à outils de dépannage</strong> (récupération de données, diagnostic réseau, etc.).</p><p data-block-id="uAjp_k1r" data-spacing="double">L’idée :</p><ol data-block-id="fr9t_a2e"><li><p data-spacing="double">Préparer une VM Linux fonctionnelle.</p></li><li><p data-spacing="double">Installer l’outil <strong>Cubic</strong>.</p></li><li><p data-spacing="double">Copier une ISO de base dans un dossier de travail.</p></li><li><p data-spacing="double">Ouvrir l’ISO avec Cubic, modifier les paquets.</p></li><li><p data-spacing="double">Générer une nouvelle ISO.</p></li><li><p data-spacing="double">Tester cette ISO dans une autre VM (ou plus tard sur une clé USB).</p></li></ol><hr><h2 data-block-id="VuiX_nx1">Préparation de la VM</h2><h3 data-block-id="vF88L2ab">Configuration générale</h3><ul data-block-id="5zN-SEaU"><li><p data-spacing="double">VM sous <strong>Linux Mint</strong> (ou Ubuntu-like).</p></li><li><p data-spacing="double">Disque virtuel suffisamment grand (disque dynamique OK).</p></li><li><p data-spacing="double">Accès internet.</p></li><li><p data-spacing="double">Optionnel mais très pratique :</p><ul><li><p data-spacing="double">SSH activé pour piloter la VM depuis Windows.</p></li><li><p data-spacing="double">Dossier partagé VirtualBox pour transférer les fichiers (ISO, etc.).</p></li><li><p data-spacing="double">Instantanés (snapshots) à chaque grande étape.</p></li></ul></li></ul><h3 data-block-id="h4IBvhtJ">Installation et activation de SSH (dans la VM)</h3><pre data-block-id="V9iYDfHD" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openssh-server <span class="token parameter variable">-y</span>
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token parameter variable">--now</span> <span class="token function">ssh</span>
+<span class="token function">sudo</span> systemctl status <span class="token function">ssh</span>
+</code></pre><ul data-block-id="4R_L5HBO"><li><p data-spacing="double"><code spellcheck="false">status</code> doit afficher <code spellcheck="false">active (running)</code>.</p></li></ul><h3 data-block-id="6yufXOUU">Connexion en SSH depuis Windows (NAT + redirection de port)</h3><p data-block-id="QTNCTP8M" data-spacing="double">Dans VirtualBox :</p><ul data-block-id="6ITQGE5t"><li><p data-spacing="double">Mode réseau : <strong>NAT</strong>.</p></li><li><p data-spacing="double">Redirection de port :</p><ul><li><p data-spacing="double">Port hôte : <code spellcheck="false">2222</code></p></li><li><p data-spacing="double">Port invité : <code spellcheck="false">22</code></p></li></ul></li></ul><p data-block-id="VjPADxBt" data-spacing="double">Depuis PowerShell sur Windows :</p><pre data-block-id="oLqq-8xY" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh <span class="token operator">-</span>p 2222 ton_user@127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1
+</code></pre><blockquote data-block-id="T11LaLIV"><p data-spacing="double">Retenir : en NAT, on vise <code spellcheck="false">127.0.0.1</code> (<a target="_blank" rel="noopener noreferrer nofollow" href="http://localhost">localhost</a>) avec le port redirigé, pas l’IP interne de la VM.</p></blockquote><hr><h2 data-block-id="lp4BFixs">Dossier partagé VirtualBox (facultatif mais utile)</h2><h3 data-block-id="d2phQ-uP">Installation des composants invités</h3><pre data-block-id="-AudhnVF" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> virtualbox-guest-utils virtualbox-guest-x11 <span class="token parameter variable">-y</span>
+<span class="token function">sudo</span> <span class="token function">reboot</span>
+</code></pre><h3 data-block-id="0EIgFRgK">Ajouter l’utilisateur au groupe des dossiers partagés</h3><pre data-block-id="SNHprlLt" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> vboxsf <span class="token environment constant">$USER</span>
+<span class="token function">sudo</span> <span class="token function">reboot</span>
+</code></pre><p data-block-id="Mg57MZF8" data-spacing="double">Après redémarrage :</p><pre data-block-id="l9emX2SB" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ls</span> <span class="token parameter variable">-l</span> /media/
+</code></pre><p data-block-id="kiS7Skjv" data-spacing="double">Tu dois voir un dossier du type :</p><pre data-block-id="dGcIzoFI" data-indent-type="space" data-indent-length="2" class="language-text"><code>/media/sf_nom_du_partage
+</code></pre><p data-block-id="1DqS7jNr" data-spacing="double">C’est le contenu de ton dossier partagé Windows (ex. <code spellcheck="false">D:\dossier_partager_VMs</code>).</p><hr><h2 data-block-id="h08UQ8Ak">Étape 1 — Installer Cubic</h2><p data-block-id="1ZMR5Ewm" data-spacing="double">Dans la VM :</p><pre data-block-id="cXhSBIEN" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> apt-add-repository ppa:cubic-wizard/release
+<span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> cubic
+</code></pre><p data-block-id="epWAEfGQ" data-spacing="double">Créer un dossier de travail (par exemple dans <code spellcheck="false">Documents</code>) :</p><pre data-block-id="9gU0fLJ3" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD
+</code></pre><h3 data-block-id="LIRn9Y8w">Instantané conseillé</h3><ul data-block-id="CUW7DwG3"><li><p data-spacing="double"><strong>Snapshot 1 :</strong> <code spellcheck="false">1 - Cubic installé</code></p></li></ul><hr><h2 data-block-id="tmLYdDUR">Étape 2 — Copier l’ISO de base dans le dossier de travail</h2><ol data-block-id="HlkbIwgf"><li><p data-spacing="double">Placer l’ISO de Linux Mint (ou autre dérivé Ubuntu) dans le <strong>dossier partagé</strong> côté Windows.</p></li><li><p data-spacing="double">Dans la VM, copier cette ISO vers le dossier de travail Cubic, et te mettre propriétaire du fichier.</p></li></ol><p data-block-id="5Xkmxp-m" data-spacing="double">Exemple :</p><pre data-block-id="PAmK4WSe" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">cp</span> /media/sf_dossier_partager_VMs/linuxmint.iso /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD/
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token environment constant">$USER</span><span class="token builtin class-name">:</span><span class="token environment constant">$USER</span> /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD/linuxmint.iso
+<span class="token function">ls</span> <span class="token parameter variable">-lh</span> /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD/
+</code></pre><p data-block-id="x4YqHaa1" data-spacing="double">Résultat attendu : le fichier <code spellcheck="false">linuxmint.iso</code> est présent dans <code spellcheck="false">Documents/mon-DVD</code>, avec ton utilisateur comme propriétaire.</p><hr><h2 data-block-id="xDLmgNO1">Étape 3 — Ouvrir l’ISO dans Cubic</h2><ol data-block-id="pngBC7wz"><li><p data-spacing="double">Lancer <strong>Cubic</strong> (menu Mint ou terminal).</p></li><li><p data-spacing="double">Écran “Project Directory” :</p><ul><li><p data-spacing="double">Choisir : <code spellcheck="false">Documents/mon-DVD</code></p></li></ul></li><li><p data-spacing="double">Écran “Original ISO” :</p><ul><li><p data-spacing="double">Choisir : <code spellcheck="false">linuxmint.iso</code></p></li><li><p data-spacing="double">Optionnel : personnaliser nom, description, etc.</p></li></ul></li><li><p data-spacing="double">Lancer l’extraction.</p></li><li><p data-spacing="double">À la fin, Cubic ouvre un terminal avec un prompt du type :</p></li></ol><pre data-block-id="MfMO0Rn3" data-indent-type="space" data-indent-length="2" class="language-bash"><code>root@cubic:~<span class="token comment">#</span>
+</code></pre><p data-block-id="huVd8kUb" data-spacing="double">Ce terminal agit <strong>dans le futur Live CD</strong>, pas sur le système hôte.</p><hr><h2 data-block-id="DWv3K5OR">Étape 4 — Personnaliser le système dans <code spellcheck="false">root@cubic</code></h2><h3 data-block-id="bIje6yrT">4.1. Mettre à jour la liste des paquets</h3><pre data-block-id="gpGW0YNI" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> update
+</code></pre><h3 data-block-id="WbLjFVon">4.2. Supprimer les paquets inutiles</h3><p data-block-id="cPwxD4qn" data-spacing="double">Exemple typique du labo : supprimer LibreOffice (inutile sur un live de dépannage) :</p><pre data-block-id="kTDVDDRA" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> remove <span class="token parameter variable">--purge</span> libreoffice*
+</code></pre><p data-block-id="mmmkFsCr" data-spacing="double">Tu peux aussi utiliser :</p><pre data-block-id="sSnZff_L" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> list
+<span class="token function">apt</span> show nom_du_paquet
+</code></pre><p data-block-id="a94sKC_z" data-spacing="double">pour explorer les paquets installés et décider quoi retirer.</p><h3 data-block-id="xqTOINvr">4.3. Installer les outils de ta boîte à outils</h3><p data-block-id="13C_Qu1b" data-spacing="double">Outils demandés dans l’esprit du labo :</p><ul data-block-id="OZBiL_vh"><li><p data-spacing="double"><code spellcheck="false">chntpw</code> : réinitialisation de mots de passe Windows.</p></li><li><p data-spacing="double"><code spellcheck="false">nmap</code> : diagnostic / scan réseau.</p></li></ul><pre data-block-id="d1wgZmKj" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> <span class="token function">install</span> chntpw
+<span class="token function">apt</span> <span class="token function">install</span> nmap
+</code></pre><p data-block-id="wEG5L4_x" data-spacing="double">Outils supplémentaires utiles (exemples) :</p><pre data-block-id="vXR_n2CB" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> <span class="token function">install</span> <span class="token function">htop</span> testdisk <span class="token function">gparted</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token parameter variable">-y</span>
+</code></pre><ul data-block-id="f4ESmM_G"><li><p data-spacing="double"><code spellcheck="false">htop</code> : surveillance des processus.</p></li><li><p data-spacing="double"><code spellcheck="false">testdisk</code> : récupération de partitions / données.</p></li><li><p data-spacing="double"><code spellcheck="false">gparted</code> : gestion des partitions.</p></li><li><p data-spacing="double"><code spellcheck="false">curl</code> / <code spellcheck="false">wget</code> : téléchargements, tests réseau.</p></li></ul><h3 data-block-id="8OvTc3KG">4.4. Nettoyage</h3><pre data-block-id="twyrI0EU" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> autoremove <span class="token parameter variable">-y</span>
+<span class="token function">apt</span> clean
+</code></pre><ul data-block-id="dGlpI7Nd"><li><p data-spacing="double"><code spellcheck="false">autoremove</code> : supprime les dépendances devenues inutiles.</p></li><li><p data-spacing="double"><code spellcheck="false">clean</code> : vide le cache des paquets pour alléger l’ISO.</p></li></ul><h3 data-block-id="CDdXc7A-">Instantané conseillé</h3><ul data-block-id="-Njj1nxx"><li><p data-spacing="double"><strong>Snapshot 2 :</strong> <code spellcheck="false">2 - Outils installés dans Cubic</code></p></li></ul><hr><h2 data-block-id="M0KaM2mM">Étape 5 — Finaliser dans l’interface de Cubic</h2><ol data-block-id="u9rMZRl4"><li><p data-spacing="double">Cliquer sur <strong>Next</strong> (après le terminal).</p></li><li><p data-spacing="double">Écran des paquets :</p><ul><li><p data-spacing="double">En général, laisser tel quel si le gros ménage est déjà fait.</p></li></ul></li><li><p data-spacing="double">Écran du noyau / boot :</p><ul><li><p data-spacing="double">Choisir l’image de démarrage/noyau la plus “générique” (souvent suffixée par <code spellcheck="false">-generic</code>).</p></li></ul></li><li><p data-spacing="double">Écran de compression :</p><ul><li><p data-spacing="double">Choisir un niveau de compression <strong>normal</strong> (éviter l’extrême “max” si tu veux que ça reste raisonnable en temps).</p></li></ul></li><li><p data-spacing="double">Lancer la génération de l’ISO.</p></li></ol><p data-block-id="TTZhd_gS" data-spacing="double">À la fin, Cubic produit une nouvelle ISO dans le dossier de projet (souvent <code spellcheck="false">Documents/mon-DVD</code>).</p><h3 data-block-id="k1nx8pNy">Instantané conseillé</h3><ul data-block-id="giCa3sIo"><li><p data-spacing="double"><strong>Snapshot 3 :</strong> <code spellcheck="false">3 - ISO générée</code></p></li></ul><hr><h2 data-block-id="6l25eh96">Étape 6 — Tester l’ISO personnalisée</h2><p data-block-id="Gx-SKg-j" data-spacing="double">L’idée : vérifier que :</p><ul data-block-id="pOhModFz"><li><p data-spacing="double">l’image <strong>boote</strong> correctement ;</p></li><li><p data-spacing="double">les outils installés sont présents ;</p></li><li><p data-spacing="double">les paquets supprimés ne sont plus là.</p></li></ul><h3 data-block-id="j_i3d9H5">6.1. Récupérer l’ISO vers Windows (optionnel mais pratique)</h3><p data-block-id="AalLR3wM" data-spacing="double">Dans la VM de création :</p><pre data-block-id="uS6JFMtb" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">cp</span> /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD/nom_nouvel_iso.iso /media/sf_dossier_partager_VMs/
+</code></pre><p data-block-id="k4n1XgQZ" data-spacing="double">L’ISO apparaît alors dans ton dossier partagé Windows (ex. <code spellcheck="false">D:\dossier_partager_VMs</code>).</p><h3 data-block-id="vKO1Ey89">6.2. Créer une VM de test dans VirtualBox</h3><ol data-block-id="1R0RnUIO"><li><p data-spacing="double">Nouvelle VM, type Linux / Ubuntu 64 bits.</p></li><li><p data-spacing="double">RAM : 2 Go (ou plus).</p></li><li><p data-spacing="double"><strong>Sans disque dur</strong> (pour simuler un vrai live).</p></li><li><p data-spacing="double">Dans “Stockage” :</p><ul><li><p data-spacing="double">Attacher ton ISO personnalisé au lecteur CD de la VM.</p></li></ul></li></ol><p data-block-id="d_I6c1Lk" data-spacing="double">Démarre la VM : elle doit booter sur ton Live CD.</p><h3 data-block-id="0UPfsYu4">6.3. Vérifier la présence des outils</h3><p data-block-id="szHOv7sl" data-spacing="double">Dans le terminal de la VM de test :</p><pre data-block-id="CHVmNBK1" data-indent-type="space" data-indent-length="2" class="language-bash"><code>nmap
+chntpw
+</code></pre><ul data-block-id="LlC02y9g"><li><p data-spacing="double">Si <code spellcheck="false">nmap</code> affiche son aide quand tu tapes juste <code spellcheck="false">nmap</code>, c’est normal : ça prouve que la commande existe.</p></li><li><p data-spacing="double">Si <code spellcheck="false">chntpw</code> répond, il est bien installé.</p></li><li><p data-spacing="double">Tu peux ouvrir le menu applications pour vérifier que LibreOffice n’est plus présent.</p></li></ul><h3 data-block-id="161Ye6Mv">Instantané conseillé</h3><ul data-block-id="rDQpVe5S"><li><p data-spacing="double"><strong>Snapshot 4 :</strong> <code spellcheck="false">4 - ISO testée et fonctionnelle</code></p></li></ul><hr><h2 data-block-id="uNkzE9VS">Mini-fiche mémo (pour refaire vite la manip)</h2><h3 data-block-id="rqzcxp1X">1. Préparer la VM</h3><ul data-block-id="KzAkvIuK"><li><p data-spacing="double">Créer VM Linux Mint.</p></li><li><p data-spacing="double">Internet OK.</p></li><li><p data-spacing="double">Disque suffisamment grand.</p></li><li><p data-spacing="double">(Optionnel) SSH + dossier partagé VirtualBox.</p></li></ul><h3 data-block-id="GV2ifJx9">2. Installer Cubic</h3><pre data-block-id="c_VDXkyr" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> apt-add-repository ppa:cubic-wizard/release
+<span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> cubic
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD
+</code></pre><h3 data-block-id="wKTsuO4i">3. Copier l’ISO de base</h3><pre data-block-id="ZM0As7Jx" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">cp</span> /media/sf_partage/linuxmint.iso /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD/
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token environment constant">$USER</span><span class="token builtin class-name">:</span><span class="token environment constant">$USER</span> /home/<span class="token environment constant">$USER</span>/Documents/mon-DVD/linuxmint.iso
+</code></pre><h3 data-block-id="CQntJK44">4. Ouvrir et modifier avec Cubic</h3><ul data-block-id="hliEbvPa"><li><p data-spacing="double">Lancer Cubic.</p></li><li><p data-spacing="double">Project Directory : <code spellcheck="false">Documents/mon-DVD</code>.</p></li><li><p data-spacing="double">Original ISO : <code spellcheck="false">linuxmint.iso</code>.</p></li><li><p data-spacing="double">Attendre l’extraction (terminal <code spellcheck="false">root@cubic</code>).</p></li></ul><p data-block-id="AHc-dmot" data-spacing="double">Dans <code spellcheck="false">root@cubic</code> :</p><pre data-block-id="1XXZGJLu" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> update
+<span class="token function">apt</span> remove <span class="token parameter variable">--purge</span> libreoffice*
+<span class="token function">apt</span> <span class="token function">install</span> chntpw
+<span class="token function">apt</span> <span class="token function">install</span> nmap
+<span class="token function">apt</span> <span class="token function">install</span> <span class="token function">htop</span> testdisk <span class="token function">gparted</span> <span class="token function">curl</span> <span class="token function">wget</span> <span class="token parameter variable">-y</span>
+<span class="token function">apt</span> autoremove <span class="token parameter variable">-y</span>
+<span class="token function">apt</span> clean
+</code></pre><h3 data-block-id="LnV4qDJd">5. Générer l’ISO</h3><ul data-block-id="ly0iFVYA"><li><p data-spacing="double">Cliquer <strong>Next</strong>.</p></li><li><p data-spacing="double">Garder les paquets ou en retirer si nécessaire.</p></li><li><p data-spacing="double">Choisir un noyau/boot “générique”.</p></li><li><p data-spacing="double">Choisir la compression.</p></li><li><p data-spacing="double">Générer l’ISO.</p></li></ul><h3 data-block-id="qwBt0REN">6. Tester l’ISO</h3><ul data-block-id="r9uo5LnG"><li><p data-spacing="double">Créer une VM de test qui boote sur la nouvelle ISO.</p></li><li><p data-spacing="double">Vérifier que :</p><ul><li><p data-spacing="double">la VM boote bien ;</p></li><li><p data-spacing="double"><code spellcheck="false">nmap</code>, <code spellcheck="false">chntpw</code> (et autres outils) existent ;</p></li><li><p data-spacing="double">les paquets retirés ne sont plus là.</p></li></ul></li></ul><hr><p data-block-id="bfkt3HKX" data-spacing="double">Avec ce document, tu as tout ce qu’il faut pour <strong>refaire le labo en autonomie</strong>, comprendre ce que tu fais à chaque étape, et l’adapter plus tard (autres outils, autre ISO, autre usage).</p><p data-block-id="_B_DmufJ" data-spacing="double"><br></p>
+  </body>
+</html>

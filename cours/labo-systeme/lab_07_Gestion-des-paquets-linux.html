@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Labo_07_Gestion des paquets linux</title>
+    <meta name="created-at" content="18-04-2026 06:00 PM" />
+    <meta name="updated-at" content="18-04-2026 06:03 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>Labo_07_Gestion des paquets linux</h1>
+    <p data-block-id="3qvwMcSp" data-spacing="double"><br></p><hr><h2 data-block-id="OBantB58">1. Création des machines virtuelles (VirtualBox)</h2><h3 data-block-id="4ul2idIT">Paramètres communs</h3><ul data-block-id="knsqsM3i"><li><p data-spacing="double">Type : Linux 64-bit</p></li><li><p data-spacing="double">Réseau : NAT (par défaut dans VirtualBox)</p></li><li><p data-spacing="double">Disque : VDI, allocation dynamique</p></li></ul><h3 data-block-id="_jBSiYvw">Debian (VM « Debian »)</h3><ul data-block-id="A_F2oUes"><li><p data-spacing="double">RAM : 2 Go</p></li><li><p data-spacing="double">CPU : 2 vCPU</p></li><li><p data-spacing="double">Disque : 20 Go</p></li><li><p data-spacing="double">ISO : Debian 13.4 DVD amd64</p></li></ul><h3 data-block-id="QN3CdrtP">Fedora (VM « Fedora »)</h3><ul data-block-id="VKO2gS-e"><li><p data-spacing="double">RAM : 3–4 Go</p></li><li><p data-spacing="double">CPU : 2 vCPU</p></li><li><p data-spacing="double">Disque : 25 Go</p></li><li><p data-spacing="double">ISO : Fedora Workstation Live 43 (amd64)</p></li></ul><h3 data-block-id="mSA_xd8P">openSUSE (VM « openSUSE »)</h3><ul data-block-id="YgiFJ_lb"><li><p data-spacing="double">RAM : 3 Go</p></li><li><p data-spacing="double">CPU : 2 vCPU</p></li><li><p data-spacing="double">Disque : 25 Go</p></li><li><p data-spacing="double">ISO : openSUSE Leap 16.0 (amd64)</p></li></ul><hr><h2 data-block-id="MAUsyd8M">2. Installation et configuration de Debian</h2><h3 data-block-id="0lyxfw2H">2.1 Installation Debian (Graphical Install)</h3><ol data-block-id="knVjBfZ5"><li><p data-spacing="double">Démarrer la VM Debian sur l’ISO.</p></li><li><p data-spacing="double">Choix de langue : Français.</p></li><li><p data-spacing="double">Pays : Belgique.</p></li><li><p data-spacing="double">Clavier : Français.</p></li><li><p data-spacing="double">Nom de machine : <code spellcheck="false">debian</code>.</p></li><li><p data-spacing="double">Domaine : laisser vide.</p></li><li><p data-spacing="double">Mot de passe root : <code spellcheck="false">tttttt</code>.</p></li><li><p data-spacing="double">Utilisateur :</p><ul><li><p data-spacing="double">Nom complet : <code spellcheck="false">Raph</code></p></li><li><p data-spacing="double">Identifiant : <code spellcheck="false">raph</code></p></li><li><p data-spacing="double">Mot de passe : <code spellcheck="false">tttttt</code></p></li></ul></li><li><p data-spacing="double">Partitionnement :</p><ul><li><p data-spacing="double">Assisté – utiliser un disque entier</p></li><li><p data-spacing="double">Tous les fichiers dans une seule partition</p></li><li><p data-spacing="double">Terminer le partitionnement et appliquer les changements</p></li></ul></li><li><p data-spacing="double">Miroir réseau :</p></li></ol><ul data-block-id="AL69hYKK"><li><p data-spacing="double">Accepter l’utilisation d’un miroir Debian</p></li><li><p data-spacing="double">Proxy : laisser vide</p></li></ul><ol data-block-id="wolXUc5q" start="11"><li><p data-spacing="double">Sélection des logiciels :</p></li></ol><ul data-block-id="tzcAi3U-"><li><p data-spacing="double">Environnement de bureau Debian</p></li><li><p data-spacing="double">Xfce (ou autre bureau léger)</p></li><li><p data-spacing="double">Serveur SSH</p></li><li><p data-spacing="double">Utilitaires usuels du système</p></li></ul><ol data-block-id="S9US-QGy" start="12"><li><p data-spacing="double">Terminer l’installation et redémarrer.</p></li></ol><h3 data-block-id="RfiQWhuw">2.2 Post-install Debian : sudo + SSH</h3><ol data-block-id="Ub06y6_h"><li><p data-spacing="double">Se connecter en <code spellcheck="false">raph</code> dans la VM.</p></li><li><p data-spacing="double">Ouvrir un terminal et passer root :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">su</span> -
+<span class="token comment"># mot de passe : tttttt</span>
+</code></pre></li><li><p data-spacing="double">Installer sudo et SSH :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> update
+<span class="token function">apt</span> <span class="token function">install</span> <span class="token function">sudo</span> openssh-server
+</code></pre></li><li><p data-spacing="double">Ajouter <code spellcheck="false">raph</code> au groupe sudo :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">sudo</span> raph
+</code></pre></li><li><p data-spacing="double">Activer SSH :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>systemctl <span class="token builtin class-name">enable</span> <span class="token parameter variable">--now</span> <span class="token function">ssh</span>
+</code></pre></li><li><p data-spacing="double">Vérifier les groupes de <code spellcheck="false">raph</code> :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">id</span> raph
+</code></pre></li></ol><h3 data-block-id="qAA_sZIS">2.3 Redirection de port SSH (NAT) pour Debian</h3><ol data-block-id="XDiAX5bA"><li><p data-spacing="double">Éteindre la VM Debian.</p></li><li><p data-spacing="double">Dans VirtualBox : Paramètres → Réseau → Adaptateur 1 → NAT → Avancé → Redirection de ports.</p></li><li><p data-spacing="double">Ajouter une règle :</p><ul><li><p data-spacing="double">Nom : <code spellcheck="false">SSH</code></p></li><li><p data-spacing="double">Protocole : TCP</p></li><li><p data-spacing="double">IP hôte : <code spellcheck="false">127.0.0.1</code></p></li><li><p data-spacing="double">Port hôte : <code spellcheck="false">2222</code></p></li><li><p data-spacing="double">IP invité : vide</p></li><li><p data-spacing="double">Port invité : <code spellcheck="false">22</code></p></li></ul></li><li><p data-spacing="double">Redémarrer la VM Debian.</p></li><li><p data-spacing="double">Depuis la machine hôte Fedora :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ssh</span> <span class="token parameter variable">-p</span> <span class="token number">2222</span> raph@127.0.0.1
+</code></pre></li></ol><hr><h2 data-block-id="9tQIFWRo">3. Installation et configuration de Fedora</h2><h3 data-block-id="7HyPKgSI">3.1 Installation Fedora Workstation</h3><ol data-block-id="dggZEO6f"><li><p data-spacing="double">Démarrer la VM Fedora sur l’ISO Live.</p></li><li><p data-spacing="double">Choisir « Install Fedora Workstation ».</p></li><li><p data-spacing="double">Langue : Français, fuseau horaire : Europe/Brussels.</p></li><li><p data-spacing="double">Partitionnement : automatique sur le disque virtuel.</p></li><li><p data-spacing="double">Créer l’utilisateur <code spellcheck="false">raph</code> :</p><ul><li><p data-spacing="double">mot de passe : <code spellcheck="false">tttttt</code></p></li><li><p data-spacing="double">cocher l’option pour le rendre administrateur (sudo via groupe <code spellcheck="false">wheel</code>).</p></li></ul></li><li><p data-spacing="double">Terminer l’installation et redémarrer.</p></li></ol><h3 data-block-id="RHPNSA9_">3.2 Post-install Fedora : sudo + SSH</h3><ol data-block-id="hy00kFsJ"><li><p data-spacing="double">Se connecter avec <code spellcheck="false">raph</code>.</p></li><li><p data-spacing="double">Ouvrir un terminal :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> dnf upgrade <span class="token parameter variable">-y</span>
+<span class="token function">sudo</span> dnf <span class="token function">install</span> <span class="token parameter variable">-y</span> openssh-server
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token parameter variable">--now</span> sshd
+<span class="token function">id</span>
+</code></pre><p data-spacing="double"> (Vérifier que <code spellcheck="false">raph</code> est dans le groupe <code spellcheck="false">wheel</code>.)</p></li></ol><h3 data-block-id="FUMEJAtm">3.3 Redirection de port SSH (NAT) pour Fedora</h3><ol data-block-id="E_O5WMYo"><li><p data-spacing="double">Éteindre la VM Fedora.</p></li><li><p data-spacing="double">Dans VirtualBox → Paramètres → Réseau → Adaptateur 1 → NAT → Avancé → Redirection de ports.</p></li><li><p data-spacing="double">Ajouter :</p><ul><li><p data-spacing="double">Nom : <code spellcheck="false">SSH</code></p></li><li><p data-spacing="double">Protocole : TCP</p></li><li><p data-spacing="double">IP hôte : <code spellcheck="false">127.0.0.1</code></p></li><li><p data-spacing="double">Port hôte : <code spellcheck="false">2223</code></p></li><li><p data-spacing="double">IP invité : vide</p></li><li><p data-spacing="double">Port invité : <code spellcheck="false">22</code></p></li></ul></li><li><p data-spacing="double">Redémarrer la VM Fedora.</p></li><li><p data-spacing="double">Tester depuis l’hôte :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ssh</span> <span class="token parameter variable">-p</span> <span class="token number">2223</span> raph@127.0.0.1
+</code></pre></li></ol><hr><h2 data-block-id="dUM7Kh54">4. Installation et configuration d’openSUSE</h2><h3 data-block-id="73slHyDI">4.1 Installation openSUSE Leap</h3><ol data-block-id="yorgXU4r"><li><p data-spacing="double">Démarrer la VM openSUSE sur l’ISO.</p></li><li><p data-spacing="double">Choisir « Installation ».</p></li><li><p data-spacing="double">Langue : Français, clavier : Français, fuseau horaire : Europe/Brussels.</p></li><li><p data-spacing="double">Partitionnement : accepter la proposition automatique.</p></li><li><p data-spacing="double">Créer utilisateur <code spellcheck="false">raph</code> (mot de passe <code spellcheck="false">tttttt</code>).</p></li><li><p data-spacing="double">Mot de passe root : <code spellcheck="false">tttttt</code> (si demandé).</p></li><li><p data-spacing="double">Terminer l’installation et redémarrer.</p></li></ol><h3 data-block-id="LEXVhUsj">4.2 Post-install openSUSE : sudo + SSH</h3><ol data-block-id="sMAbuVJz"><li><p data-spacing="double">Se connecter en <code spellcheck="false">raph</code>.</p></li><li><p data-spacing="double">Depuis la session graphique ou le TTY :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token parameter variable">-i</span>
+</code></pre><p data-spacing="double"> (Si <code spellcheck="false">sudo -i</code> fonctionne, root est accessible via le mot de passe de <code spellcheck="false">raph</code>.)</p></li><li><p data-spacing="double">Configurer sudo si nécessaire (groupe wheel) :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">zypper</span> refresh
+<span class="token function">zypper</span> <span class="token function">install</span> <span class="token function">sudo</span> openssh
+<span class="token function">usermod</span> <span class="token parameter variable">-aG</span> wheel raph
+<span class="token assign-left variable">EDITOR</span><span class="token operator">=</span>nano visudo
+</code></pre><p data-spacing="double"> Dans visudo, vérifier/décommenter :</p><pre data-indent-type="space" data-indent-length="2"><code>%wheel ALL=(ALL) ALL
+</code></pre></li><li><p data-spacing="double">Activer SSH :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>systemctl <span class="token builtin class-name">enable</span> <span class="token parameter variable">--now</span> sshd
+<span class="token function">id</span> raph
+</code></pre></li></ol><h3 data-block-id="-jlAdPrp">4.3 Redirection de port SSH (NAT) pour openSUSE</h3><ol data-block-id="GaJbKGKl"><li><p data-spacing="double">Éteindre la VM openSUSE.</p></li><li><p data-spacing="double">Dans VirtualBox → Paramètres → Réseau → Adaptateur 1 → NAT → Avancé → Redirection de ports.</p></li><li><p data-spacing="double">Ajouter :</p><ul><li><p data-spacing="double">Nom : <code spellcheck="false">SSH</code></p></li><li><p data-spacing="double">Protocole : TCP</p></li><li><p data-spacing="double">IP hôte : <code spellcheck="false">127.0.0.1</code></p></li><li><p data-spacing="double">Port hôte : <code spellcheck="false">2224</code></p></li><li><p data-spacing="double">IP invité : vide</p></li><li><p data-spacing="double">Port invité : <code spellcheck="false">22</code></p></li></ul></li><li><p data-spacing="double">Redémarrer la VM openSUSE.</p></li><li><p data-spacing="double">Tester depuis l’hôte :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ssh</span> <span class="token parameter variable">-p</span> <span class="token number">2224</span> raph@127.0.0.1
+</code></pre></li></ol><hr><h2 data-block-id="btz9FNcF">5. Mise à jour des trois systèmes (Exercice 1)</h2><h3 data-block-id="VB2nMV9K">5.1 Debian</h3><pre data-block-id="Xup2PlG1" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade <span class="token parameter variable">-y</span>
+</code></pre><p data-block-id="nmM1FKQA" data-spacing="double">Si erreur liée à <code spellcheck="false">cdrom://</code> :</p><ol data-block-id="yEDimvqH"><li><p data-spacing="double">Éditer les sources APT :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak
+<span class="token function">sudo</span> <span class="token function">nano</span> /etc/apt/sources.list
+</code></pre></li><li><p data-spacing="double">Commenter la ligne qui commence par <code spellcheck="false">deb cdrom:</code> (ajouter <code spellcheck="false">#</code> au début).</p></li><li><p data-spacing="double">Relancer :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade <span class="token parameter variable">-y</span>
+</code></pre></li></ol><h3 data-block-id="yuZ6HqbC">5.2 Fedora</h3><pre data-block-id="WWlWBTPt" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> dnf upgrade <span class="token parameter variable">-y</span>
+</code></pre><p data-block-id="SjbRF1dM" data-spacing="double">(Fedora combine mise à jour des métadonnées et mise à niveau des paquets.)</p><h3 data-block-id="w0ZNm7ss">5.3 openSUSE</h3><pre data-block-id="P4PJ7JKG" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">zypper</span> refresh
+<span class="token function">sudo</span> <span class="token function">zypper</span> update
+<span class="token function">sudo</span> <span class="token function">reboot</span>   <span class="token comment"># si noyau ou composants système mis à jour</span>
+</code></pre><p data-block-id="1MKfgsPs" data-spacing="double"><strong>À retenir :</strong></p><ul data-block-id="HTjiiVmE"><li><p data-spacing="double"><code spellcheck="false">update</code> / <code spellcheck="false">refresh</code> : met à jour la liste des paquets disponibles.</p></li><li><p data-spacing="double"><code spellcheck="false">upgrade</code> / <code spellcheck="false">update</code> (selon l’outil) : met à jour les paquets installés vers la dernière version disponible.</p></li></ul><hr><h2 data-block-id="VF7LqOwW">6. Recherche d’un paquet : htop (Exercice 2)</h2><h3 data-block-id="WacCLUD4">6.1 Debian</h3><pre data-block-id="R3xN9sDR" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> search <span class="token function">htop</span>
+</code></pre><p data-block-id="oZfh0XxF" data-spacing="double">→ repérer la ligne <code spellcheck="false">htop</code> dans la liste (version et description).</p><h3 data-block-id="molkk-s1">6.2 Fedora</h3><pre data-block-id="LfIdJPJs" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> dnf search <span class="token function">htop</span>
+</code></pre><p data-block-id="TtT78zCe" data-spacing="double">→ <code spellcheck="false">htop.x86_64 Interactive process viewer</code>.</p><h3 data-block-id="ROroOzwz">6.3 openSUSE</h3><pre data-block-id="FAO-YVaR" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">zypper</span> search <span class="token function">htop</span>
+</code></pre><p data-block-id="gcL3F_sh" data-spacing="double">→ voir le paquet <code spellcheck="false">htop</code> dans la liste.</p><p data-block-id="z8ZtsyYe" data-spacing="double">Conclusion : sur les trois distributions, <code spellcheck="false">htop</code> est disponible dans les <strong>dépôts officiels</strong>.</p><hr><h2 data-block-id="GzbMzYjy">7. Installation de Postman (Exercice 3)</h2><h3 data-block-id="JdJ4k81D">7.1 Debian – Postman via Snap</h3><ol data-block-id="x8Li2CbD"><li><p data-spacing="double">Installer snapd :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> snapd
+</code></pre></li><li><p data-spacing="double">Installer Postman :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> snap <span class="token function">install</span> postman
+</code></pre></li><li><p data-spacing="double">Lancer Postman dans la session graphique de la VM :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>postman
+<span class="token comment"># ou</span>
+snap run postman
+</code></pre></li><li><p data-spacing="double">Remarque : en SSH sans forwarding graphique, on obtient une erreur du type « Missing X server or $DISPLAY ». Toujours tester les applications graphiques dans une session graphique.</p></li></ol><h3 data-block-id="J6VYXq12">7.2 Fedora – Postman via Flatpak</h3><ol data-block-id="Aq2FC1p_"><li><p data-spacing="double">Vérifier Flatpak :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>flatpak <span class="token parameter variable">--version</span>
+</code></pre></li><li><p data-spacing="double">Ajouter Flathub <strong>en mode utilisateur</strong> :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>flatpak remote-add <span class="token parameter variable">--user</span> --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre></li><li><p data-spacing="double">Installer Postman (user) :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>flatpak <span class="token function">install</span> <span class="token parameter variable">--user</span> flathub com.getpostman.Postman <span class="token parameter variable">-y</span>
+</code></pre><p data-spacing="double"> (Si une tentative système échoue avec « Flatpak system operation Deploy not allowed for user », basculer en <code spellcheck="false">--user</code>.)</p></li><li><p data-spacing="double">Lancer Postman dans la session graphique Fedora :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>flatpak run com.getpostman.Postman
+</code></pre></li></ol><h3 data-block-id="bQks8F_J">7.3 openSUSE – Postman via Flatpak</h3><ol data-block-id="SIhkbhMt"><li><p data-spacing="double">Installer Flatpak :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">zypper</span> <span class="token function">install</span> flatpak
+</code></pre></li><li><p data-spacing="double">Ajouter Flathub (système) :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+</code></pre></li><li><p data-spacing="double">Installer Postman :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> flatpak <span class="token function">install</span> flathub com.getpostman.Postman <span class="token parameter variable">-y</span>
+</code></pre></li><li><p data-spacing="double">Lancer (si session graphique disponible) :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>flatpak run com.getpostman.Postman
+</code></pre></li></ol><p data-block-id="8dDpzqHu" data-spacing="double">Remarque : sur une VM sans interface graphique, l’installation est correcte mais l’application graphique ne peut pas être testée sans serveur d’affichage.</p><hr><h2 data-block-id="n4Ptgznh">8. Exercice de synthèse – Installation d’un logiciel libre : VLC sur Debian</h2><h3 data-block-id="LC9RnUwV">8.1 Choix</h3><ul data-block-id="dpoQHyW-"><li><p data-spacing="double">Logiciel : <strong>VLC media player</strong></p></li><li><p data-spacing="double">Distribution : <strong>Debian</strong></p></li><li><p data-spacing="double">Source : <strong>dépôt officiel Debian (APT)</strong></p></li></ul><h3 data-block-id="EN58sSpM">8.2 Étapes</h3><ol data-block-id="0vbUk76s"><li><p data-spacing="double">Vérifier que le système est à jour :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade <span class="token parameter variable">-y</span>
+</code></pre></li><li><p data-spacing="double">Installer VLC :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> vlc <span class="token parameter variable">-y</span>
+</code></pre></li><li><p data-spacing="double">Tester dans la session graphique :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>vlc
+</code></pre></li></ol><hr><h2 data-block-id="8CRPjwmd">9. Résumé rapide des commandes clés</h2><h3 data-block-id="fPzO2E-0">Debian</h3><ul data-block-id="lwZGRzHS"><li><p data-spacing="double">Mise à jour :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade <span class="token parameter variable">-y</span>
+</code></pre></li><li><p data-spacing="double">Recherche d’un paquet :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> search nom_paquet
+</code></pre></li><li><p data-spacing="double">Installation paquet officiel (ex. VLC) :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> vlc
+</code></pre></li><li><p data-spacing="double">Snap / Postman :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> snapd
+<span class="token function">sudo</span> snap <span class="token function">install</span> postman
+</code></pre></li></ul><h3 data-block-id="9hWAmMRk">Fedora</h3><ul data-block-id="0vYhyK2i"><li><p data-spacing="double">Mise à jour :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> dnf upgrade <span class="token parameter variable">-y</span>
+</code></pre></li><li><p data-spacing="double">Recherche paquet :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> dnf search nom_paquet
+</code></pre></li><li><p data-spacing="double">Flatpak / Flathub / Postman :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code>flatpak <span class="token parameter variable">--version</span>
+flatpak remote-add <span class="token parameter variable">--user</span> --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak <span class="token function">install</span> <span class="token parameter variable">--user</span> flathub com.getpostman.Postman <span class="token parameter variable">-y</span>
+flatpak run com.getpostman.Postman
+</code></pre></li></ul><h3 data-block-id="VDQbwiwj">openSUSE</h3><ul data-block-id="EVIAP2TH"><li><p data-spacing="double">Mise à jour :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">zypper</span> refresh
+<span class="token function">sudo</span> <span class="token function">zypper</span> update
+</code></pre></li><li><p data-spacing="double">Recherche paquet :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">zypper</span> search nom_paquet
+</code></pre></li><li><p data-spacing="double">Flatpak / Flathub / Postman :</p><pre data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">sudo</span> <span class="token function">zypper</span> <span class="token function">install</span> flatpak
+<span class="token function">sudo</span> flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+<span class="token function">sudo</span> flatpak <span class="token function">install</span> flathub com.getpostman.Postman <span class="token parameter variable">-y</span>
+flatpak run com.getpostman.Postman
+</code></pre></li></ul><hr><p data-block-id="At4wpRIL" data-spacing="double"><br></p>
+  </body>
+</html>

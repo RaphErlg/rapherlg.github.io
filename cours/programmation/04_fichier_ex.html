@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>04_fichier_ex</title>
+    <meta name="created-at" content="03-05-2026 07:37 PM" />
+    <meta name="updated-at" content="03-05-2026 07:37 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>04_fichier_ex</h1>
+    <p data-block-id="GUmsA4-y" data-spacing="double"><br></p><h1 data-block-id="93LplGy2">Fichiers en C — Récapitulatif des exercices</h1><h2 data-block-id="LgclGtlh">Rappel des bases</h2><h3 data-block-id="U5gr5Owt">Les 3 étapes obligatoires</h3><p data-block-id="qD7thGi0" data-spacing="double">Toute manipulation de fichier suit le même schéma :</p><ol data-block-id="gqcmLKOb"><li><p data-spacing="double"><strong>Ouvrir</strong> avec <code spellcheck="false">fopen</code></p></li><li><p data-spacing="double"><strong>Lire ou écrire</strong> avec <code spellcheck="false">fscanf</code>, <code spellcheck="false">fgets</code> ou <code spellcheck="false">fprintf</code></p></li><li><p data-spacing="double"><strong>Fermer</strong> avec <code spellcheck="false">fclose</code></p></li></ol><h3 data-block-id="kVJ96rNg">Modes d'ouverture</h3><table data-block-id="ebhPF2gj" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Mode</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Usage</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"r"</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Lecture — le fichier doit exister</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"w"</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Écriture — crée ou écrase le fichier</p></td></tr></tbody></table><h3 data-block-id="7xoz-26z">Vérification de <code spellcheck="false">fopen</code></h3><p data-block-id="VZ0_LWAv" data-spacing="double"><code spellcheck="false">fopen</code> renvoie <code spellcheck="false">NULL</code> en cas d'échec. <strong>Toujours vérifier</strong> avant de lire/écrire :</p><pre data-block-id="dVXodY9z" data-indent-type="space" data-indent-length="2" class="language-c"><code>FILE<span class="token operator">*</span> fichier <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"nom.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>fichier <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Impossible d'ouvrir le fichier.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h2 data-block-id="5KggjdKu">Exercice 1 — Transmission de données</h2><p data-block-id="pAqiBrTU" data-spacing="double"><strong>Énoncé</strong> : lire un fichier caractère par caractère, afficher uniquement les chiffres et compter combien de données ont été correctement reçues. Le fichier contient un mélange de tirets et de chiffres comme <code spellcheck="false">--8---5-34--7--14</code>.</p><h3 data-block-id="L9CL756G">Points clés à retenir</h3><p data-block-id="4j-q1p3E" data-spacing="double"><strong><code spellcheck="false">%c</code> lit absolument tout</strong> — contrairement à <code spellcheck="false">%d</code> ou <code spellcheck="false">%s</code> qui sautent les espaces et retours à la ligne, <code spellcheck="false">%c</code> prend le prochain caractère sans exception (tirets, espaces, <code spellcheck="false">\n</code>...).</p><p data-block-id="FdPBEQk-" data-spacing="double"><strong>Le piège de <code spellcheck="false">feof</code></strong> — <code spellcheck="false">feof</code> ne détecte la fin du fichier que <strong>après</strong> qu'une lecture a buté contre elle. Il faut donc :</p><ul data-block-id="ejemNyNG"><li><p data-spacing="double">Faire <strong>une lecture avant</strong> la boucle</p></li><li><p data-spacing="double">Faire la lecture suivante <strong>à la fin</strong> de chaque tour</p></li><li><p data-spacing="double">Sinon le dernier caractère est traité deux fois</p></li></ul><p data-block-id="joQyQxlH" data-spacing="double"><strong>Tester <code spellcheck="false">&gt;= '0'</code> et pas <code spellcheck="false">&gt;= '1'</code></strong> — un zéro est une donnée valide, ne pas l'oublier.</p><h3 data-block-id="4poaXweM">Code commenté</h3><pre data-block-id="zyw04rsb" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    FILE<span class="token operator">*</span> fichier <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"transmission.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fichier <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Impossible d'ouvrir le fichier.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> nbDonneesRecues <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> caractere<span class="token punctuation">;</span>
+
+    <span class="token comment">// Première lecture AVANT la boucle pour que feof</span>
+    <span class="token comment">// ait quelque chose à évaluer dès le premier tour</span>
+    <span class="token function">fscanf</span><span class="token punctuation">(</span>fichier<span class="token punctuation">,</span> <span class="token string">"%c"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>caractere<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span>fichier<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment">// %c lit absolument TOUT (tirets, espaces, \n...)</span>
+        <span class="token comment">// contrairement à %d ou %s qui sautent les espaces</span>
+
+        <span class="token comment">// '0' à '9' couvre tous les chiffres valides</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>caractere <span class="token operator">&gt;=</span> <span class="token char">'0'</span> <span class="token operator">&amp;&amp;</span> caractere <span class="token operator">&lt;=</span> <span class="token char">'9'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Donnee recue : %c\n"</span><span class="token punctuation">,</span> caractere<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            nbDonneesRecues<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// Lecture suivante À LA FIN du tour pour que feof</span>
+        <span class="token comment">// soit évalué avec une lecture fraîche au prochain tour</span>
+        <span class="token function">fscanf</span><span class="token punctuation">(</span>fichier<span class="token punctuation">,</span> <span class="token string">"%c"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>caractere<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">fclose</span><span class="token punctuation">(</span>fichier<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d donnees recues\n"</span><span class="token punctuation">,</span> nbDonneesRecues<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h2 data-block-id="gcXEWJkw">Exercice 2 — Affichage avec numéros de ligne</h2><p data-block-id="6UDxfAEt" data-spacing="double"><strong>Énoncé</strong> : programme en ligne de commande qui affiche le contenu d'un fichier texte avec ses numéros de ligne en vert. Style <code spellcheck="false">cat -n</code> sous Linux.</p><h3 data-block-id="G_XXLKfy">Points clés à retenir</h3><p data-block-id="r7V67HQm" data-spacing="double"><strong><code spellcheck="false">fgets</code> au lieu de <code spellcheck="false">fscanf</code></strong> — quand les lignes contiennent des espaces, <code spellcheck="false">fscanf</code> avec <code spellcheck="false">%s</code> s'arrêterait au premier espace. <code spellcheck="false">fgets</code> lit toute la ligne d'un coup.</p><p data-block-id="ZJdr4rjS" data-spacing="double"><strong><code spellcheck="false">fgets</code> inclut le <code spellcheck="false">\n</code></strong> dans la chaîne lue, donc pas besoin d'ajouter <code spellcheck="false">\n</code> dans le <code spellcheck="false">printf</code>.</p><p data-block-id="wh4lFI_s" data-spacing="double"><strong>Codes couleur ANSI</strong> :</p><ul data-block-id="hXfBEyOf"><li><p data-spacing="double"><code spellcheck="false">\033[1;32m</code> → passe en vert</p></li><li><p data-spacing="double"><code spellcheck="false">\033[0m</code> → revient à la couleur normale</p></li></ul><p data-block-id="bdyWezfd" data-spacing="double"><strong>Ligne de commande</strong> — modifier la signature du <code spellcheck="false">main</code> :</p><pre data-block-id="UHumRENS" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre><ul data-block-id="rQzpTfiN"><li><p data-spacing="double"><code spellcheck="false">argc</code> = nombre de mots dans la commande (programme inclus)</p></li><li><p data-spacing="double"><code spellcheck="false">args[0]</code> = nom du programme</p></li><li><p data-spacing="double"><code spellcheck="false">args[1]</code>, <code spellcheck="false">args[2]</code>... = arguments fournis</p></li></ul><p data-block-id="tinxNRPK" data-spacing="double">C'est le système qui remplit <code spellcheck="false">argc</code> et <code spellcheck="false">args[]</code> automatiquement, on n'a rien à fournir.</p><p data-block-id="ee-zcwLP" data-spacing="double"><strong>Gestion d'erreurs en ordre</strong> :</p><ol data-block-id="Q0XMvI3e"><li><p data-spacing="double">D'abord vérifier <code spellcheck="false">argc &lt; 2</code> (sinon <code spellcheck="false">args[1]</code> n'existe pas et <code spellcheck="false">fopen</code> plante)</p></li><li><p data-spacing="double">Ensuite vérifier <code spellcheck="false">fichier == NULL</code></p></li></ol><h3 data-block-id="9wq8aQa5">Deux versions pour la boucle de lecture</h3><h4 data-block-id="3eDexMU4">Version 1 (recommandée) — <code spellcheck="false">fgets</code> comme condition</h4><pre data-block-id="XHwLeCvH" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">fgets</span><span class="token punctuation">(</span>texte<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> fichier<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;32m%d\033[0m  %s"</span><span class="token punctuation">,</span> numeroLigne<span class="token punctuation">,</span> texte<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    numeroLigne<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p data-block-id="uNDM1BKe" data-spacing="double"><code spellcheck="false">fgets</code> renvoie <code spellcheck="false">NULL</code> quand il n'y a plus rien à lire. Concis, robuste, gère le cas du fichier vide automatiquement.</p><h4 data-block-id="X0PvVl3c">Version 2 (alternative) — <code spellcheck="false">feof</code> avec <code spellcheck="false">if</code> après la boucle</h4><pre data-block-id="NlvaI5_t" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token function">fgets</span><span class="token punctuation">(</span>texte<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> fichier<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span>fichier<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;32m%d\033[0m  %s"</span><span class="token punctuation">,</span> numeroLigne<span class="token punctuation">,</span> texte<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    numeroLigne<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token function">fgets</span><span class="token punctuation">(</span>texte<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> fichier<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// La dernière ligne lue n'a pas été affichée dans la boucle,</span>
+<span class="token comment">// le if protège contre le cas où le fichier serait vide</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>texte<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;32m%d\033[0m  %s"</span><span class="token punctuation">,</span> numeroLigne<span class="token punctuation">,</span> texte<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p data-block-id="UKSnz6dD" data-spacing="double">Plus verbeux, nécessite un <code spellcheck="false">if</code> post-boucle pour gérer la dernière ligne. À utiliser si on veut garder le pattern <code spellcheck="false">feof</code> cohérent avec d'autres parties du code.</p><p data-block-id="TIidtxyq" data-spacing="double"><strong>Règle générale</strong> :</p><ul data-block-id="5yqxx3e3"><li><p data-spacing="double">Tu utilises <code spellcheck="false">fgets</code> → préfère sa valeur de retour comme condition</p></li><li><p data-spacing="double">Tu utilises <code spellcheck="false">fscanf</code> → <code spellcheck="false">feof</code> est souvent plus naturel</p></li></ul><h3 data-block-id="lMsf6YPF">Code commenté (étape finale avec gestion d'erreurs)</h3><pre data-block-id="J6Mcpj73" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// Cas 1 : pas d'argument fourni</span>
+    <span class="token comment">// On vérifie AVANT fopen, sinon args[1] n'existe pas et le programme plante</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Erreur : aucun fichier fourni.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Utilisation : affiche.exe nom_du_fichier\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+        FILE<span class="token operator">*</span> fichier <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Cas 2 : le fichier fourni n'existe pas</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>fichier <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Erreur : impossible d'ouvrir le fichier '%s'.\n"</span><span class="token punctuation">,</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+            <span class="token keyword">int</span> numeroLigne <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">char</span> texte<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// fgets renvoie NULL en fin de fichier — pas besoin de feof</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">fgets</span><span class="token punctuation">(</span>texte<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> fichier<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;32m%d\033[0m  %s"</span><span class="token punctuation">,</span> numeroLigne<span class="token punctuation">,</span> texte<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                numeroLigne<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token function">fclose</span><span class="token punctuation">(</span>fichier<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="zdrLMk3t">Lancement en ligne de commande</h3><pre data-block-id="GW7C8FFw" data-indent-type="space" data-indent-length="2"><code>affiche.exe prog.c
+</code></pre><p data-block-id="1kFfBOvN" data-spacing="double">Sous PowerShell : <code spellcheck="false">.\affiche.exe prog.c</code></p><hr><h2 data-block-id="KSsmj5fQ">Exercice 3 — Minigrep (analyse de logs)</h2><p data-block-id="VDjqkldA" data-spacing="double"><strong>Énoncé</strong> : créer un programme qui cherche un mot dans un fichier source et copie les lignes qui le contiennent dans un fichier résultat.</p><pre data-block-id="E0NsxtyM" data-indent-type="space" data-indent-length="2"><code>minigrep syslog Activating grepresult.txt
+</code></pre><h3 data-block-id="kVl7EBF_">Points clés à retenir</h3><p data-block-id="zi36h-jX" data-spacing="double"><strong>Deux fichiers ouverts simultanément</strong> — un en lecture (<code spellcheck="false">"r"</code>), un en écriture (<code spellcheck="false">"w"</code>). Chaque <code spellcheck="false">FILE*</code> a son propre curseur indépendant.</p><p data-block-id="5PdVUwIw" data-spacing="double"><strong><code spellcheck="false">fprintf</code> vers un fichier</strong> — exactement comme <code spellcheck="false">printf</code> mais avec le fichier comme premier argument :</p><pre data-block-id="FeqqUYmq" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token function">fprintf</span><span class="token punctuation">(</span>destination<span class="token punctuation">,</span> <span class="token string">"%s"</span><span class="token punctuation">,</span> ligne<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="VI5w0fT3" data-spacing="double"><strong>Trois cas d'erreur à gérer</strong> dans l'ordre :</p><ol data-block-id="EyLNtoG_"><li><p data-spacing="double"><code spellcheck="false">argc &lt; 4</code> — pas assez d'arguments</p></li><li><p data-spacing="double"><code spellcheck="false">source == NULL</code> — fichier source inexistant</p></li><li><p data-spacing="double"><code spellcheck="false">destination == NULL</code> — fichier résultat impossible à créer</p></li></ol><p data-block-id="wNDbLTNh" data-spacing="double"><strong>Lire la signature de la fonction d'abord</strong> — quand on définit une fonction, sa signature (paramètres et type de retour) est le <strong>contrat</strong>. Si l'énoncé est ambigu sur ce que reçoit la fonction, choisir l'interprétation la plus simple. Si la fonction <code spellcheck="false">contientMot</code> reçoit "une ligne", c'est le <strong>texte</strong> de la ligne, pas un numéro — sinon la fonction devrait gérer un fichier en plus, ce qui serait trop complexe pour son rôle.</p><h3 data-block-id="ekmvwxnc">Algorithme de <code spellcheck="false">contientMot</code></h3><p data-block-id="P1Zohrfr" data-spacing="double">On parcourt la ligne caractère par caractère. À chaque position <code spellcheck="false">i</code>, on teste si le mot correspond à partir de là, caractère par caractère avec un deuxième indice <code spellcheck="false">j</code>.</p><pre data-block-id="zjzGEWio" data-indent-type="space" data-indent-length="2"><code>ligne = "int printf(fichier, format);"
+mot   = "printf"
+
+i=0  → 'i' vs 'p' → non, on avance
+i=1  → 'n' vs 'p' → non, on avance
+...
+i=4  → 'p' vs 'p' ✅ → on continue avec j
+        'r' vs 'r' ✅
+        'i' vs 'i' ✅
+        ...
+        mot[j] == '\0' → trouvé !
+</code></pre><p data-block-id="wB2isWMO" data-spacing="double"><strong>Code de la fonction (style propre, un seul <code spellcheck="false">return</code> avec une vraie comparaison)</strong> :</p><pre data-block-id="5UbWosuf" data-indent-type="space" data-indent-length="2" class="language-c"><code>bool <span class="token function">contientMot</span><span class="token punctuation">(</span><span class="token keyword">char</span> ligne<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">char</span> mot<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// La boucle s'arrête si on est en fin de ligne OU si on a trouvé le mot</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>ligne<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span> <span class="token operator">&amp;&amp;</span> mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// Comparaison caractère par caractère</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span> <span class="token operator">&amp;&amp;</span> ligne<span class="token punctuation">[</span>i <span class="token operator">+</span> j<span class="token punctuation">]</span> <span class="token operator">==</span> mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// On n'avance dans la ligne que si on n'a pas trouvé le mot</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Si j est arrivé au bout de mot → trouvé</span>
+    <span class="token keyword">return</span> mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="8RLbmZQU">Code complet du minigrep</h3><pre data-block-id="KTxTEo3W" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdbool.h&gt;</span></span>
+
+bool <span class="token function">contientMot</span><span class="token punctuation">(</span><span class="token keyword">char</span> ligne<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">char</span> mot<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>ligne<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span> <span class="token operator">&amp;&amp;</span> mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span> <span class="token operator">&amp;&amp;</span> ligne<span class="token punctuation">[</span>i <span class="token operator">+</span> j<span class="token punctuation">]</span> <span class="token operator">==</span> mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> mot<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// Cas 1 : pas assez d'arguments</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Utilisation : &lt;source&gt; &lt;mot a rechercher&gt; &lt;destination&gt;\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+        FILE<span class="token operator">*</span> source <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Cas 2 : fichier source inexistant</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>source <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Impossible d'ouvrir %s\n"</span><span class="token punctuation">,</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+            FILE<span class="token operator">*</span> destination <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// Cas 3 : fichier résultat impossible à créer</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>destination <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Impossible de creer %s\n"</span><span class="token punctuation">,</span> args<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+                <span class="token keyword">char</span> ligne<span class="token punctuation">[</span><span class="token number">500</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+                <span class="token comment">// Pour chaque ligne lue, on teste contientMot</span>
+                <span class="token comment">// et on copie dans le fichier résultat si trouvé</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">fgets</span><span class="token punctuation">(</span>ligne<span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> source<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">contientMot</span><span class="token punctuation">(</span>ligne<span class="token punctuation">,</span> args<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token function">fprintf</span><span class="token punctuation">(</span>destination<span class="token punctuation">,</span> <span class="token string">"%s"</span><span class="token punctuation">,</span> ligne<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+
+                <span class="token comment">// On ferme les deux fichiers ouverts</span>
+                <span class="token function">fclose</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">fclose</span><span class="token punctuation">(</span>destination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h2 data-block-id="kh3S4ur5">Pièges à connaître</h2><h3 data-block-id="KufBaLij">Le piège du <code spellcheck="false">feof</code></h3><p data-block-id="2b7AeGQy" data-spacing="double"><code spellcheck="false">feof</code> ne détecte la fin du fichier qu'<strong>après</strong> qu'une lecture a buté contre elle. Le pattern correct :</p><ul data-block-id="kfDrgBV3"><li><p data-spacing="double">Une lecture avant la boucle</p></li><li><p data-spacing="double">Une lecture à la fin de chaque tour</p></li><li><p data-spacing="double">Sinon le dernier élément est traité deux fois</p></li></ul><h3 data-block-id="wkB6ntjf">Le piège de <code spellcheck="false">%c</code> vs <code spellcheck="false">%s</code> vs <code spellcheck="false">%d</code></h3><ul data-block-id="9Kp_KdEs"><li><p data-spacing="double"><code spellcheck="false">%c</code> → lit absolument tout, espaces et <code spellcheck="false">\n</code> compris</p></li><li><p data-spacing="double"><code spellcheck="false">%s</code> → s'arrête au premier espace</p></li><li><p data-spacing="double"><code spellcheck="false">%d</code>, <code spellcheck="false">%lf</code> → sautent les espaces, cherchent le prochain nombre</p></li></ul><h3 data-block-id="t6ec_CWw">Le piège de <code spellcheck="false">fgets</code> et la dernière ligne</h3><p data-block-id="xjO8ZIfU" data-spacing="double">Avec le pattern <code spellcheck="false">feof</code>, la dernière <code spellcheck="false">fgets</code> lit la dernière ligne mais on n'entre plus dans la boucle pour l'afficher. Solutions :</p><ul data-block-id="e14NF982"><li><p data-spacing="double">Soit utiliser <code spellcheck="false">fgets() != NULL</code> comme condition</p></li><li><p data-spacing="double">Soit ajouter un affichage après la boucle avec un <code spellcheck="false">if</code> de protection</p></li></ul><h3 data-block-id="aysSA9ih">Le piège de <code spellcheck="false">argc</code> et <code spellcheck="false">args[1]</code></h3><p data-block-id="y2AB-PI1" data-spacing="double">Si l'utilisateur ne fournit pas d'argument, <code spellcheck="false">args[1]</code> n'existe pas. Toujours vérifier <code spellcheck="false">argc</code> <strong>avant</strong> d'utiliser <code spellcheck="false">args[1]</code> dans <code spellcheck="false">fopen</code>, sinon le programme plante.</p><h3 data-block-id="90wH5hhG">Le piège de l'interprétation de l'énoncé</h3><p data-block-id="XTin6f_B" data-spacing="double"><strong>Réflexe à développer</strong> :</p><ol data-block-id="gb6gO3ml"><li><p data-spacing="double">Lire la signature de la fonction d'abord (paramètres, retour)</p></li><li><p data-spacing="double">Reformuler l'énoncé avec ses propres mots</p></li><li><p data-spacing="double">Se demander : <em>"existe-t-il une version plus simple de ce que j'ai compris ?"</em></p></li><li><p data-spacing="double">Si la solution semble très complexe, c'est souvent qu'on est sur la mauvaise piste</p></li></ol><hr><h2 data-block-id="hTu21WB1">Récapitulatif des fonctions</h2><table data-block-id="X2WSJ5Z2" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Fonction</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Rôle</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">fopen(nom, mode)</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Ouvre un fichier, renvoie <code spellcheck="false">NULL</code> si échec</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">fprintf(fichier, format, ...)</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Écrit dans un fichier (comme <code spellcheck="false">printf</code>)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">fscanf(fichier, format, ...)</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Lit mot par mot (comme <code spellcheck="false">scanf</code>)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">fgets(chaine, taille, fichier)</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Lit une ligne entière, renvoie <code spellcheck="false">NULL</code> en fin de fichier</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">fclose(fichier)</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Ferme un fichier</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">feof(fichier)</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Renvoie vrai si la fin du fichier a été atteinte</p></td></tr></tbody></table>
+  </body>
+</html>

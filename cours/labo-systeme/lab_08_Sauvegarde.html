@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Labo_08_Sauvegarde</title>
+    <meta name="created-at" content="27-04-2026 09:54 PM" />
+    <meta name="updated-at" content="27-04-2026 10:09 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>Labo_08_Sauvegarde</h1>
+    <p data-block-id="aSYh70dI" data-spacing="double"><br></p><h1 data-block-id="gf7Uybt0">🛡️ Manip 8 — Backup Veeam : guide de référence</h1><blockquote data-block-id="v4iYEYd1"><p data-spacing="double">Suivre dans l'ordre. Identifiants partout : user=<code spellcheck="false">user</code>, mdp=<code spellcheck="false">tttttt</code>, root=<code spellcheck="false">tttttt</code>, admin Windows=<code spellcheck="false">tttttt</code>.</p></blockquote><hr><h2 data-block-id="Ys3U8NL2">📋 Architecture</h2><table data-block-id="ughcq_ZP" style="min-width: 120px"><colgroup><col><col><col><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">VM</p></th><th colspan="1" rowspan="1"><p data-spacing="double">OS</p></th><th colspan="1" rowspan="1"><p data-spacing="double">IP</p></th><th colspan="1" rowspan="1"><p data-spacing="double">RAM</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Disque</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Hostname</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">VM1</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Windows 11 Tiny11 Pro</p></td><td colspan="1" rowspan="1"><p data-spacing="double">10.0.5.1</p></td><td colspan="1" rowspan="1"><p data-spacing="double">4 Go</p></td><td colspan="1" rowspan="1"><p data-spacing="double">80 Go</p></td><td colspan="1" rowspan="1"><p data-spacing="double">DESKTOP-...</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">VM2</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Debian 11 XFCE</p></td><td colspan="1" rowspan="1"><p data-spacing="double">10.0.5.3</p></td><td colspan="1" rowspan="1"><p data-spacing="double">2 Go</p></td><td colspan="1" rowspan="1"><p data-spacing="double">15 Go</p></td><td colspan="1" rowspan="1"><p data-spacing="double">debian-gui</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">VM3</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Debian 11 texte</p></td><td colspan="1" rowspan="1"><p data-spacing="double">10.0.5.6</p></td><td colspan="1" rowspan="1"><p data-spacing="double">1 Go</p></td><td colspan="1" rowspan="1"><p data-spacing="double">10 Go</p></td><td colspan="1" rowspan="1"><p data-spacing="double">debian-txt</p></td></tr></tbody></table><hr><h2 data-block-id="ATfuW1xb">PHASE 1 — Réseau VirtualBox</h2><p data-block-id="DoAnbkKQ" data-spacing="double">Créer un <strong>NAT Network</strong> (pas NAT classique) : permet aux VM de communiquer entre elles ET d'accéder à Internet.</p><p data-block-id="orihVnNQ" data-spacing="double"><code spellcheck="false">Fichier</code> → <code spellcheck="false">Outils</code> → <code spellcheck="false">Gestionnaire de réseau</code> → onglet <code spellcheck="false">Réseaux NAT</code> → ➕</p><table data-block-id="7U5VjgFe" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Paramètre</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Valeur</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Nom</p></td><td colspan="1" rowspan="1"><p data-spacing="double">LaboBackup</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">CIDR IPv4</p></td><td colspan="1" rowspan="1"><p data-spacing="double">10.0.5.0/24</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">DHCP</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Activé</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">IPv6</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Désactivé</p></td></tr></tbody></table><hr><h2 data-block-id="aBeuu3L3">PHASE 2 — Création des VM</h2><p data-block-id="5B1EpfN-" data-spacing="double">Pour chaque VM : VirtualBox → <code spellcheck="false">Nouvelle</code> → cocher <strong>Skip Unattended Installation</strong>.</p><p data-block-id="hNFCDXRr" data-spacing="double">Avant de démarrer chaque VM : <code spellcheck="false">Paramètres</code> → <code spellcheck="false">Réseau</code> → Adaptateur 1 → <strong>NAT Network</strong> → <code spellcheck="false">LaboBackup</code>.</p><h3 data-block-id="4RFd4vfO">VM1 — Windows 11 Tiny11 Pro</h3><ul data-block-id="VCjk0Yez"><li><p data-spacing="double">RAM : 4096 Mo, CPU : 2, Disque : <strong>80 Go minimum</strong> (Veeam installe des composants sur C: peu importe le chemin choisi)</p></li><li><p data-spacing="double">Pendant l'install Windows, à l'écran partitionnement : <strong>une seule partition C:</strong>, supprimer toutes les partitions existantes avant de cliquer Nouveau</p></li><li><p data-spacing="double">Pas de compte Microsoft : choisir "Compte hors connexion" ou "Utilisation limitée"</p></li><li><p data-spacing="double">Compte : <code spellcheck="false">admin</code> / <code spellcheck="false">tttttt</code></p></li></ul><h3 data-block-id="Hx8xhbXn">VM2 — Debian 11 XFCE</h3><ul data-block-id="45qBEpuJ"><li><p data-spacing="double">RAM : 2048 Mo, CPU : 2, Disque : 15 Go</p></li><li><p data-spacing="double">Lancer <strong>Graphical Install</strong></p></li><li><p data-spacing="double">Langue : Français, Pays : Belgique, Clavier : Belge</p></li><li><p data-spacing="double">Hostname : <code spellcheck="false">debian-gui</code>, Domaine : vide</p></li><li><p data-spacing="double">Root : <code spellcheck="false">tttttt</code>, User : <code spellcheck="false">user</code> / <code spellcheck="false">tttttt</code></p></li><li><p data-spacing="double">Partitionnement : assisté, disque entier, tout dans une partition</p></li><li><p data-spacing="double">Miroir : <code spellcheck="false">deb.debian.org</code></p></li><li><p data-spacing="double"><strong>Logiciels à installer</strong> : Xfce + Utilitaires usuels + Serveur SSH — tout le reste décoché</p></li><li><p data-spacing="double">GRUB : Oui, sur <code spellcheck="false">/dev/sda</code></p></li></ul><h3 data-block-id="f2aTlZx-">VM3 — Debian 11 texte</h3><ul data-block-id="S6zFNoNk"><li><p data-spacing="double">RAM : 1024 Mo, CPU : 1, Disque : 10 Go</p></li><li><p data-spacing="double">Lancer <strong>Install</strong> (pas Graphical)</p></li><li><p data-spacing="double">Mêmes choix que VM2 sauf Hostname : <code spellcheck="false">debian-txt</code></p></li><li><p data-spacing="double"><strong>Logiciels à installer</strong> : Utilitaires usuels + Serveur SSH — aucun environnement graphique</p></li></ul><hr><h2 data-block-id="VGbI9psb">PHASE 3 — Préparation Debian (CRITIQUE — faire avant tout)</h2><blockquote data-block-id="KxBNZD9h"><p data-spacing="double">⚠️ Si cette étape est oubliée, le déploiement des agents Veeam sera bloqué indéfiniment. APT cherche les paquets sur le CD d'installation qui n'existe plus.</p></blockquote><p data-block-id="qoXMDWXY" data-spacing="double"><strong>Sur VM2 ET VM3, en root :</strong></p><pre data-block-id="isrFNogD" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">su</span> -
+<span class="token function">nano</span> /etc/apt/sources.list
+</code></pre><p data-block-id="jj5NUfke" data-spacing="double">Mettre un <code spellcheck="false">#</code> devant la ligne <code spellcheck="false">deb cdrom:</code> :</p><pre data-block-id="je3vmFn3" data-indent-type="space" data-indent-length="2"><code># deb cdrom:[Debian GNU/Linux 11 ...]/ bullseye main
+deb http://deb.debian.org/debian bullseye main
+deb http://security.debian.org bullseye-security main
+</code></pre><p data-block-id="umtZMIdb" data-spacing="double"><code spellcheck="false">Ctrl+O</code> → <code spellcheck="false">Entrée</code> pour sauvegarder, <code spellcheck="false">Ctrl+X</code> pour quitter.</p><p data-block-id="OfDCEI9f" data-spacing="double">Vérifier que APT fonctionne (doit terminer en moins d'une minute) :</p><pre data-block-id="sAtyVvIW" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">apt</span> update
+</code></pre><p data-block-id="lyaivpyo" data-spacing="double">Vérifier que SSH tourne :</p><pre data-block-id="k_aXdgu2" data-indent-type="space" data-indent-length="2" class="language-bash"><code>systemctl status <span class="token function">ssh</span>
+</code></pre><p data-block-id="j3aAwEuX" data-spacing="double">Doit afficher <code spellcheck="false">active (running)</code>. Si ce n'est pas le cas :</p><pre data-block-id="svykhBZ_" data-indent-type="space" data-indent-length="2" class="language-bash"><code>systemctl start <span class="token function">ssh</span>
+systemctl <span class="token builtin class-name">enable</span> <span class="token function">ssh</span>
+</code></pre><hr><h2 data-block-id="sZB15z00">PHASE 4 — Vérification réseau</h2><h3 data-block-id="zGbyKWwc">Récupérer les IP</h3><p data-block-id="zPzGIpVb" data-spacing="double">Sur VM1 Windows (PowerShell) :</p><pre data-block-id="-cVZYcy1" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ipconfig
+</code></pre><p data-block-id="sy6nB491" data-spacing="double">Sur VM2 et VM3 (terminal) :</p><pre data-block-id="09C0U84b" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ip</span> a
+</code></pre><p data-block-id="jcKBnw5a" data-spacing="double">Dans notre manip : VM1=<code spellcheck="false">10.0.5.1</code>, VM2=<code spellcheck="false">10.0.5.3</code>, VM3=<code spellcheck="false">10.0.5.6</code>.</p><h3 data-block-id="Hvt2bsuW">Désactiver le pare-feu Windows</h3><p data-block-id="XKzb9BgV" data-spacing="double">PowerShell en administrateur :</p><pre data-block-id="i1Tas5ld" data-indent-type="space" data-indent-length="2" class="language-powershell"><code><span class="token function">Set-NetFirewallProfile</span> <span class="token operator">-</span>All <span class="token operator">-</span>Enabled False
+</code></pre><p data-block-id="Mgblfu9c" data-spacing="double">Alternative propre — créer une règle ICMP au lieu de tout désactiver :</p><pre data-block-id="Jj4akPrG" data-indent-type="space" data-indent-length="2" class="language-powershell"><code><span class="token function">New-NetFirewallRule</span> `
+  <span class="token operator">-</span>DisplayName <span class="token string">"Autoriser ICMP ping - Labo"</span> `
+  <span class="token operator">-</span>Direction Inbound `
+  <span class="token operator">-</span>Protocol ICMPv4 `
+  <span class="token operator">-</span>IcmpType 8 `
+  <span class="token operator">-</span>RemoteAddress 10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>0/24 `
+  <span class="token operator">-</span>Action Allow `
+  <span class="token operator">-</span>Profile Any
+</code></pre><h3 data-block-id="3AY-QRyk">Tests de ping</h3><p data-block-id="vZs4j_vs" data-spacing="double">Depuis VM1 Windows :</p><pre data-block-id="x6Kyx4Wd" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ping 10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>3
+ping 10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>6
+</code></pre><p data-block-id="nXYRq2ac" data-spacing="double">Depuis VM2 :</p><pre data-block-id="xL2RlfFa" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ping</span> <span class="token parameter variable">-c</span> <span class="token number">4</span> <span class="token number">10.0</span>.5.1
+<span class="token function">ping</span> <span class="token parameter variable">-c</span> <span class="token number">4</span> <span class="token number">10.0</span>.5.6
+</code></pre><p data-block-id="tnwwRFVm" data-spacing="double">Depuis VM3 :</p><pre data-block-id="MfgYwOcM" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ping</span> <span class="token parameter variable">-c</span> <span class="token number">4</span> <span class="token number">10.0</span>.5.1
+<span class="token function">ping</span> <span class="token parameter variable">-c</span> <span class="token number">4</span> <span class="token number">10.0</span>.5.3
+</code></pre><hr><h2 data-block-id="Z7wjwh3j">PHASE 5 — Configuration SSH par clé</h2><p data-block-id="YoU26CXy" data-spacing="double">Windows génère une paire clé privée (<code spellcheck="false">id_rsa</code>) + clé publique (<code spellcheck="false">id_rsa.pub</code>). La clé publique est déposée sur les Debian. Veeam utilise ensuite la clé privée pour se connecter automatiquement sans mot de passe.</p><h3 data-block-id="GtxrF1gz">Générer la paire de clés — sur VM1 Windows (PowerShell)</h3><pre data-block-id="Kd_zCtvT" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh-keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span>b 4096
+</code></pre><p data-block-id="qSjThgQ2" data-spacing="double">Aux 3 questions : appuyer <code spellcheck="false">Entrée</code> (chemin par défaut, pas de passphrase).</p><p data-block-id="ZGikxO9R" data-spacing="double">Crée deux fichiers dans <code spellcheck="false">C:\Users\admin\.ssh\</code> :</p><ul data-block-id="IVyhM9rB"><li><p data-spacing="double"><code spellcheck="false">id_rsa</code> → clé privée (ne jamais partager)</p></li><li><p data-spacing="double"><code spellcheck="false">id_rsa.pub</code> → clé publique (à copier sur les Debian)</p></li></ul><h3 data-block-id="jWgXxXut">Copier la clé vers VM2 — debian-gui (10.0.5.3)</h3><p data-block-id="N3Jifzzg" data-spacing="double">Depuis PowerShell Windows. Au premier <code spellcheck="false">ssh</code>, taper <code spellcheck="false">yes</code> pour accepter le fingerprint. Mot de passe : <code spellcheck="false">tttttt</code>.</p><pre data-block-id="rTRNOnWx" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>3 <span class="token string">"mkdir -p .ssh"</span>
+scp C:\Users\admin\<span class="token punctuation">.</span>ssh\id_rsa<span class="token punctuation">.</span>pub user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>3:<span class="token punctuation">.</span>ssh/
+ssh user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>3 <span class="token string">"cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys"</span>
+</code></pre><p data-block-id="XMB4R_Ir" data-spacing="double">Se connecter puis passer root pour autoriser la clé sur le compte root :</p><pre data-block-id="eANYhXcq" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>3
+</code></pre><p data-block-id="39F3ig-9" data-spacing="double">Sur le Debian :</p><pre data-block-id="DiIfE7s_" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">su</span> -
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.ssh
+<span class="token function">cp</span> /home/user/.ssh/authorized_keys /root/.ssh/.
+<span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">exit</span>
+</code></pre><h3 data-block-id="KFgZvtYN">Copier la clé vers VM3 — debian-txt (10.0.5.6)</h3><pre data-block-id="3Aqz6dEu" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>6 <span class="token string">"mkdir -p .ssh"</span>
+scp C:\Users\admin\<span class="token punctuation">.</span>ssh\id_rsa<span class="token punctuation">.</span>pub user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>6:<span class="token punctuation">.</span>ssh/
+ssh user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>6 <span class="token string">"cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys"</span>
+</code></pre><pre data-block-id="UC97Y3aE" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh user@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>6
+</code></pre><pre data-block-id="reUQQ2gj" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">su</span> -
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.ssh
+<span class="token function">cp</span> /home/user/.ssh/authorized_keys /root/.ssh/.
+<span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">exit</span>
+</code></pre><h3 data-block-id="stSUf3RX">Tester les connexions sans mot de passe</h3><pre data-block-id="b2PAIoRz" data-indent-type="space" data-indent-length="2" class="language-powershell"><code>ssh root@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>3
+ssh root@10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">.</span>6
+</code></pre><p data-block-id="HPNEOV2S" data-spacing="double">Les deux doivent se connecter sans demander de mot de passe.</p><hr><h2 data-block-id="SG21Gh2i">PHASE 6 — Données de test sur les Debian</h2><p data-block-id="j5kf_7Om" data-spacing="double">Créer des fichiers dans <code spellcheck="false">/home</code> pour avoir quelque chose à sauvegarder.</p><p data-block-id="5OlGiTl2" data-spacing="double">Sur VM2 et VM3 (en user) :</p><pre data-block-id="w_iqOEL3" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/user/documents
+<span class="token builtin class-name">echo</span> <span class="token string">"Fichier test 1"</span> <span class="token operator">&gt;</span> /home/user/documents/test1.txt
+<span class="token builtin class-name">echo</span> <span class="token string">"Fichier test 2"</span> <span class="token operator">&gt;</span> /home/user/documents/test2.txt
+</code></pre><hr><h2 data-block-id="OQkU44rD">PHASE 7 — Installation de Veeam</h2><h3 data-block-id="NplVmzTz">Télécharger le bon produit</h3><p data-block-id="Os5ENE_8" data-spacing="double">URL : <code spellcheck="false">https://www.veeam.com/products/veeam-data-platform/backup-recovery.html</code></p><p data-block-id="ugg_Dnh7" data-spacing="double">Choisir <strong>Veeam Backup &amp; Replication Community Edition</strong> (gratuit jusqu'à 10 machines). Pas "Veeam Agent for Windows" qui est un autre produit. Taille : ~19,6 Go. Créer un compte Veeam gratuit.</p><h3 data-block-id="14INHCK7">Installer</h3><ol data-block-id="Zt07uebe"><li><p data-spacing="double">Lancer l'exécutable extrait</p></li><li><p data-spacing="double">Choisir <code spellcheck="false">Veeam Backup &amp; Replication</code> (pas Console seule)</p></li><li><p data-spacing="double">License Agreement : accepter les deux</p></li><li><p data-spacing="double">License key : laisser <strong>vide</strong> → mode Community Edition automatique</p></li><li><p data-spacing="double">Program Features : laisser par défaut</p></li><li><p data-spacing="double">System Configuration Check : cliquer <code spellcheck="false">Install</code> si des prérequis manquent (SQL Server Express, .NET...)</p></li><li><p data-spacing="double">Data Locations : laisser les chemins par défaut</p></li><li><p data-spacing="double">Service Account : <strong>LOCAL SYSTEM account</strong></p></li><li><p data-spacing="double"><code spellcheck="false">Install</code> — attendre 10-20 minutes</p></li><li><p data-spacing="double"><code spellcheck="false">Finish</code> en laissant "Launch console" coché</p></li></ol><h3 data-block-id="gGRT7teQ">Première connexion à la console</h3><p data-block-id="QmorSHsx" data-spacing="double">Au lancement, fenêtre "Specify backup server" avec <code spellcheck="false">localhost</code>. Laisser tel quel → <code spellcheck="false">Connect</code>.</p><p data-block-id="Z6Puvhep" data-spacing="double">Si <code spellcheck="false">Failed to connect to the backup server localhost</code> : les services n'ont pas fini de démarrer. Attendre 2-3 minutes et réessayer. Si ça persiste, voir le bloc dépannage.</p><hr><h2 data-block-id="boZf_hU4">PHASE 8 — Déploiement des agents Veeam</h2><p data-block-id="2c5GtdUB" data-spacing="double">Les agents sont de petits programmes installés automatiquement sur les Debian via SSH pour effectuer les sauvegardes.</p><h3 data-block-id="LchgBDRL">Créer le protection group</h3><p data-block-id="Fm5wzPTP" data-spacing="double">Panneau gauche → <code spellcheck="false">Inventory</code> → clic droit sur <code spellcheck="false">Physical &amp; Cloud Infrastructure</code> → <code spellcheck="false">Add Protection Group</code> → <code spellcheck="false">Individual computers</code>.</p><p data-block-id="Q7Mf7oFY" data-spacing="double"><strong>Écran Name</strong></p><ul data-block-id="ZOCBhGMs"><li><p data-spacing="double">Name : <code spellcheck="false">groupe1</code></p></li></ul><p data-block-id="o6FOCsWv" data-spacing="double"><strong>Écran Computers</strong></p><p data-block-id="hHdzkIy6" data-spacing="double">Cliquer <code spellcheck="false">Add</code> → <code spellcheck="false">Individual computer</code> → <code spellcheck="false">10.0.5.3</code> → OK. Cliquer <code spellcheck="false">Add</code> → <code spellcheck="false">Individual computer</code> → <code spellcheck="false">10.0.5.6</code> → OK.</p><p data-block-id="pX5BZ0Vb" data-spacing="double">Cliquer sur <code spellcheck="false">10.0.5.3</code> puis <code spellcheck="false">Edit</code> → fenêtre "Connection settings" :</p><ul data-block-id="gvpVKAtP"><li><p data-spacing="double">Sélectionner <strong>Connect using admin credentials</strong></p></li><li><p data-spacing="double"><code spellcheck="false">Add</code> → <code spellcheck="false">Stored</code> → <code spellcheck="false">SSH private key</code></p></li><li><p data-spacing="double">Username : <code spellcheck="false">root</code></p></li><li><p data-spacing="double">Passphrase : vide</p></li><li><p data-spacing="double">Private key : <code spellcheck="false">C:\Users\admin\.ssh\id_rsa</code></p></li><li><p data-spacing="double"><code spellcheck="false">OK</code></p></li><li><p data-spacing="double"><code spellcheck="false">Test Now</code> → doit afficher succès</p></li></ul><p data-block-id="7ZCjhKeE" data-spacing="double">Faire la même chose pour <code spellcheck="false">10.0.5.6</code>.</p><p data-block-id="cLVNqyix" data-spacing="double"><strong>Écran Options</strong></p><p data-block-id="gXnuED4M" data-spacing="double">Garder les valeurs par défaut :</p><ul data-block-id="0nyUbz7A"><li><p data-spacing="double">Discovery : Daily at 21:00, Everyday</p></li><li><p data-spacing="double">Install backup agent : coché</p></li><li><p data-spacing="double">Enable auto-update : coché</p></li><li><p data-spacing="double">Perform reboot automatically : décoché</p></li></ul><p data-block-id="BW1yUyXU" data-spacing="double"><strong>Écran Review</strong></p><p data-block-id="cDQ2Q5BM" data-spacing="double"><code spellcheck="false">Apply</code></p><p data-block-id="K84waPzV" data-spacing="double"><strong>Écran Summary</strong></p><p data-block-id="kTHsLlse" data-spacing="double">Laisser "Run discovery when I click Finish" coché → <code spellcheck="false">Finish</code>.</p><p data-block-id="_tfmHJDD" data-spacing="double">Veeam se connecte aux deux Debian via SSH et installe les agents (1 à 5 minutes).</p><h3 data-block-id="JGN6aOJ4">Vérifier le déploiement sur les Debian</h3><pre data-block-id="6YKAW4xm" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-i</span> veeam
+</code></pre><p data-block-id="YKnimYL-" data-spacing="double">Doit afficher 4 processus <code spellcheck="false">/opt/veeam/...</code> :</p><pre data-block-id="yj2iPVoA" data-indent-type="space" data-indent-length="2"><code>/opt/veeam/deployment/veeamdeploymentsvc --run-service
+/opt/veeam/deployment/veeamdeploymentsvc --vcp-subprocess
+/opt/veeam/transport/veeamenvironment --run
+/opt/veeam/transport/veeamtransport --run-service
+</code></pre><h3 data-block-id="a9w7tGsC">Résultat dans la console Veeam</h3><p data-block-id="RDPGZhbL" data-spacing="double">Inventory → groupe1 : les deux machines doivent afficher :</p><ul data-block-id="1hAXtTKo"><li><p data-spacing="double">Last Seen : <strong>Online</strong></p></li><li><p data-spacing="double">Backup agent : <strong>Installed</strong></p></li><li><p data-spacing="double">OS : Debian GNU/Linux 11 (bullseye)</p></li></ul><hr><h2 data-block-id="PIPkQDDQ">PHASE 9 — Création du backup job</h2><p data-block-id="orFxIt0D" data-spacing="double">Clic droit sur <code spellcheck="false">debian-gui</code> dans groupe1 → <code spellcheck="false">Add to backup job</code> → <code spellcheck="false">Linux computer</code> → <code spellcheck="false">New job</code>.</p><p data-block-id="b9rJbnxS" data-spacing="double"><strong>Écran Job Mode</strong></p><ul data-block-id="D4TJJ7dZ"><li><p data-spacing="double">Type : <strong>Workstation</strong></p></li><li><p data-spacing="double">Mode : <strong>Managed by agent</strong> (s'impose automatiquement)</p></li></ul><p data-block-id="Ev5o3bk8" data-spacing="double"><strong>Écran Name</strong></p><ul data-block-id="YaNoTRvv"><li><p data-spacing="double">Name : <code spellcheck="false">Backup-Debian</code></p></li></ul><p data-block-id="dT0DSJI8" data-spacing="double"><strong>Écran Computers</strong></p><p data-block-id="Hxu2CdaE" data-spacing="double"><code spellcheck="false">debian-gui</code> est déjà présent. Cliquer <code spellcheck="false">Add</code> pour ajouter aussi <code spellcheck="false">debian-txt</code>.</p><p data-block-id="VVff9J58" data-spacing="double"><strong>Écran Backup Mode</strong></p><p data-block-id="Ebol2BqP" data-spacing="double">Choisir <strong>Volume level backup</strong> (sauvegarde une partition entière).</p><p data-block-id="jfdrUjX7" data-spacing="double"><strong>Écran Objects</strong></p><p data-block-id="v58fhTsm" data-spacing="double"><code spellcheck="false">Add</code> → <code spellcheck="false">Mount point</code> → taper <code spellcheck="false">/home</code> → OK.</p><p data-block-id="yQw-yhvp" data-spacing="double"><strong>Écran Destination</strong></p><p data-block-id="FI8G4wgy" data-spacing="double">Choisir <strong>Veeam backup repository</strong> (données stockées sur Windows).</p><p data-block-id="xKqf4B_7" data-spacing="double"><strong>Écran Backup Server</strong></p><p data-block-id="d4rSsc9g" data-spacing="double">Nom DNS de Windows (<code spellcheck="false">DESKTOP-O0507QV</code>) rempli automatiquement → <code spellcheck="false">Next</code>.</p><p data-block-id="sOhacVlh" data-spacing="double"><strong>Écran Storage</strong></p><ul data-block-id="pVa31SJL"><li><p data-spacing="double">Backup repository : Default Backup Repository</p></li><li><p data-spacing="double">Keep backups for : 7 days</p></li><li><p data-spacing="double">Laisser les deux cases décochées</p></li></ul><p data-block-id="cR4RA2dZ" data-spacing="double"><strong>Écran Guest Processing</strong></p><p data-block-id="-1aMBise" data-spacing="double">Laisser par défaut → <code spellcheck="false">Next</code>.</p><p data-block-id="TH5ptZlM" data-spacing="double"><strong>Écran Schedule</strong></p><p data-block-id="dIcQGDjJ" data-spacing="double">Pour lancer manuellement : laisser "Daily at" décoché → <code spellcheck="false">Apply</code>.</p><p data-block-id="-FnbiMTR" data-spacing="double"><strong>Écran Summary</strong></p><p data-block-id="gQKjYnW9" data-spacing="double"><code spellcheck="false">Finish</code>.</p><hr><h2 data-block-id="615SNi9s">PHASE 10 — Lancer et vérifier le backup</h2><h3 data-block-id="V0HMdQ0T">Lancer manuellement</h3><p data-block-id="YzZ33h1V" data-spacing="double">Console Veeam → <code spellcheck="false">Home</code> → <code spellcheck="false">Jobs</code> → <code spellcheck="false">Backup</code> → clic droit sur <code spellcheck="false">Backup-Debian</code> → <code spellcheck="false">Start</code>.</p><p data-block-id="6tXWjKRt" data-spacing="double">Une fenêtre de progression s'ouvre. Durée : quelques minutes.</p><h3 data-block-id="RlvCLoI-">Vérifier dans History</h3><p data-block-id="G2B3ky9y" data-spacing="double"><code spellcheck="false">Home</code> → <code spellcheck="false">Last 24 Hours</code> → <code spellcheck="false">Success</code>.</p><table data-block-id="mIbxigFf" style="min-width: 60px"><colgroup><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Job</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Type</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Statut</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Backup-Debian - debian-gui</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Linux Agent Backup</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Success ✅</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Backup-Debian - debian-txt</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Linux Agent Backup</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Success ✅</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Backup-Debian</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Linux Agent Backup</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Success ✅</p></td></tr></tbody></table><p data-block-id="vT0ggbex" data-spacing="double"><strong>Manip terminée. 20/20.</strong></p><hr><h2 data-block-id="wgFyk5QU">🔧 Dépannage</h2><h3 data-block-id="glzSLbLY">"Failed to connect to backup server localhost"</h3><pre data-block-id="OvG_Uioo" data-indent-type="space" data-indent-length="2" class="language-powershell"><code><span class="token comment"># Voir l'état de tous les services Veeam</span>
+<span class="token function">Get-Service</span> <span class="token punctuation">|</span> <span class="token function">Where-Object</span> <span class="token punctuation">{</span><span class="token variable">$_</span><span class="token punctuation">.</span>Name <span class="token operator">-like</span> <span class="token string">"*Veeam*"</span><span class="token punctuation">}</span> <span class="token punctuation">|</span> <span class="token function">Select-Object</span> Name<span class="token punctuation">,</span> Status
+
+<span class="token comment"># Démarrer les services critiques</span>
+<span class="token function">Start-Service</span> VeeamCatalogSvc
+<span class="token function">Start-Service</span> VeeamBrokerSvc
+<span class="token function">Start-Service</span> VeeamBackupRESTSvc
+<span class="token function">Start-Service</span> VeeamWebSvc
+
+<span class="token comment"># Les passer en démarrage automatique</span>
+<span class="token function">Set-Service</span> VeeamBrokerSvc <span class="token operator">-</span>StartupType Automatic
+<span class="token function">Set-Service</span> VeeamCatalogSvc <span class="token operator">-</span>StartupType Automatic
+<span class="token function">Set-Service</span> VeeamBackupRESTSvc <span class="token operator">-</span>StartupType Automatic
+<span class="token function">Set-Service</span> VeeamWebSvc <span class="token operator">-</span>StartupType Automatic
+</code></pre><h3 data-block-id="VSnfO5Ny">Rescan bloqué 20+ minutes</h3><p data-block-id="yR8kpUC0" data-spacing="double">Cause : ligne <code spellcheck="false">cdrom</code> non commentée dans <code spellcheck="false">/etc/apt/sources.list</code>.</p><pre data-block-id="GkYh3WoJ" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token comment"># Vérifier les connexions bloquées</span>
+ss <span class="token parameter variable">-tn</span>
+<span class="token comment"># Si CLOSE_WAIT vers port 80 → APT bloqué</span>
+
+<span class="token comment"># Tuer les processus APT bloqués</span>
+<span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token variable"><span class="token variable">$(</span>pgrep <span class="token parameter variable">-f</span> <span class="token string">"apt"</span><span class="token variable">)</span></span>
+<span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token variable"><span class="token variable">$(</span>pgrep <span class="token parameter variable">-f</span> <span class="token string">"http"</span><span class="token variable">)</span></span>
+
+<span class="token comment"># Vérifier que c'est résolu</span>
+ss <span class="token parameter variable">-tn</span> <span class="token operator">|</span> <span class="token function">grep</span> CLOSE
+</code></pre><p data-block-id="KhbFg1Mj" data-spacing="double">Commenter la ligne cdrom (cf Phase 3), puis relancer le rescan : <code spellcheck="false">Inventory</code> → clic droit sur <code spellcheck="false">groupe1</code> → <code spellcheck="false">Rescan</code>. Doit se terminer en moins de 30 secondes.</p><h3 data-block-id="JwfGu-hm">"Out of disk space" pendant l'installation Veeam</h3><p data-block-id="fQ5XjpMT" data-spacing="double">Veeam installe des composants sur C: indépendamment du chemin choisi. Recréer la VM Windows avec 80 Go minimum, partition C: unique.</p><h3 data-block-id="sdMxtxXs">SSH demande toujours un mot de passe</h3><p data-block-id="5hxy6Wcj" data-spacing="double">Vérifier que <code spellcheck="false">authorized_keys</code> est bien en place sur le Debian :</p><pre data-block-id="8KPsL8pY" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">cat</span> /home/user/.ssh/authorized_keys
+<span class="token function">cat</span> /root/.ssh/authorized_keys
+<span class="token comment"># Doit afficher une longue ligne commençant par ssh-rsa</span>
+</code></pre><p data-block-id="AxU8P4wm" data-spacing="double">Corriger les permissions si nécessaire (SSH est strict là-dessus) :</p><pre data-block-id="mill0NhM" data-indent-type="space" data-indent-length="2" class="language-bash"><code><span class="token function">chmod</span> <span class="token number">700</span> /home/user/.ssh
+<span class="token function">chmod</span> <span class="token number">600</span> /home/user/.ssh/authorized_keys
+<span class="token function">chmod</span> <span class="token number">700</span> /root/.ssh
+<span class="token function">chmod</span> <span class="token number">600</span> /root/.ssh/authorized_keys
+</code></pre><hr><h2 data-block-id="hkHFOH9a">📚 Commandes de référence</h2><h3 data-block-id="uh6485Xy">Linux</h3><table data-block-id="zLB9DeWE" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Commande</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Effet</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ip a</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Adresses IP des interfaces</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ping -c 4 10.0.5.1</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Ping vers Windows, 4 paquets</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">systemctl status ssh</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">État du service SSH</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">systemctl start ssh</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Démarrer SSH</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">systemctl enable ssh</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">SSH au boot automatiquement</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">su -</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Devenir root avec son environnement</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ps aux | grep -i veeam</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Processus Veeam actifs</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ss -tn</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connexions TCP actives</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ss -tnp | grep CLOSE</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connexions bloquées + processus</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">kill -9 $(pgrep -f "apt")</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Tuer APT si bloqué</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">nano /etc/apt/sources.list</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Éditer les sources APT</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">apt update</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Mettre à jour la liste des paquets</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">chmod 700 /root/.ssh</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Corriger permissions dossier SSH</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">chmod 600 /root/.ssh/authorized_keys</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Corriger permissions clés</p></td></tr></tbody></table><h3 data-block-id="ervKVQbS">PowerShell (Windows)</h3><table data-block-id="TE4MLWDY" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Commande</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Effet</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ipconfig</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Adresse IP Windows</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ping 10.0.5.3</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Ping vers VM2</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ping 10.0.5.6</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Ping vers VM3</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ssh-keygen -t rsa -b 4096</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Générer paire de clés SSH</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ssh user@10.0.5.3</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connexion SSH vers VM2</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ssh user@10.0.5.6</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connexion SSH vers VM3</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ssh root@10.0.5.3</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connexion SSH root vers VM2</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">ssh root@10.0.5.6</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connexion SSH root vers VM3</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">scp C:\Users\admin\.ssh\id_rsa.pub user@10.0.5.3:.ssh/</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Copier clé vers VM2</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">scp C:\Users\admin\.ssh\id_rsa.pub user@10.0.5.6:.ssh/</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Copier clé vers VM3</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">Set-NetFirewallProfile -All -Enabled False</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Désactiver pare-feu</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">Get-Service | Where-Object {$_.Name -like "*Veeam*"}</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">État services Veeam</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">Start-Service VeeamBrokerSvc</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Démarrer un service Veeam</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">Get-PSDrive C</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Espace libre sur C:</p></td></tr></tbody></table><h3 data-block-id="fMmk8983">Chemins importants</h3><table data-block-id="jPTuLT3X" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Chemin</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Contenu</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">C:\Users\admin\.ssh\id_rsa</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Clé privée (ne pas partager)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">C:\Users\admin\.ssh\id_rsa.pub</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Clé publique (à copier sur Debian)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">/home/user/.ssh/authorized_keys</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Clés autorisées pour user</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">/root/.ssh/authorized_keys</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Clés autorisées pour root</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">/etc/apt/sources.list</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Sources de paquets Debian</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">/opt/veeam/</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Agents Veeam installés sur Linux</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">/var/log/syslog</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Logs système Debian</p></td></tr></tbody></table>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Lab_sys_03 Heartbeat</title>
+    <meta name="created-at" content="15-03-2026 01:20 AM" />
+    <meta name="updated-at" content="10-04-2026 02:14 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>Lab_sys_03 Heartbeat</h1>
+    <p data-block-id="9RGJUB04" data-spacing="double"><br></p><h2 data-block-id="vfOkE3OM">But et topo</h2><p data-block-id="bnNistTa" data-spacing="double">Le but de la manip est de montrer qu’un site web reste accessible même si une des deux machines tombe, sans changer l’adresse IP utilisée dans le navigateur.</p><p data-block-id="g6I4VjAP" data-spacing="single">La topologie demandée est composée de deux VM Debian sur le même <strong>Réseau NAT</strong> VirtualBox, avec une IP virtuelle de cluster prévue en <code spellcheck="false">10.40.20.100/24</code>.</p><p data-block-id="N_Ta7wRN" data-spacing="double">Dans ton cas, les deux VM ont reçu des IP dynamiques finissant en <code spellcheck="false">.3</code> et <code spellcheck="false">.4</code>, ce qui colle avec le fonctionnement attendu du réseau NAT du cours.</p><p data-block-id="QuoBjTTK" data-spacing="single">Il faut garder en tête que <code spellcheck="false">.3</code> et <code spellcheck="false">.4</code> sont les IP normales des VM, tandis que <code spellcheck="false">10.40.20.100</code> est l’IP virtuelle portée par le cluster.</p><h2 data-block-id="M8b8UgL9">Préparation</h2><p data-block-id="Y5douJVx" data-spacing="double">Le support demande d’abord de nommer les deux machines <code spellcheck="false">debian1</code> et <code spellcheck="false">debian2</code>, puis de compléter <code spellcheck="false">/etc/hosts</code> pour que chaque machine connaisse l’autre sans DNS.</p><p data-block-id="zRtnWd7X" data-spacing="single">Il demande ensuite de vérifier la résolution de noms avec <code spellcheck="false">ping</code>, puis d’installer <code spellcheck="false">apache2</code>, <code spellcheck="false">apache2-utils</code> et <code spellcheck="false">heartbeat</code>.</p><p data-block-id="kfADGbPP" data-spacing="double">Sur <code spellcheck="false">debian1</code>, tu fais ceci :</p><pre data-block-id="-urLfBCA" data-indent-type="space" data-indent-length="2"><code>nano /etc/hostname</code></pre><pre data-block-id="boU8e6EP" data-indent-type="space" data-indent-length="2"><code>debian1</code></pre><pre data-block-id="hE7VNCog" data-indent-type="space" data-indent-length="2"><code>nano /etc/hosts</code></pre><pre data-block-id="h8b_1uPC" data-indent-type="space" data-indent-length="2"><code>127.0.0.1       localhost
+127.0.1.1       debian1
+10.40.20.4      debian2</code></pre><p data-block-id="GXaHDVtX" data-spacing="double">Sur <code spellcheck="false">debian2</code>, tu fais ceci :</p><pre data-block-id="zHwI6git" data-indent-type="space" data-indent-length="2"><code>nano /etc/hostname</code></pre><pre data-block-id="besyd8sm" data-indent-type="space" data-indent-length="2"><code>debian2</code></pre><pre data-block-id="0ZHeWtbK" data-indent-type="space" data-indent-length="2"><code>nano /etc/hosts</code></pre><pre data-block-id="B5SUFG0H" data-indent-type="space" data-indent-length="2"><code>127.0.0.1       localhost
+127.0.1.1       debian2
+10.40.20.3      debian1</code></pre><p data-block-id="56_oRi7H" data-spacing="double">Ensuite, sur les deux machines, tu installes les paquets demandés.</p><pre data-block-id="mvKuMrGe" data-indent-type="space" data-indent-length="2"><code>apt-get update
+apt-get install apache2 apache2-utils heartbeat</code></pre><h2 data-block-id="8qL3DVTd">Apache</h2><p data-block-id="3oeE6xrC" data-spacing="double">La partie Apache sert à préparer le service web sur les deux nœuds avant la haute disponibilité, avec un VirtualHost commun et une page différente sur chaque machine pour voir immédiatement quel serveur répond.</p><p data-block-id="ilKFDTU6" data-spacing="single">Le document demande de créer <code spellcheck="false">webapp.conf</code>, de désactiver le site par défaut, d’activer ce nouveau site, puis de créer <code spellcheck="false">/var/www/index.html</code> avec <code spellcheck="false">Site1</code> sur <code spellcheck="false">debian1</code> et <code spellcheck="false">Site2</code> sur <code spellcheck="false">debian2</code>.</p><p data-block-id="pCOUgTmg" data-spacing="double">Sur <strong>les deux machines</strong>, crée ce fichier :</p><pre data-block-id="wLCdN--B" data-indent-type="space" data-indent-length="2"><code>nano /etc/apache2/sites-available/webapp.conf</code></pre><pre data-block-id="use8an3j" data-indent-type="space" data-indent-length="2"><code>text&lt;VirtualHost *:80&gt;
+    ServerName debian-cluster
+    ServerAdmin webmaster@localhost
+
+    DocumentRoot /var/www
+    &lt;Directory /&gt;
+        Options FollowSymLinks
+        AllowOverride all
+    &lt;/Directory&gt;
+    &lt;Directory /var/www/&gt;
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride all
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    &lt;Directory "/usr/lib/cgi-bin"&gt;
+        AllowOverride None
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Order allow,deny
+        Allow from all
+    &lt;/Directory&gt;
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;</code></pre><p data-block-id="mHNRgedV" data-spacing="double">Puis active cette configuration sur <strong>les deux machines</strong>.</p><pre data-block-id="O7fjdsHx" data-indent-type="space" data-indent-length="2"><code>a2dissite 000-default
+a2ensite webapp.conf
+service apache2 restart</code></pre><p data-block-id="hyYYOmQf" data-spacing="double">Ensuite, crée les pages de test, car <code spellcheck="false">DocumentRoot /var/www</code> dit à Apache d’aller chercher le site dans ce dossier.</p><p data-block-id="w1kWszp3" data-spacing="double">Sur <code spellcheck="false">debian1</code> :</p><pre data-block-id="4EUNMyNr" data-indent-type="space" data-indent-length="2"><code>echo '&lt;html&gt;&lt;p&gt;Site1&lt;/p&gt;&lt;/html&gt;' | sudo tee /var/www/index.html</code></pre><p data-block-id="DfwIhPHx" data-spacing="double">Sur <code spellcheck="false">debian2</code> :</p><pre data-block-id="hDXZbvRj" data-indent-type="space" data-indent-length="2"><code>echo '&lt;html&gt;&lt;p&gt;Site2&lt;/p&gt;&lt;/html&gt;' | sudo tee /var/www/index.html</code></pre><p data-block-id="gYUxhiQu" data-spacing="double">Enfin, vérifie qu’Apache a bien compris ta configuration avec cette commande, qui affiche les VirtualHosts actifs.</p><pre data-block-id="W9aafDKL" data-indent-type="space" data-indent-length="2"><code>bashapache2ctl -S</code></pre><h2 data-block-id="bzTjftj8">Heartbeat</h2><p data-block-id="qQC5nzTq" data-spacing="double">La partie Heartbeat sert à définir la ressource du cluster, la manière dont les nœuds se surveillent, et le mécanisme d’authentification entre eux.</p><p data-block-id="svSRcqxZ" data-spacing="single">Le support demande trois fichiers, <code spellcheck="false">haresources</code>, <code spellcheck="false">ha.cf</code> et <code spellcheck="false">authkeys</code>, puis le démarrage du service et la lecture du log <code spellcheck="false">/var/log/ha-log</code>.</p><p data-block-id="0hhXLlKa" data-spacing="double">Sur <strong>les deux machines</strong>, crée <code spellcheck="false">haresources</code> avec la ligne utilisée dans ta manip, qui associe le nœud préféré, l’IP virtuelle, l’interface réseau et le service Apache.</p><pre data-block-id="3BAs68Yq" data-indent-type="space" data-indent-length="2"><code>nano /etc/ha.d/haresources</code></pre><pre data-block-id="t4w_fvvU" data-indent-type="space" data-indent-length="2"><code>debian1 IPaddr::10.40.20.100/24/enp0s3 apache2</code></pre><p data-block-id="sZy9_cKl" data-spacing="double">Sur <strong>les deux machines</strong>, crée ensuite <code spellcheck="false">ha.cf</code>, qui contient les règles de dialogue entre les nœuds.</p><pre data-block-id="223qx_X5" data-indent-type="space" data-indent-length="2"><code>nano /etc/ha.d/ha.cf</code></pre><pre data-block-id="BmbnWJbn" data-indent-type="space" data-indent-length="2"><code>logfile /var/log/ha-log
+logfacility local0
+keepalive 2
+deadtime 30
+initdead 120
+bcast enp0s3
+udpport 694
+auto_failback on
+
+node debian1
+node debian2</code></pre><p data-block-id="SK2dDlTO" data-spacing="double">Sur <strong>les deux machines</strong>, crée enfin <code spellcheck="false">authkeys</code>, puis applique les permissions demandées.</p><pre data-block-id="iJw7iuQV" data-indent-type="space" data-indent-length="2"><code>nano /etc/ha.d/authkeys</code></pre><pre data-block-id="c8Y213ZR" data-indent-type="space" data-indent-length="2"><code>auth 2
+2 sha1 test-ha</code></pre><pre data-block-id="K2SeMAnf" data-indent-type="space" data-indent-length="2"><code>chmod 600 /etc/ha.d/authkeys</code></pre><p data-block-id="tB94PY92" data-spacing="double">Le sens de ces fichiers est simple : <code spellcheck="false">haresources</code> définit <strong>quoi</strong> basculer, <code spellcheck="false">ha.cf</code> définit <strong>comment</strong> les nœuds se surveillent, et <code spellcheck="false">authkeys</code> permet aux deux machines de se faire confiance.</p><p data-block-id="zV8W5jtj" data-spacing="single">Le paramètre important pour les tests est <code spellcheck="false">deadtime 30</code>, qui explique pourquoi le basculement n’est pas immédiat après la panne de <code spellcheck="false">debian1</code>.</p><p data-block-id="XwkIM0RZ" data-spacing="double">Pour démarrer et vérifier Heartbeat, fais sur les deux machines :</p><pre data-block-id="IDMDWs8X" data-indent-type="space" data-indent-length="2"><code>service heartbeat start
+cat /var/log/ha-log</code></pre><h2 data-block-id="gDV4xeqq">Tests</h2><p data-block-id="rIJ3L1Ff" data-spacing="double">Le test final du support consiste à ouvrir <code spellcheck="false">http://10.40.20.100</code>, vérifier que <code spellcheck="false">Site1</code> apparaît d’abord, couper <code spellcheck="false">debian1</code>, constater une brève indisponibilité, puis attendre environ 30 secondes pour voir <code spellcheck="false">Site2</code>.</p><p data-block-id="bQc5M0c2" data-spacing="single">Le document insiste aussi sur le fait qu’il faut vider le cache du navigateur avant chaque essai pour ne pas fausser l’observation.</p><p data-block-id="3KBDItFC" data-spacing="double">L’ordre de test à refaire est celui-ci :</p><ol data-block-id="ofN7K-VK"><li><p data-spacing="double">Vérifier que <code spellcheck="false">http://10.40.20.100</code> affiche <code spellcheck="false">Site1</code>.</p></li><li><p data-spacing="double">Éteindre <code spellcheck="false">debian1</code> pour simuler une panne.</p></li><li><p data-spacing="double">Recharger la page, constater qu’elle peut devenir temporairement indisponible.</p></li><li><p data-spacing="double">Attendre environ 30 secondes.</p></li><li><p data-spacing="double">Recharger à nouveau et vérifier que <code spellcheck="false">Site2</code> apparaît.</p></li></ol><p data-block-id="KbUWDirQ" data-spacing="double">Ce résultat prouve que ton cluster web Heartbeat remplit bien l’objectif du labo : le service web reste disponible via la même IP virtuelle malgré la perte du premier nœud.</p><p data-block-id="3om32iuU" data-spacing="double"><br></p><p data-block-id="ssh-P1jv" data-spacing="double"><br></p>
+  </body>
+</html>

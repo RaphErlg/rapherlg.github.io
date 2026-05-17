@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Lab_06_TrueNAS</title>
+    <meta name="created-at" content="07-04-2026 10:40 PM" />
+    <meta name="updated-at" content="07-04-2026 10:40 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>Lab_06_TrueNAS</h1>
+    <p data-block-id="P6YZNreO" data-spacing="double"><br></p><h1 data-block-id="kskuILgq">TrueNAS — Fiche de procédure autonome</h1><h2 data-block-id="4jgASroV">1. But</h2><p data-block-id="jEOwRFhO" data-spacing="double">Mettre en place un NAS TrueNAS dans VirtualBox, puis configurer : le stockage ZFS, les utilisateurs, les permissions, les partages SMB, un disque iSCSI et un partage WebDAV sécurisé.</p><hr><h2 data-block-id="eIX4As9M">2. Architecture utilisée</h2><h3 data-block-id="tYjahFTc">VM TrueNAS</h3><ul data-block-id="mdPcCbRs"><li><p data-spacing="double">Type : BSD / FreeBSD 64 bits.</p></li><li><p data-spacing="double">RAM : 2 Go pour le labo (8 Go recommandés en usage réel).</p></li><li><p data-spacing="double">Disques :</p><ul><li><p data-spacing="double">1 disque système : 16 Go minimum.</p></li><li><p data-spacing="double">3 disques de données : 20 Go chacun.</p></li></ul></li><li><p data-spacing="double">Réseau :</p><ul><li><p data-spacing="double">Carte 1 : Réseau interne.</p></li><li><p data-spacing="double">Carte 2 : NAT ou pont.</p></li></ul></li></ul><h3 data-block-id="6cVkvHfl">VM cliente</h3><ul data-block-id="JxZx9wjI"><li><p data-spacing="double">Windows 10 Entreprise sur le même réseau interne que TrueNAS.</p></li></ul><p data-block-id="WvZV2bQB" data-spacing="double"><strong>Idée clé :</strong> Le disque système sert à TrueNAS, les autres disques servent aux données.</p><hr><h2 data-block-id="_iYPUWu5">3. Installation de TrueNAS</h2><ol data-block-id="LOQtZOm_"><li><p data-spacing="double">Créer la VM dans VirtualBox.</p></li><li><p data-spacing="double">Monter l’ISO TrueNAS.</p></li><li><p data-spacing="double">Démarrer la VM et choisir <strong>Install/Upgrade</strong>.</p></li><li><p data-spacing="double">Installer le système sur le disque de 16 Go uniquement.</p></li><li><p data-spacing="double">Définir le mot de passe root (exemple : tttttt).</p></li><li><p data-spacing="double">Retirer l’ISO après installation.</p></li><li><p data-spacing="double">Redémarrer la VM.</p></li></ol><hr><h2 data-block-id="KbN925jD">4. Réseau TrueNAS</h2><p data-block-id="XtNuNY5s" data-spacing="double">Depuis le menu console bleu de TrueNAS :</p><h3 data-block-id="Dj7GAHDR">Interface 1 (réseau interne)</h3><ul data-block-id="tZlJvUYk"><li><p data-spacing="double">Configurer l'IPv4 manuellement : <code spellcheck="false">172.16.20.200/24</code></p></li></ul><h3 data-block-id="SkcS7WQN">Interface 2 (NAT/pont)</h3><ul data-block-id="eWLqMy7c"><li><p data-spacing="double">Activer le DHCP.</p></li></ul><p data-block-id="HBBBUTMx" data-spacing="double">Quand tout est correct, l’interface Web est accessible sur un navigateur via : <code spellcheck="false">http://172.16.20.200</code></p><hr><h2 data-block-id="82LjGqR3">5. Réseau Windows 10 (Client)</h2><p data-block-id="GEmV7k2l" data-spacing="double">Configurer la carte réseau (Ethernet) manuellement dans Windows :</p><ul data-block-id="o4r7WMw8"><li><p data-spacing="double">Adresse IP : <code spellcheck="false">172.16.20.11</code></p></li><li><p data-spacing="double">Longueur du préfixe de sous-réseau : <code spellcheck="false">24</code> (ne pas mettre 255.255.255.0)</p></li><li><p data-spacing="double">Passerelle : laisser vide ou mettre <code spellcheck="false">172.16.20.254</code></p></li></ul><hr><h2 data-block-id="nLJvp-7-">6. Premiers réglages dans l’interface Web</h2><p data-block-id="wc1UkgJA" data-spacing="double">Connexion avec l'utilisateur <code spellcheck="false">root</code> et votre mot de passe.</p><p data-block-id="1LFCO8RO" data-spacing="double">Dans <strong>System &gt; General</strong> :</p><ul data-block-id="lP7PLYWB"><li><p data-spacing="double">Console Keyboard Map : Belgian.</p></li><li><p data-spacing="double">Timezone : Europe/Brussels.</p></li><li><p data-spacing="double">Cocher "Show console messages" dans les options avancées.</p></li></ul><hr><h2 data-block-id="Dh5n8pLf">7. Création du pool ZFS (Stockage)</h2><p data-block-id="joO_ZHIc" data-spacing="double">Menu : <strong>Storage &gt; Pools &gt; Add &gt; Create new pool</strong></p><ul data-block-id="F6sPNhiN"><li><p data-spacing="double">Nom du pool : <code spellcheck="false">Pool1</code></p></li><li><p data-spacing="double">Disques : Sélectionner les 3 disques de 20 Go.</p></li><li><p data-spacing="double">Type : <strong>Raid-z</strong> (pour la redondance).</p></li><li><p data-spacing="double">Cliquer sur Create.</p></li></ul><hr><h2 data-block-id="y8rb6C2s">8. Création des datasets (Dossiers)</h2><p data-block-id="FPq5tkW-" data-spacing="double">Dans <code spellcheck="false">Pool1</code>, cliquer sur les trois petits points &gt; <strong>Add Dataset</strong>.</p><p data-block-id="L1Ezs-e1" data-spacing="double">Créer 5 Datasets avec des quotas dans les "Advanced Options" :</p><ul data-block-id="73UgnS0N"><li><p data-spacing="double"><code spellcheck="false">Coco</code> (Quota : 2 GiB)</p></li><li><p data-spacing="double"><code spellcheck="false">Momo</code> (Quota : 2 GiB)</p></li><li><p data-spacing="double"><code spellcheck="false">Nico</code> (Quota : 2 GiB)</p></li><li><p data-spacing="double"><code spellcheck="false">winshare</code> (Quota : 5 GiB)</p></li><li><p data-spacing="double"><code spellcheck="false">public</code> (Quota : 8 GiB)</p></li></ul><hr><h2 data-block-id="77ZlWUtd">9. Groupes et Utilisateurs</h2><h3 data-block-id="uR66lU9i">Les Groupes</h3><p data-block-id="oRyfVUFc" data-spacing="double">Menu : <strong>Accounts &gt; Groups &gt; Add</strong></p><ul data-block-id="1qzmhOpj"><li><p data-spacing="double"><code spellcheck="false">winusers</code> (GID : 1001)</p></li><li><p data-spacing="double"><code spellcheck="false">Allusers</code> (GID : 1002)</p></li></ul><h3 data-block-id="8ESXqSmJ">Les Utilisateurs</h3><p data-block-id="eysFuyVc" data-spacing="double">Menu : <strong>Accounts &gt; Users &gt; Add</strong></p><ul data-block-id="NuvHi37Q"><li><p data-spacing="double"><code spellcheck="false">coco</code> : Groupes auxiliaires <code spellcheck="false">winusers</code> + <code spellcheck="false">Allusers</code> -&gt; Home Directory : <code spellcheck="false">/mnt/Pool1/Coco</code></p></li><li><p data-spacing="double"><code spellcheck="false">momo</code> : Groupes auxiliaires <code spellcheck="false">winusers</code> + <code spellcheck="false">Allusers</code> -&gt; Home Directory : <code spellcheck="false">/mnt/Pool1/Momo</code></p></li><li><p data-spacing="double"><code spellcheck="false">nico</code> : Groupe auxiliaire <code spellcheck="false">Allusers</code> (pas winusers) -&gt; Home Directory : <code spellcheck="false">/mnt/Pool1/Nico</code></p></li></ul><p data-block-id="vsxzMVIo" data-spacing="double"><em>(Note : TrueNAS crée aussi un groupe personnel caché pour chaque utilisateur, c'est normal).</em></p><hr><h2 data-block-id="XyPJWrug">10. Permissions des datasets (ACL/Droits)</h2><p data-block-id="UrjEiekF" data-spacing="double">Cliquer sur les trois petits points du Dataset &gt; <strong>Edit Permissions</strong>.</p><h3 data-block-id="6mbLNrZt">Dossiers privés (Coco, Momo, Nico)</h3><ul data-block-id="2U2im0A9"><li><p data-spacing="double">User : L'utilisateur lui-même (ex: coco).</p></li><li><p data-spacing="double">Droits : Cocher Read/Write/Execute uniquement pour la ligne "User". Décochez tout pour Group et Other.</p></li></ul><h3 data-block-id="E9rd8FMU">Dossier partagé (winshare)</h3><ul data-block-id="0OP-0ESA"><li><p data-spacing="double">User : <code spellcheck="false">nobody</code></p></li><li><p data-spacing="double">Group : <code spellcheck="false">winusers</code></p></li><li><p data-spacing="double">Droits : Cocher Read/Write/Execute pour la ligne "Group". Décochez tout pour Other.</p></li></ul><h3 data-block-id="_Z4j4naO">Dossier ouvert (public)</h3><ul data-block-id="GC-Raoni"><li><p data-spacing="double">User : <code spellcheck="false">nobody</code></p></li><li><p data-spacing="double">Group : <code spellcheck="false">Allusers</code></p></li><li><p data-spacing="double">Droits : Read/Write/Execute pour "Group". Cocher seulement Read/Execute pour "Other".</p></li></ul><hr><h2 data-block-id="-yxOOqhq">11. Partages Windows (SMB)</h2><p data-block-id="9_RPTrxo" data-spacing="double">Menu : <strong>Sharing &gt; Windows Shares (SMB) &gt; Add</strong></p><p data-block-id="KBvwKrOg" data-spacing="double">Créer 4 partages :</p><ul data-block-id="Hkcfe7j8"><li><p data-spacing="double"><code spellcheck="false">Coco</code> pointant vers <code spellcheck="false">/mnt/Pool1/Coco</code></p></li><li><p data-spacing="double"><code spellcheck="false">Momo</code> pointant vers <code spellcheck="false">/mnt/Pool1/Momo</code></p></li><li><p data-spacing="double"><code spellcheck="false">Winshare</code> pointant vers <code spellcheck="false">/mnt/Pool1/winshare</code></p></li><li><p data-spacing="double"><code spellcheck="false">Public</code> pointant vers <code spellcheck="false">/mnt/Pool1/public</code></p></li></ul><p data-block-id="Im4Vc0uk" data-spacing="double"><strong>Réglages spécifiques :</strong></p><ul data-block-id="CMOTuoZ5"><li><p data-spacing="double">Pour le partage <code spellcheck="false">Public</code> : Aller dans Advanced Options et cocher <strong>Allow Guest Access</strong>.</p></li><li><p data-spacing="double">Pour masquer les fichiers systèmes sous Windows, ajouter ceci dans les Auxiliary Parameters (si disponible) : <code spellcheck="false">veto files = /Temporary Items/.DS_Store/.AppleDB/.profile/.shrc</code> <code spellcheck="false">delete veto files = yes</code></p></li></ul><hr><h2 data-block-id="Whq2swXK">12. Accéder aux partages depuis Windows 10</h2><p data-block-id="0rKVA6q3" data-spacing="double">Pour éviter les bugs de l'icône "Réseau" de Windows :</p><ol data-block-id="JFqqYKPu"><li><p data-spacing="double">Ouvrir l'Explorateur de fichiers &gt; Ce PC.</p></li><li><p data-spacing="double">Cliquer sur <strong>Connecter un lecteur réseau</strong>.</p></li><li><p data-spacing="double">Taper le chemin : <code spellcheck="false">\\172.16.20.200\Coco</code> (ou Winshare, etc.).</p></li><li><p data-spacing="double"><strong>Cocher absolument</strong> "Se connecter à l'aide de nom d'utilisateur différents".</p></li><li><p data-spacing="double">S'identifier avec <code spellcheck="false">coco</code> et le mot de passe du NAS.</p></li></ol><p data-block-id="ywgCb-Qg" data-spacing="double"><em>(Astuce : Si le compte local Windows s'appelle "coco" avec le même mot de passe que le NAS, l'accès est automatique).</em></p><hr><h2 data-block-id="gi-et_qO">13. Stockage en mode bloc (iSCSI)</h2><p data-block-id="skcdsNJx" data-spacing="double"><strong>Objectif :</strong> Présenter un disque virtuel brut à Windows.</p><ol data-block-id="tApp563w"><li><p data-spacing="double"><strong>Créer le volume :</strong> Storage &gt; Pools &gt; Add Zvol. Nom : <code spellcheck="false">Disque_iSCSI</code>, Taille : 5 GiB.</p></li><li><p data-spacing="double"><strong>Activer le service :</strong> Menu Services &gt; Démarrer <code spellcheck="false">iSCSI</code> et cocher le lancement automatique.</p></li><li><p data-spacing="double"><strong>Configurer iSCSI (Sharing &gt; Block Shares iSCSI) :</strong></p><ul><li><p data-spacing="double"><strong>Portals :</strong> Ajouter l'IP <code spellcheck="false">172.16.20.200</code> sur le port 3260.</p></li><li><p data-spacing="double"><strong>Initiators :</strong> Cocher "Allow All Initiators".</p></li><li><p data-spacing="double"><strong>Targets :</strong> Ajouter une cible (ex: <code spellcheck="false">truenastarget</code>).</p></li><li><p data-spacing="double"><strong>Extents :</strong> Ajouter un "Device" (et non File) pointant vers le Zvol créé (ex: <code spellcheck="false">extent1</code>).</p></li><li><p data-spacing="double"><strong>Associated Targets :</strong> Lier la Target à l'Extent.</p></li></ul></li><li><p data-spacing="double"><strong>Côté Windows :</strong> Ouvrir "Initiateur iSCSI", taper <code spellcheck="false">172.16.20.200</code>, cliquer sur Connexion rapide. Ensuite, ouvrir "Gestion des disques", initialiser et formater le nouveau disque détecté.</p></li></ol><hr><h2 data-block-id="C7KvosPj">14. Accès Web sécurisé (WebDAV + Certificats)</h2><h3 data-block-id="CBgvcDHe">1. Autorité de Certification (CA)</h3><p data-block-id="C9YfJd9i" data-spacing="double">Menu : <strong>System &gt; CAs &gt; Add</strong></p><ul data-block-id="RiGzZbhj"><li><p data-spacing="double">Nom : <code spellcheck="false">TrueNAS_Autority</code></p></li><li><p data-spacing="double">Type : Internal CA</p></li><li><p data-spacing="double">Clé : RSA 2048</p></li><li><p data-spacing="double">Digest : SHA256</p></li></ul><h3 data-block-id="t31Q8bA-">2. Certificat SSL</h3><p data-block-id="U8zG54D4" data-spacing="double">Menu : <strong>System &gt; Certificates &gt; Add</strong></p><ul data-block-id="bF_GUHmm"><li><p data-spacing="double">Nom : <code spellcheck="false">TrueNas_certificate</code></p></li><li><p data-spacing="double">Type : Internal Certificate</p></li><li><p data-spacing="double">Signé par : <code spellcheck="false">TrueNAS_Autority</code></p></li><li><p data-spacing="double">Common Name : <code spellcheck="false">example.com</code> (ou l'IP du serveur)</p></li></ul><h3 data-block-id="qw_bIOaU">3. Droits pour WebDAV</h3><p data-block-id="zsfkDyId" data-spacing="double">WebDAV utilise un utilisateur interne nommé <code spellcheck="false">webdav</code>.</p><ul data-block-id="300iH7bC"><li><p data-spacing="double">Aller dans Accounts &gt; Groups.</p></li><li><p data-spacing="double">Modifier les membres du groupe <code spellcheck="false">winusers</code> et y ajouter l'utilisateur <code spellcheck="false">webdav</code>.</p></li></ul><h3 data-block-id="ZBvQG5rz">4. Partage WebDAV</h3><p data-block-id="_kVyfdns" data-spacing="double">Menu : <strong>Sharing &gt; WebDAV Shares &gt; Add</strong></p><ul data-block-id="8mp2l9eO"><li><p data-spacing="double">Nom : <code spellcheck="false">WebShare</code></p></li><li><p data-spacing="double">Path : <code spellcheck="false">/mnt/Pool1/winshare</code></p></li><li><p data-spacing="double">Cocher <strong>Read Only</strong>.</p></li><li><p data-spacing="double"><strong>Décocher</strong> "Change User &amp; Group Ownership".</p></li></ul><h3 data-block-id="VJjI6eGA">5. Service WebDAV</h3><p data-block-id="YdBapf40" data-spacing="double">Menu : <strong>Services &gt; WebDAV (éditer)</strong></p><ul data-block-id="2wk26Jyi"><li><p data-spacing="double">Protocole : HTTPS</p></li><li><p data-spacing="double">Port : 8081</p></li><li><p data-spacing="double">Certificat : <code spellcheck="false">TrueNas_certificate</code></p></li><li><p data-spacing="double">Authentification : Digest</p></li><li><p data-spacing="double">Créer un mot de passe WebDAV.</p></li><li><p data-spacing="double">Démarrer le service.</p></li></ul><h3 data-block-id="uLDT7Eir">6. Accès depuis le navigateur</h3><p data-block-id="FxFkok7m" data-spacing="double">Taper l'URL complète avec le nom du partage : <code spellcheck="false">https://172.16.20.200:8081/WebShare</code> Accepter l'avertissement de sécurité (dû au certificat auto-signé) et s'identifier avec l'utilisateur <code spellcheck="false">webdav</code>.</p>
+  </body>
+</html>

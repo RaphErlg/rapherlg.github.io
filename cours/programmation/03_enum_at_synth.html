@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>03_enum_at_synth</title>
+    <meta name="created-at" content="22-03-2026 04:52 PM" />
+    <meta name="updated-at" content="28-03-2026 10:35 AM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>03_enum_at_synth</h1>
+    <p data-block-id="0FhLmt-_" data-spacing="double"><br></p><hr><h2 data-block-id="7Gw-E2aW">1. Rappel struct + typedef</h2><p data-block-id="Sdc_Ktgo" data-spacing="double">Avant les énumérations, on a rappelé le modèle des structures, parce qu’on va faire <strong>pareil</strong> avec <code spellcheck="false">enum</code>.[^1]</p><pre data-block-id="5B_3hI55" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">heure</span> Heure<span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">heure</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> heure<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> minutes<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Heure reveil <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="gtvsGIuF" data-spacing="double">Idée clé :</p><ul data-block-id="FU1zPTRw"><li><p data-spacing="double"><code spellcheck="false">struct heure { ... };</code> → définit un <strong>nouveau type structuré</strong></p></li><li><p data-spacing="double"><code spellcheck="false">typedef struct heure Heure;</code> → crée un <strong>alias</strong> pour éviter d’écrire <code spellcheck="false">struct heure</code> partout</p></li><li><p data-spacing="double"><code spellcheck="false">Heure reveil;</code> → on déclare une variable de ce type, comme un <code spellcheck="false">int</code></p></li></ul><p data-block-id="x4gUsaMN" data-spacing="double">On retrouvera exactement ce schéma avec <code spellcheck="false">enum</code>.</p><hr><h2 data-block-id="lnvRjmzT">2. Énumérations simples : principe et syntaxe</h2><h3 data-block-id="JeqqDLvs">2.1. Premier exemple : les couleurs</h3><pre data-block-id="M4BjU58d" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">couleur</span> Couleur<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">couleur</span> <span class="token punctuation">{</span>
+    ROUGE<span class="token punctuation">,</span>
+    ORANGE<span class="token punctuation">,</span>
+    JAUNE<span class="token punctuation">,</span>
+    VERT<span class="token punctuation">,</span>
+    BLEU<span class="token punctuation">,</span>
+    VIOLET
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Couleur couleurCiel    <span class="token operator">=</span> BLEU<span class="token punctuation">;</span>
+    Couleur couleurHerbe<span class="token punctuation">;</span>
+    Couleur couleursSoleil<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> ROUGE<span class="token punctuation">,</span> ORANGE<span class="token punctuation">,</span> JAUNE <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    couleurHerbe <span class="token operator">=</span> VERT<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>couleurCiel <span class="token operator">==</span> ROUGE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Panique !"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p data-block-id="WjRGYMju" data-spacing="double"><strong>Ce qu’est une énumération</strong> :</p><ul data-block-id="c9JMAqwL"><li><p data-spacing="double">Une <strong>liste de constantes nommées</strong> regroupées en un <strong>type</strong>.</p></li><li><p data-spacing="double">Derrière, chaque constante est représentée par un entier.[^1]</p></li></ul><p data-block-id="p8582WH1" data-spacing="double">Par défaut :</p><pre data-block-id="iicB9moz" data-indent-type="space" data-indent-length="2" class="language-text"><code>ROUGE  = 0
+ORANGE = 1
+JAUNE  = 2
+VERT   = 3
+BLEU   = 4
+VIOLET = 5
+</code></pre><h3 data-block-id="XOz4RvR1">2.2. Utilisation d’un type énuméré</h3><p data-block-id="y-hGhYqE" data-spacing="double">Tu peux :</p><ul data-block-id="UG14CpEO"><li><p data-spacing="double">déclarer des variables de ce type :</p></li></ul><pre data-block-id="zlnEU_HA" data-indent-type="space" data-indent-length="2" class="language-c"><code>Couleur couleurCiel <span class="token operator">=</span> BLEU<span class="token punctuation">;</span>
+</code></pre><ul data-block-id="FC4m3lvT"><li><p data-spacing="double">faire des <strong>comparaisons</strong> :</p></li></ul><pre data-block-id="P6SljvEE" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>couleurCiel <span class="token operator">==</span> ROUGE<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+</code></pre><ul data-block-id="J4cCtA43"><li><p data-spacing="double">créer des <strong>tableaux</strong> :</p></li></ul><pre data-block-id="bghXRGqy" data-indent-type="space" data-indent-length="2" class="language-c"><code>Couleur couleursSoleil<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> ROUGE<span class="token punctuation">,</span> ORANGE<span class="token punctuation">,</span> JAUNE <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><ul data-block-id="Wn_0mfBY"><li><p data-spacing="double">les afficher comme des entiers avec <code spellcheck="false">%d</code> :</p></li></ul><pre data-block-id="s-kM5waW" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> couleurCiel<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// affiche 4 si BLEU</span>
+```<span class="token punctuation">[</span><span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+</code></pre><hr><h2 data-block-id="OdxzyH7D">3. Syntaxe formelle d’un enum</h2><p data-block-id="o56rVfZU" data-spacing="double">Définition générale :[^1]</p><pre data-block-id="MR4HQQlm" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">enum</span> <span class="token operator">&lt;</span>tag<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token operator">&lt;</span>ENUM1<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+    <span class="token operator">&lt;</span>ENUM2<span class="token operator">&gt;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="sqM5c5uG" data-spacing="double">Avec alias :</p><pre data-block-id="tEyU48GU" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token operator">&lt;</span>tag<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>Alias<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="Mz5-3iwf" data-spacing="double">Déclaration de variables :</p><pre data-block-id="6X2kZcas" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token operator">&lt;</span>Alias<span class="token operator">&gt;</span> x<span class="token punctuation">;</span>
+<span class="token operator">&lt;</span>Alias<span class="token operator">&gt;</span> y <span class="token operator">=</span> <span class="token operator">&lt;</span>CONST<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="1dVStYG4" data-spacing="double">Règles de valeurs :</p><ul data-block-id="aNPFSprx"><li><p data-spacing="double">Premier énumérateur sans valeur explicite → 0.</p></li><li><p data-spacing="double">Chaque suivant sans valeur → précédent + 1.</p></li><li><p data-spacing="double">Tu peux <strong>forcer</strong> une valeur :</p></li></ul><pre data-block-id="Z1nEmuLc" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">enum</span> <span class="token class-name">couleur</span> <span class="token punctuation">{</span>
+    ROUGE <span class="token operator">=</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    ORANGE<span class="token punctuation">,</span>    <span class="token comment">// 18</span>
+    JAUNE<span class="token punctuation">,</span>     <span class="token comment">// 19</span>
+    VERT       <span class="token comment">// 20</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><ul data-block-id="ha3zOr-a"><li><p data-spacing="double">Si tu forces aussi ORANGE :</p></li></ul><pre data-block-id="vvhfDSKL" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">enum</span> <span class="token class-name">couleur</span> <span class="token punctuation">{</span>
+    ROUGE  <span class="token operator">=</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    ORANGE <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    JAUNE<span class="token punctuation">,</span>     <span class="token comment">// 21</span>
+    VERT       <span class="token comment">// 22</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="SEUM_CKG" data-spacing="double">Important :</p><ul data-block-id="E33the7v"><li><p data-spacing="double">Rien n’occupe “les trous” (comme 18 ici) : ce sont juste des entiers sans nom.</p></li><li><p data-spacing="double">Une variable d’un type enum est <strong>techniquement un int</strong>, le compilateur n’interdit pas :</p></li></ul><pre data-block-id="umMSxI62" data-indent-type="space" data-indent-length="2" class="language-c"><code>Couleur c <span class="token operator">=</span> <span class="token number">999</span><span class="token punctuation">;</span>  <span class="token comment">// accepté, mais logique fausse</span>
+</code></pre><hr><h2 data-block-id="P4G5bOf-">4. Petits exercices autour de l’énumération <code spellcheck="false">Couleur</code></h2><h3 data-block-id="vUCq51d6">4.1. Recherche avec une fonction <code spellcheck="false">estDansListe</code></h3><pre data-block-id="6Nf_Dgfh" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdbool.h&gt;</span></span>
+
+bool <span class="token function">estDansListe</span><span class="token punctuation">(</span>Couleur couleur<span class="token punctuation">,</span> Couleur liste<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> tailleListe<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> tailleListe <span class="token operator">&amp;&amp;</span> liste<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> couleur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> i <span class="token operator">&lt;</span> tailleListe<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><ul data-block-id="wpbifqOe"><li><p data-spacing="double">On parcourt le tableau jusqu’à :</p><ul><li><p data-spacing="double">soit avoir trouvé la couleur (<code spellcheck="false">liste[i] == couleur</code>)</p></li><li><p data-spacing="double">soit avoir atteint la fin (<code spellcheck="false">i == tailleListe</code>)[^1]</p></li></ul></li></ul><p data-block-id="67EDSSXE" data-spacing="double">Utilisation :</p><pre data-block-id="xvX9PP2w" data-indent-type="space" data-indent-length="2" class="language-c"><code>Couleur couleurPreferee <span class="token operator">=</span> ROUGE<span class="token punctuation">;</span>
+Couleur couleursSoleil<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> ROUGE<span class="token punctuation">,</span> ORANGE<span class="token punctuation">,</span> JAUNE <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">estDansListe</span><span class="token punctuation">(</span>couleurPreferee<span class="token punctuation">,</span> couleursSoleil<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Ta couleur preferee est dans les couleurs du soleil !\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Ta couleur preferee n'est pas dans les couleurs du soleil.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h3 data-block-id="6ORKPtfM">4.2. Affichage des valeurs entières</h3><pre data-block-id="-2X4VV90" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">afficheCouleurs</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Rouge : %d\n"</span><span class="token punctuation">,</span> ROUGE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Orange: %d\n"</span><span class="token punctuation">,</span> ORANGE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Jaune : %d\n"</span><span class="token punctuation">,</span> JAUNE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Vert  : %d\n"</span><span class="token punctuation">,</span> VERT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Bleu  : %d\n"</span><span class="token punctuation">,</span> BLEU<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Violet: %d\n"</span><span class="token punctuation">,</span> VIOLET<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><ul data-block-id="ZZbzHw9t"><li><p data-spacing="double">Permet de <strong>visualiser</strong> les entiers associés.</p></li><li><p data-spacing="double">Quand tu forces des valeurs dans l’<code spellcheck="false">enum</code>, ça te permet de voir l’effet.</p></li></ul><hr><h3 data-block-id="zcajuDfD">4.3. Afficher le <em>nom</em> plutôt que le numéro</h3><p data-block-id="WGGGT_Cg" data-spacing="double">Une fois compilé, les noms ROUGE, ORANGE… n’existent plus, il ne reste que les entiers. Si tu veux afficher <code spellcheck="false">"rouge"</code> au lieu de <code spellcheck="false">0</code>, tu dois le coder toi-même.</p><pre data-block-id="UIsqZs4p" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">afficheNomCouleur</span><span class="token punctuation">(</span>Couleur couleur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> nomsCouleurs<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"rouge"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"jaune"</span><span class="token punctuation">,</span> <span class="token string">"vert"</span><span class="token punctuation">,</span> <span class="token string">"bleu"</span><span class="token punctuation">,</span> <span class="token string">"violet"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> nomsCouleurs<span class="token punctuation">[</span>couleur<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p data-block-id="Chom7Ksg" data-spacing="double">Idées importantes :</p><ul data-block-id="pkwHlQoC"><li><p data-spacing="double"><code spellcheck="false">nomsCouleurs</code> est un tableau de 6 chaînes, chacune contenant jusqu’à 6 lettres + <code spellcheck="false">\0</code>.</p></li><li><p data-spacing="double">La variable <code spellcheck="false">couleur</code> est un entier entre 0 et 5 → elle sert d’<strong>index</strong> dans le tableau.</p></li></ul><p data-block-id="iRPi6dSB" data-spacing="double">⚠️ Si tu modifies l’<code spellcheck="false">enum</code> pour que ROUGE = 17 par exemple, <code spellcheck="false">nomsCouleurs[couleur]</code> devient dangereux : <code spellcheck="false">nomsCouleurs[17]</code> sort du tableau → comportement indéfini.</p><hr><h2 data-block-id="zsyc3FCT">5. Exercices “jours &amp; plages horaires”</h2><h3 data-block-id="fRKX2O02">5.1. Énumération des jours</h3><pre data-block-id="3JuZxc3g" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">jour</span> Jour<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">jour</span> <span class="token punctuation">{</span>
+    DIMANCHE<span class="token punctuation">,</span>
+    LUNDI<span class="token punctuation">,</span>
+    MARDI<span class="token punctuation">,</span>
+    MERCREDI<span class="token punctuation">,</span>
+    JEUDI<span class="token punctuation">,</span>
+    VENDREDI<span class="token punctuation">,</span>
+    SAMEDI
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="8bzClI6b" data-spacing="double">Utilisation :</p><pre data-block-id="Qmgk039k" data-indent-type="space" data-indent-length="2" class="language-c"><code>Jour aujourdhui <span class="token operator">=</span> LUNDI<span class="token punctuation">;</span>
+Jour joursCours<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> LUNDI<span class="token punctuation">,</span> MARDI<span class="token punctuation">,</span> MERCREDI<span class="token punctuation">,</span> JEUDI<span class="token punctuation">,</span> VENDREDI <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><hr><h3 data-block-id="4ylfLE8P">5.2. Struct <code spellcheck="false">Heure</code> et struct <code spellcheck="false">PlageHoraire</code></h3><p data-block-id="h0lQUdcJ" data-spacing="double">Rappel <code spellcheck="false">Heure</code> :</p><pre data-block-id="xm5_QVJ-" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">heure</span> Heure<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">heure</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> heure<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> minutes<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="XWfpwZPs" data-spacing="double">Nouvelle struct :</p><pre data-block-id="-cGGqWRw" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">plageHoraire</span> PlageHoraire<span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">plageHoraire</span> <span class="token punctuation">{</span>
+    Jour   jour<span class="token punctuation">;</span>    <span class="token comment">// enum</span>
+    Heure  heure<span class="token punctuation">;</span>   <span class="token comment">// struct</span>
+    Couleur couleur<span class="token punctuation">;</span> <span class="token comment">// enum</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="-NgLumDo" data-spacing="double">Initialisation :</p><pre data-block-id="TiixOYwA" data-indent-type="space" data-indent-length="2" class="language-c"><code>PlageHoraire plage1 <span class="token operator">=</span> <span class="token punctuation">{</span> LUNDI<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> BLEU <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="fXwQBSD_" data-spacing="double">Accès aux champs (arborescent) :</p><ul data-block-id="8TI8vPRN"><li><p data-spacing="double"><code spellcheck="false">plage1.jour</code></p></li><li><p data-spacing="double"><code spellcheck="false">plage1.heure.heure</code></p></li><li><p data-spacing="double"><code spellcheck="false">plage1.heure.minutes</code></p></li><li><p data-spacing="double"><code spellcheck="false">plage1.couleur</code></p></li></ul><hr><h3 data-block-id="nwGKk6j4">5.3. Fonction <code spellcheck="false">affichePlageHoraire</code></h3><pre data-block-id="Ley1PaIf" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">affichePlageHoraire</span><span class="token punctuation">(</span>PlageHoraire plage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> nomsJours<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"DIMANCHE"</span><span class="token punctuation">,</span> <span class="token string">"LUNDI"</span><span class="token punctuation">,</span> <span class="token string">"MARDI"</span><span class="token punctuation">,</span>
+        <span class="token string">"MERCREDI"</span><span class="token punctuation">,</span> <span class="token string">"JEUDI"</span><span class="token punctuation">,</span> <span class="token string">"VENDREDI"</span><span class="token punctuation">,</span> <span class="token string">"SAMEDI"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s %02d:%02d\n"</span><span class="token punctuation">,</span>
+           nomsJours<span class="token punctuation">[</span>plage<span class="token punctuation">.</span>jour<span class="token punctuation">]</span><span class="token punctuation">,</span>
+           plage<span class="token punctuation">.</span>heure<span class="token punctuation">.</span>heure<span class="token punctuation">,</span>
+           plage<span class="token punctuation">.</span>heure<span class="token punctuation">.</span>minutes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><ul data-block-id="dgUTC8y8"><li><p data-spacing="double"><code spellcheck="false">nomsJours[plage.jour]</code> → même technique que pour les couleurs.</p></li><li><p data-spacing="double"><code spellcheck="false">%02d</code> → affiche 2 chiffres <strong>avec zéro devant</strong> si besoin (8 → 08).</p></li></ul><hr><h3 data-block-id="3f1b7V9E">5.4. Fonction <code spellcheck="false">estPlageValide</code></h3><p data-block-id="fBfVHWSq" data-spacing="double">Critères de validité :</p><ul data-block-id="a4XA3609"><li><p data-spacing="double">pas samedi ni dimanche</p></li><li><p data-spacing="double">heure entre 8h00 et 16h59</p></li></ul><pre data-block-id="HGdRFZS2" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdbool.h&gt;</span></span>
+
+bool <span class="token function">estPlageValide</span><span class="token punctuation">(</span>PlageHoraire plage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> plage<span class="token punctuation">.</span>jour <span class="token operator">!=</span> SAMEDI
+        <span class="token operator">&amp;&amp;</span> plage<span class="token punctuation">.</span>jour <span class="token operator">!=</span> DIMANCHE
+        <span class="token operator">&amp;&amp;</span> plage<span class="token punctuation">.</span>heure<span class="token punctuation">.</span>heure <span class="token operator">&gt;=</span> <span class="token number">8</span>
+        <span class="token operator">&amp;&amp;</span> plage<span class="token punctuation">.</span>heure<span class="token punctuation">.</span>heure <span class="token operator">&lt;=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h3 data-block-id="_HKtrNFG">5.5. Parcourir un grand tableau de plages</h3><p data-block-id="zYe5LNXf" data-spacing="double">On te donne un tableau <code spellcheck="false">PlageHoraire cours[] = { ...50 éléments... };</code>.</p><p data-block-id="wpyLMGJH" data-spacing="double">Boucle typique :</p><pre data-block-id="3g9-GQcy" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> taille <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>cours<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>cours<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> taille<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">estPlageValide</span><span class="token punctuation">(</span>cours<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">affichePlageHoraire</span><span class="token punctuation">(</span>cours<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><ul data-block-id="S-1PgWmQ"><li><p data-spacing="double">On <strong>ne s’arrête pas</strong> à la première invalide → on teste toutes les entrées.</p></li><li><p data-spacing="double"><code spellcheck="false">sizeof(cours) / sizeof(cours[0])</code> → calcule le <strong>nombre d’éléments</strong> du tableau.</p></li></ul><hr><h3 data-block-id="0hmwSDlo">5.6. Couleurs ANSI et fonctions associées</h3><p data-block-id="ebM7MTA1" data-spacing="double">Codes fournis :</p><table data-block-id="Dwo8aiE_" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Couleur</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Code</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">ROUGE</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"\033[1;31m"</code></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">ORANGE</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"\033[38;5;214m"</code></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">JAUNE</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"\033[1;33m"</code></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">VERT</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"\033[1;32m"</code></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">BLEU</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"\033[1;34m"</code></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">VIOLET</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"\033[1;35m"</code></p></td></tr></tbody></table><p data-block-id="ETN7jJ4z" data-spacing="double">Fonctions :</p><pre data-block-id="d6xsLtWl" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">reinitialiseCouleur</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[0m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">changeCouleur</span><span class="token punctuation">(</span>Couleur couleur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>couleur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> ROUGE<span class="token operator">:</span>  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;31m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> ORANGE<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[38;5;214m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> JAUNE<span class="token operator">:</span>  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;33m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> VERT<span class="token operator">:</span>   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;32m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> BLEU<span class="token operator">:</span>   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;34m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> VIOLET<span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;35m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p data-block-id="Jlhyj8TO" data-spacing="double">Modifier <code spellcheck="false">affichePlageHoraire</code> :</p><pre data-block-id="0oTzHAYv" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">affichePlageHoraire</span><span class="token punctuation">(</span>PlageHoraire plage<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> nomsJours<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"DIMANCHE"</span><span class="token punctuation">,</span> <span class="token string">"LUNDI"</span><span class="token punctuation">,</span> <span class="token string">"MARDI"</span><span class="token punctuation">,</span>
+        <span class="token string">"MERCREDI"</span><span class="token punctuation">,</span> <span class="token string">"JEUDI"</span><span class="token punctuation">,</span> <span class="token string">"VENDREDI"</span><span class="token punctuation">,</span> <span class="token string">"SAMEDI"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token function">changeCouleur</span><span class="token punctuation">(</span>plage<span class="token punctuation">.</span>couleur<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s %02d:%02d\n"</span><span class="token punctuation">,</span>
+           nomsJours<span class="token punctuation">[</span>plage<span class="token punctuation">.</span>jour<span class="token punctuation">]</span><span class="token punctuation">,</span>
+           plage<span class="token punctuation">.</span>heure<span class="token punctuation">.</span>heure<span class="token punctuation">,</span>
+           plage<span class="token punctuation">.</span>heure<span class="token punctuation">.</span>minutes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reinitialiseCouleur</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h2 data-block-id="uBSpE7ZJ">6. Opérateurs bit à bit</h2><h3 data-block-id="Jnpm-s5S">6.1. Représentation binaire</h3><p data-block-id="-H9hFhsH" data-spacing="double">Exemples :</p><table data-block-id="qeQz9d4z" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Décimal</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Binaire</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">0</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0000</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">1</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0001</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">2</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0010</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">3</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0011</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">4</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0100</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">5</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0101</p></td></tr></tbody></table><p data-block-id="h1Rv0Zkn" data-spacing="double">En C, on peut écrire :</p><pre data-block-id="2T-GoTE9" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> configurationMatin <span class="token operator">=</span> <span class="token number">0</span>b0011<span class="token punctuation">;</span>
+<span class="token keyword">int</span> configurationSoir  <span class="token operator">=</span> <span class="token number">0</span>b1010<span class="token punctuation">;</span>
+</code></pre><hr><h3 data-block-id="m1hQE5-A">6.2. Les trois opérateurs bit à bit</h3><p data-block-id="a9_oH6CY" data-spacing="double">Ils comparent les bits <strong>colonne par colonne</strong>.</p><p data-block-id="UtlWoE2D" data-spacing="double">Soit :</p><pre data-block-id="mDa9kToK" data-indent-type="space" data-indent-length="2" class="language-text"><code>configurationMatin = 0011
+configurationSoir  = 1010
+</code></pre><ol data-block-id="qYNgSO3r"><li><p data-spacing="double"><strong>OR bit à bit</strong> <code spellcheck="false">|</code> :</p></li></ol><pre data-block-id="kqet43mM" data-indent-type="space" data-indent-length="2" class="language-text"><code>0011
+1010
+----
+1011  (configurationMatinOuSoir)
+</code></pre><p data-block-id="yygEhKYM" data-spacing="double">→ bit = 1 si au moins un des deux bits vaut 1. 2. <strong>AND bit à bit</strong> <code spellcheck="false">&amp;</code> :</p><pre data-block-id="673R685J" data-indent-type="space" data-indent-length="2" class="language-text"><code>0011
+1010
+----
+0010  (configurationMatinEtSoir)
+</code></pre><p data-block-id="99vWIiGL" data-spacing="double">→ bit = 1 seulement si les deux bits valent 1. 3. <strong>XOR bit à bit</strong> <code spellcheck="false">^</code> :</p><pre data-block-id="RKOX6Cg3" data-indent-type="space" data-indent-length="2" class="language-text"><code>0011
+1010
+----
+1001  (configurationMatinXORSoir)
+</code></pre><p data-block-id="op2vT38H" data-spacing="double">→ bit = 1 si les bits sont <strong>différents</strong> (un seul des deux est 1).</p><p data-block-id="2Tb81Vbl" data-spacing="double">Important :</p><ul data-block-id="33uTX6-U"><li><p data-spacing="double">Ne pas confondre les versions logiques (<code spellcheck="false">||</code>, <code spellcheck="false">&amp;&amp;</code>) qui travaillent sur des <strong>booléens</strong>, avec les versions bit à bit (<code spellcheck="false">|</code>, <code spellcheck="false">&amp;</code>, <code spellcheck="false">^</code>) qui travaillent sur les <strong>bits d’un entier</strong>.</p></li></ul><hr><h3 data-block-id="U48brqRE">6.3. Bits = salles allumées</h3><p data-block-id="oRgslnGu" data-spacing="double">On code 4 pièces dans les 4 bits :</p><table data-block-id="5P9oKzCE" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Bit (de gauche à droite)</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Salle</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">4ᵉ</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Cuisine</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">3ᵉ</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Salle de bains</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">2ᵉ</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Salon</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">1ᵉʳ</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Chambre</p></td></tr></tbody></table><p data-block-id="G5iRRbal" data-spacing="double">Exemple :</p><ul data-block-id="g2luZ99D"><li><p data-spacing="double"><code spellcheck="false">0b0101</code> → SDB et Chambre allumées (bits 3 et 1 à 1)</p></li><li><p data-spacing="double"><code spellcheck="false">0b1010</code> → Cuisine et SDB allumées</p></li></ul><hr><h3 data-block-id="5j_wQIZF">6.4. Effet des opérations avec un “masque unitaire”</h3><p data-block-id="YQg9BlsE" data-spacing="double">Si on combine une configuration quelconque avec un bit vector où <strong>un seul bit</strong> est à 1 (par ex. <code spellcheck="false">0b0010</code>) :</p><ul data-block-id="3fnEHSlU"><li><p data-spacing="double"><code spellcheck="false">config | masque</code> → <strong>allume</strong> ce bit (met à 1), ne change pas les autres.</p></li><li><p data-spacing="double"><code spellcheck="false">config &amp; masque</code> → garde <strong>uniquement</strong> ce bit, met le reste à 0.</p></li><li><p data-spacing="double"><code spellcheck="false">config ^ masque</code> → <strong>inverse</strong> ce bit (0→1, 1→0), ne change pas les autres.</p></li></ul><p data-block-id="ufEutp5G" data-spacing="double">Applications typiques :</p><ul data-block-id="mEIc8Eg2"><li><p data-spacing="double">allumer une salle → <code spellcheck="false">config = config | SALON;</code></p></li><li><p data-spacing="double">éteindre partout sauf une salle → <code spellcheck="false">config = config &amp; SALON;</code></p></li><li><p data-spacing="double">basculer l’état d’une salle → <code spellcheck="false">config = config ^ SALON;</code></p></li></ul><hr><h3 data-block-id="T-AQEmhg">6.5. Tester un bit : <code spellcheck="false">aSalleAllumee</code></h3><pre data-block-id="Xbxw7uNw" data-indent-type="space" data-indent-length="2" class="language-c"><code>bool <span class="token function">aSalleAllumee</span><span class="token punctuation">(</span><span class="token keyword">int</span> configuration<span class="token punctuation">,</span> <span class="token keyword">int</span> salle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>configuration <span class="token operator">&amp;</span> salle<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><ul data-block-id="hzP8z8zh"><li><p data-spacing="double"><code spellcheck="false">configuration &amp; salle</code> → renvoie un bit vector avec soit 0 partout, soit 1 uniquement sur le bit de la salle si elle est allumée.</p></li><li><p data-spacing="double">Les parenthèses sont importantes, car <code spellcheck="false">!=</code> a une priorité plus forte que <code spellcheck="false">&amp;</code>.</p></li></ul><hr><h2 data-block-id="GwqCRnYR">7. Énumérations binaires</h2><p data-block-id="3qLkSS9t" data-spacing="double">Problème : écrire des constantes comme <code spellcheck="false">0b0010</code>, <code spellcheck="false">0b0100</code> devient illisible quand il y a beaucoup de bits.</p><p data-block-id="m1jph-XF" data-spacing="double">Solution : utiliser une énumération où chaque constante vaut une <strong>puissance de 2</strong>.</p><pre data-block-id="Pq1G7wLj" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">salle</span> Salle<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">salle</span> <span class="token punctuation">{</span>
+    CHAMBRE <span class="token operator">=</span> <span class="token number">0</span>b0001<span class="token punctuation">,</span>  <span class="token comment">// 1</span>
+    SALON   <span class="token operator">=</span> <span class="token number">0</span>b0010<span class="token punctuation">,</span>  <span class="token comment">// 2</span>
+    SDB     <span class="token operator">=</span> <span class="token number">0</span>b0100<span class="token punctuation">,</span>  <span class="token comment">// 4</span>
+    CUISINE <span class="token operator">=</span> <span class="token number">0</span>b1000   <span class="token comment">// 8</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p data-block-id="dHD2-mPB" data-spacing="double">Configurations lisibles :</p><pre data-block-id="of-KKW9y" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> configurationMatin <span class="token operator">=</span> SALON <span class="token operator">|</span> CHAMBRE<span class="token punctuation">;</span>   <span class="token comment">// Salon + chambre</span>
+<span class="token keyword">int</span> configurationSoir  <span class="token operator">=</span> SDB <span class="token operator">|</span> CUISINE<span class="token punctuation">;</span>     <span class="token comment">// SDB + cuisine</span>
+<span class="token keyword">int</span> toutAllume         <span class="token operator">=</span> SALON <span class="token operator">|</span> CHAMBRE <span class="token operator">|</span> SDB <span class="token operator">|</span> CUISINE<span class="token punctuation">;</span>
+</code></pre><p data-block-id="m_rRfScu" data-spacing="double">Pourquoi puissances de 2 ?</p><ul data-block-id="xqSIYU5H"><li><p data-spacing="double">Chaque valeur correspond à <strong>un seul bit</strong>.</p></li><li><p data-spacing="double">Toute somme/combinaison permet de retrouver <strong>exactement</strong> quelles constantes sont présentes (pas de collision).[^1]</p></li></ul><p data-block-id="P3D8XAGh" data-spacing="double">Exemple :</p><ul data-block-id="1ylvephO"><li><p data-spacing="double"><code spellcheck="false">SALON | SDB = 0b0010 | 0b0100 = 0b0110 = 6</code></p></li><li><p data-spacing="double">6 ne peut venir que de <code spellcheck="false">2 + 4</code>, donc SALON + SDB.</p></li></ul><hr><h2 data-block-id="hnoNoKA3">8. Fiche mémo très courte (syntaxique)</h2><h3 data-block-id="3bc__zsn">Enum simple</h3><pre data-block-id="NIPIdeUz" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">couleur</span> Couleur<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">couleur</span> <span class="token punctuation">{</span>
+    ROUGE<span class="token punctuation">,</span>
+    ORANGE<span class="token punctuation">,</span>
+    JAUNE
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Couleur c <span class="token operator">=</span> ROUGE<span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0</span>
+</code></pre><h3 data-block-id="muHr8wQ9">Enum + tableau de noms</h3><pre data-block-id="2lABBxVY" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">afficheNomCouleur</span><span class="token punctuation">(</span>Couleur couleur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> noms<span class="token punctuation">[</span><span class="token operator">^</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">^</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"rouge"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"jaune"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> noms<span class="token punctuation">[</span>couleur<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="UiYw1uOD">Struct + enum</h3><pre data-block-id="XONOnAK6" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">plageHoraire</span> PlageHoraire<span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">plageHoraire</span> <span class="token punctuation">{</span>
+    Jour jour<span class="token punctuation">;</span>
+    Heure heure<span class="token punctuation">;</span>
+    Couleur couleur<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><h3 data-block-id="8kzF_s2k">Bitwise de base</h3><pre data-block-id="q0-mGZvV" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span>b0011<span class="token punctuation">;</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">0</span>b1010<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> ou  <span class="token operator">=</span> a <span class="token operator">|</span> b<span class="token punctuation">;</span> <span class="token comment">// 1011</span>
+<span class="token keyword">int</span> et  <span class="token operator">=</span> a <span class="token operator">&amp;</span> b<span class="token punctuation">;</span> <span class="token comment">// 0010</span>
+<span class="token keyword">int</span> xor <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span> <span class="token comment">// 1001</span>
+</code></pre><h3 data-block-id="qCn-7-nz">Enum binaire</h3><pre data-block-id="ypGskz-I" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">salle</span> Salle<span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">salle</span> <span class="token punctuation">{</span>
+    CHAMBRE <span class="token operator">=</span> <span class="token number">0</span>b0001<span class="token punctuation">,</span>
+    SALON   <span class="token operator">=</span> <span class="token number">0</span>b0010<span class="token punctuation">,</span>
+    SDB     <span class="token operator">=</span> <span class="token number">0</span>b0100<span class="token punctuation">,</span>
+    CUISINE <span class="token operator">=</span> <span class="token number">0</span>b1000
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> config <span class="token operator">=</span> SALON <span class="token operator">|</span> CHAMBRE<span class="token punctuation">;</span>
+
+bool <span class="token function">aSalleAllumee</span><span class="token punctuation">(</span><span class="token keyword">int</span> config<span class="token punctuation">,</span> Salle s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>config <span class="token operator">&amp;</span> s<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><p data-block-id="A4F1t7nC" data-spacing="double"><br></p>
+  </body>
+</html>
