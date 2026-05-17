@@ -7,9 +7,9 @@
       name="description"
       content=""
     />
-    <title>04_fichiers_at</title>
+    <title>fichier atelier</title>
     <meta name="created-at" content="29-04-2026 11:02 PM" />
-    <meta name="updated-at" content="29-04-2026 11:02 PM" />
+    <meta name="updated-at" content="17-05-2026 07:29 PM" />
     
     
     
@@ -178,7 +178,7 @@
     </style>
   </head>
   <body>
-    <h1>04_fichiers_at</h1>
+    <h1>fichier atelier</h1>
     <p data-block-id="HW13TGLA" data-spacing="double"><br></p><h1 data-block-id="MYKZO6yW">Fichiers en C — Synthèse</h1><h2 data-block-id="SKgyUDvV">Les 3 étapes obligatoires</h2><p data-block-id="rr2kAzch" data-spacing="double">Chaque manipulation de fichier suit toujours le même schéma :</p><ol data-block-id="UauQOqpG"><li><p data-spacing="double"><strong>Ouvrir</strong> le fichier avec <code spellcheck="false">fopen</code></p></li><li><p data-spacing="double"><strong>Lire ou écrire</strong> avec <code spellcheck="false">fscanf</code>, <code spellcheck="false">fgets</code> ou <code spellcheck="false">fprintf</code></p></li><li><p data-spacing="double"><strong>Fermer</strong> le fichier avec <code spellcheck="false">fclose</code></p></li></ol><hr><h2 data-block-id="T9RT7QGu">Les types et fonctions essentielles</h2><h3 data-block-id="Lfb8tcfp"><code spellcheck="false">FILE*</code> — la variable fichier</h3><pre data-block-id="4EyITDiE" data-indent-type="space" data-indent-length="2" class="language-c"><code>FILE<span class="token operator">*</span> fichier<span class="token punctuation">;</span>
 </code></pre><p data-block-id="vqnZYQBm" data-spacing="double">Une variable spéciale qui représente le lien entre ton programme et un fichier sur le disque. Pense-y comme un signet qui pointe vers le fichier.</p><h3 data-block-id="JZzRooFv"><code spellcheck="false">fopen</code> — ouvrir un fichier</h3><pre data-block-id="plnjBmuC" data-indent-type="space" data-indent-length="2" class="language-c"><code>fichier <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"nom_du_fichier.txt"</span><span class="token punctuation">,</span> <span class="token string">"mode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><table data-block-id="QiOWcnUz" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Mode</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Signification</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"w"</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Écriture (write) — crée le fichier ou l'écrase s'il existe</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"r"</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Lecture (read) — ouvre un fichier existant</p></td></tr></tbody></table><p data-block-id="5DLru1oS" data-spacing="double">Si <code spellcheck="false">fopen</code> échoue (nom invalide, fichier inexistant...), il renvoie <code spellcheck="false">NULL</code>.</p><h3 data-block-id="lBUKOq3r"><code spellcheck="false">fprintf</code> — écrire dans un fichier</h3><pre data-block-id="RDOqiaFR" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token function">fprintf</span><span class="token punctuation">(</span>fichier<span class="token punctuation">,</span> <span class="token string">"texte %d et %s\n"</span><span class="token punctuation">,</span> nombre<span class="token punctuation">,</span> chaine<span class="token punctuation">)</span><span class="token punctuation">;</span>

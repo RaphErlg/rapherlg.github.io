@@ -7,9 +7,9 @@
       name="description"
       content=""
     />
-    <title>04_fichier_ex</title>
+    <title>fichier exercices</title>
     <meta name="created-at" content="03-05-2026 07:37 PM" />
-    <meta name="updated-at" content="03-05-2026 07:37 PM" />
+    <meta name="updated-at" content="17-05-2026 07:29 PM" />
     
     
     
@@ -178,7 +178,7 @@
     </style>
   </head>
   <body>
-    <h1>04_fichier_ex</h1>
+    <h1>fichier exercices</h1>
     <p data-block-id="GUmsA4-y" data-spacing="double"><br></p><h1 data-block-id="93LplGy2">Fichiers en C — Récapitulatif des exercices</h1><h2 data-block-id="LgclGtlh">Rappel des bases</h2><h3 data-block-id="U5gr5Owt">Les 3 étapes obligatoires</h3><p data-block-id="qD7thGi0" data-spacing="double">Toute manipulation de fichier suit le même schéma :</p><ol data-block-id="gqcmLKOb"><li><p data-spacing="double"><strong>Ouvrir</strong> avec <code spellcheck="false">fopen</code></p></li><li><p data-spacing="double"><strong>Lire ou écrire</strong> avec <code spellcheck="false">fscanf</code>, <code spellcheck="false">fgets</code> ou <code spellcheck="false">fprintf</code></p></li><li><p data-spacing="double"><strong>Fermer</strong> avec <code spellcheck="false">fclose</code></p></li></ol><h3 data-block-id="kVJ96rNg">Modes d'ouverture</h3><table data-block-id="ebhPF2gj" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Mode</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Usage</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"r"</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Lecture — le fichier doit exister</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">"w"</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Écriture — crée ou écrase le fichier</p></td></tr></tbody></table><h3 data-block-id="7xoz-26z">Vérification de <code spellcheck="false">fopen</code></h3><p data-block-id="VZ0_LWAv" data-spacing="double"><code spellcheck="false">fopen</code> renvoie <code spellcheck="false">NULL</code> en cas d'échec. <strong>Toujours vérifier</strong> avant de lire/écrire :</p><pre data-block-id="dVXodY9z" data-indent-type="space" data-indent-length="2" class="language-c"><code>FILE<span class="token operator">*</span> fichier <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"nom.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>fichier <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Impossible d'ouvrir le fichier.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

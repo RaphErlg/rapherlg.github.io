@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>labos Q2</title>
+    <meta name="created-at" content="06-05-2026 11:42 AM" />
+    <meta name="updated-at" content="17-05-2026 07:33 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  </head>
+  <body>
+    <h1>labos Q2</h1>
+    <p data-block-id="-s3khVfX" data-spacing="double"><br></p><h1 data-block-id="YXo_zAE8">🎓 Synthèse Finale — Labos Réseau Q2</h1><blockquote data-block-id="h528jc2m"><p data-spacing="double"><strong>Document focalisé PRATIQUE</strong> : commandes Cisco, démarches-type, pièges.</p><p data-spacing="double"><strong>Complémentaire</strong> de la synthèse théorique (<code spellcheck="false">ClaudeSynthèse_reseau_complet.md</code>).</p><p data-spacing="double">Pour la théorie en profondeur → renvois vers <code spellcheck="false">1Reseau_2.pdf</code> ou la synthèse complète.</p></blockquote><hr><h2 data-block-id="sL5cF7Kf">📋 Table des matières</h2><ol data-block-id="TaMJHBS2"><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#1-d%C3%A9marche-universelle-pour-tout-labo">Démarche universelle pour tout labo</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#2-les-modes-cisco-ios">Les modes Cisco IOS</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#3-reset-des-%C3%A9quipements">Reset des équipements</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#4-subnetting-express">Subnetting express</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#5-configuration-interfaces">Configuration interfaces</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#6-vlans">VLANs</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#7-routage-statique">Routage statique</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#8-routage-dynamique-rip">Routage dynamique RIP</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#9-nat-network-address-translation">NAT (Network Address Translation)</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#10-distribution-route-par-d%C3%A9faut-via-rip">Distribution route par défaut via RIP</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#11-ipv6">IPv6</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#12-services--dhcp-http-dns">Services : DHCP, HTTP, DNS</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#13-management-it-et-ssh">Management IT et SSH</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#14-r%C3%A8gles-de-lart-cisco">Règles de l'art Cisco</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#15-diagnostic-et-debug">Diagnostic et debug</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#16-top-30-des-pi%C3%A8ges-r%C3%A9currents">Top 30 des pièges récurrents</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#17-m%C3%A9mo-de-commandes-ultra-condens%C3%A9">Mémo de commandes ultra-condensé</a></p></li></ol><hr><h2 data-block-id="94fzscVc">1. Démarche universelle pour tout labo</h2><p data-block-id="5I7gk6b1" data-spacing="double"><strong>Cette démarche s'applique à TOUS les labos et à l'examen</strong> :</p><pre data-block-id="FiGRtdQE" data-indent-type="space" data-indent-length="2"><code>1. LIRE l'énoncé en entier (2 fois si nécessaire)
+2. DESSINER la topologie sur papier si pas fournie
+3. CALCULER tous les sous-réseaux (subnetting)
+4. PLANIFIER l'adressage (qui a quelle IP)
+5. COUCHE 1 (physique)  : câbler dans Packet Tracer
+6. COUCHE 2 (liaison)   : VLANs sur les switches + trunks
+7. COUCHE 3 (réseau)    : 
+   a. IPs sur routeurs + no shutdown
+   b. Routage interne (statique ou RIP)
+   c. Routes par défaut + distribution
+8. NAT (sur routeur de bordure)
+9. SERVICES (DHCP, HTTP, DNS)
+10. PCs (IP + masque + gateway + DNS)
+11. TESTER étape par étape :
+    intra-VLAN → inter-VLAN → inter-LAN → Internet
+12. RÈGLES DE L'ART (hostname, banner, passwords, descriptions)
+13. SAUVEGARDER (copy run start sur tous les équipements)
+</code></pre><p data-block-id="ssiWVKgQ" data-spacing="double"><strong>Règle d'or</strong> : ne saute aucune étape. C'est plus rapide de faire dans l'ordre que de courir après les bugs.</p><hr><h2 data-block-id="6J6Eji34">2. Les modes Cisco IOS</h2><pre data-block-id="2_z2L5nK" data-indent-type="space" data-indent-length="2"><code>Router&gt;                        Mode USER (utilisateur)
+                                   - Très limité
+                                   - Quelques "show"
+   ↓ enable
+Router#                        Mode PRIVILEGED (privilégié)
+                                   - Tous les "show"
+                                   - Pas encore de config
+   ↓ configure terminal
+Router(config)#                Mode CONFIG GLOBAL
+                                   - Hostname, routes, mots de passe
+   ↓ interface g0/0
+Router(config-if)#             Mode CONFIG INTERFACE
+                                   - IP, no shutdown, description
+</code></pre><p data-block-id="8GeZhWkI" data-spacing="double"><strong>Pour sortir</strong> :</p><ul data-block-id="hshLimfm"><li><p data-spacing="double"><code spellcheck="false">exit</code> : remonter d'un niveau</p></li><li><p data-spacing="double"><code spellcheck="false">end</code> ou <code spellcheck="false">Ctrl+Z</code> : retour direct au mode <code spellcheck="false">#</code></p></li><li><p data-spacing="double"><code spellcheck="false">disable</code> : retour mode <code spellcheck="false">&gt;</code></p></li></ul><p data-block-id="2ysbbSEv" data-spacing="double"><strong>Mémo</strong> : <code spellcheck="false">&gt;</code> = je regarde | <code spellcheck="false">#</code> = je peux tout faire | <code spellcheck="false">(config)#</code> = je modifie globalement | <code spellcheck="false">(config-if)#</code> = je modifie une interface précise.</p><hr><h2 data-block-id="55rqsW3l">3. Reset des équipements</h2><h3 data-block-id="01RNqqkn">Routeur</h3><pre data-block-id="uNGST-KS" data-indent-type="space" data-indent-length="2"><code>Router&gt; enable
+Router# erase startup-config
+Router# reload
+</code></pre><h3 data-block-id="x6dFcFGp">Switch (⚠️ une étape EN PLUS)</h3><pre data-block-id="LIJs1pln" data-indent-type="space" data-indent-length="2"><code>Switch&gt; enable
+Switch# erase startup-config
+Switch# delete vlan.dat              ← OBLIGATOIRE sinon les VLANs survivent !
+Switch# reload
+</code></pre><h3 data-block-id="pi5qN7WS">Récupération mot de passe (mode ROMmon)</h3><pre data-block-id="cXeHO14L" data-indent-type="space" data-indent-length="2"><code>1. Power off / Power on
+2. Pendant le démarrage : Ctrl+Break
+3. Rommon&gt; confreg 0x2142     ← démarre SANS startup-config
+4. Rommon&gt; reset
+5. (config vide, modifie ce que tu veux)
+6. Router(config)# config-register 0x2102  ← restaure démarrage normal
+7. Router# copy run start
+8. Router# reload
+</code></pre><hr><h2 data-block-id="rn3AIL5z">4. Subnetting express</h2><h3 data-block-id="xWbaJB2Y">Tableau des masques fréquents</h3><table data-block-id="5ytIVhgY" style="min-width: 100px"><colgroup><col><col><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Masque CIDR</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Masque décimal</p></th><th colspan="1" rowspan="1"><p data-spacing="double">IPs totales</p></th><th colspan="1" rowspan="1"><p data-spacing="double">IPs utilisables</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Usage typique</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/8</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.0.0.0</p></td><td colspan="1" rowspan="1"><p data-spacing="double">16 777 216</p></td><td colspan="1" rowspan="1"><p data-spacing="double">16 777 214</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Classe A</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/16</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.0.0</p></td><td colspan="1" rowspan="1"><p data-spacing="double">65 536</p></td><td colspan="1" rowspan="1"><p data-spacing="double">65 534</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Classe B</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/24</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.0</p></td><td colspan="1" rowspan="1"><p data-spacing="double">256</p></td><td colspan="1" rowspan="1"><p data-spacing="double">254</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Classe C, LAN standard</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/25</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.128</p></td><td colspan="1" rowspan="1"><p data-spacing="double">128</p></td><td colspan="1" rowspan="1"><p data-spacing="double">126</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Découpe /24 en 2</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/26</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.192</p></td><td colspan="1" rowspan="1"><p data-spacing="double">64</p></td><td colspan="1" rowspan="1"><p data-spacing="double">62</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Découpe /24 en 4</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/27</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.224</p></td><td colspan="1" rowspan="1"><p data-spacing="double">32</p></td><td colspan="1" rowspan="1"><p data-spacing="double">30</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Découpe /24 en 8</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/28</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.240</p></td><td colspan="1" rowspan="1"><p data-spacing="double">16</p></td><td colspan="1" rowspan="1"><p data-spacing="double">14</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Découpe /24 en 16</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/29</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.248</p></td><td colspan="1" rowspan="1"><p data-spacing="double">8</p></td><td colspan="1" rowspan="1"><p data-spacing="double">6</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Petits groupes</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/30</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.252</p></td><td colspan="1" rowspan="1"><p data-spacing="double">4</p></td><td colspan="1" rowspan="1"><p data-spacing="double">2</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Liens point-à-point</strong></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">/32</p></td><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.255</p></td><td colspan="1" rowspan="1"><p data-spacing="double">1</p></td><td colspan="1" rowspan="1"><p data-spacing="double">1</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Loopback / IP unique</p></td></tr></tbody></table><h3 data-block-id="hBWZEKbJ">Les 2 formules à connaître par cœur</h3><ul data-block-id="SQumHdrj"><li><p data-spacing="double"><strong>Nombre de sous-réseaux</strong> = 2ⁿ (n = bits empruntés)</p></li><li><p data-spacing="double"><strong>Nombre d'IPs utilisables par SR</strong> = 2ᵐ − 2 (m = bits restants pour Host-Id)</p></li></ul><h3 data-block-id="vZXc5ypB">Conversion masque ↔ wildcard (pour ACL et NAT)</h3><p data-block-id="H2oTpkY3" data-spacing="double"><strong>Wildcard = inverse binaire du masque</strong> : <code spellcheck="false">wildcard = 255 - masque</code> octet par octet.</p><table data-block-id="Q4WxH7RS" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Masque</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Wildcard</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.0 (/24)</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0.0.0.255</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.128 (/25)</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0.0.0.127</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.192 (/26)</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0.0.0.63</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.224 (/27)</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0.0.0.31</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">255.255.255.252 (/30)</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0.0.0.3</p></td></tr></tbody></table><h3 data-block-id="YkeYMNC6">Trois exemples-types</h3><p data-block-id="z47Jfc0s" data-spacing="double"><strong>Découper 192.168.1.0/24 en 2 sous-réseaux</strong> (labo 10) :</p><pre data-block-id="IIkf4iUV" data-indent-type="space" data-indent-length="2"><code>/24 → /25, masque 255.255.255.128, pas de 128
+SR0 : 192.168.1.0/25     range .1 → .126,   broadcast .127
+SR1 : 192.168.1.128/25   range .129 → .254, broadcast .255
+</code></pre><p data-block-id="shQKBKDB" data-spacing="double"><strong>Découper 192.168.1.0/24 en 8 sous-réseaux</strong> (labo 07) :</p><pre data-block-id="UKLEuP5z" data-indent-type="space" data-indent-length="2"><code>/24 → /27, masque 255.255.255.224, pas de 32
+SR0 : 192.168.1.0/27,    SR1 : 192.168.1.32/27, SR2 : 192.168.1.64/27, ...
+</code></pre><p data-block-id="wMcnti0s" data-spacing="double"><strong>Découper 192.168.3.0/24 en /30</strong> (labo 10, liens WAN) :</p><pre data-block-id="JkjoMEpV" data-indent-type="space" data-indent-length="2"><code>masque 255.255.255.252, pas de 4
+SR0 : 192.168.3.0/30 (.1, .2)
+SR1 : 192.168.3.4/30 (.5, .6)
+SR2 : 192.168.3.8/30 (.9, .10)
+</code></pre><hr><h2 data-block-id="YOkfWdYi">5. Configuration interfaces</h2><h3 data-block-id="Eu-ZkDKE">Interface routeur classique</h3><pre data-block-id="Mv9hrcfq" data-indent-type="space" data-indent-length="2"><code>R1(config)# interface gigabitEthernet 0/0
+R1(config-if)# description To Switch SW1
+R1(config-if)# ip address 192.168.1.1 255.255.255.0
+R1(config-if)# no shutdown                      ← OBLIGATOIRE
+</code></pre><h3 data-block-id="uPGPQ2q_">Interface série Smart Serial (labo 03)</h3><pre data-block-id="5SZ5B3ak" data-indent-type="space" data-indent-length="2"><code>R1(config)# interface serial 0/0/0
+R1(config-if)# ip address 192.168.4.1 255.255.255.0
+R1(config-if)# clock rate 64000                 ← UNIQUEMENT côté DCE
+R1(config-if)# no shutdown
+</code></pre><blockquote data-block-id="DNTDWxU5"><p data-spacing="double"><strong>DCE</strong> = côté qui fournit le signal d'horloge (visible avec un pictogramme d'horloge dans Packet Tracer).</p></blockquote><h3 data-block-id="RQ7miNNg">Interface loopback (simulation LAN ou Internet)</h3><pre data-block-id="ORQINhl7" data-indent-type="space" data-indent-length="2"><code>R1(config)# interface loopback 1
+R1(config-if)# ip address 8.8.8.8 255.255.255.255
+                                                 ← pas besoin de no shutdown !
+</code></pre><h3 data-block-id="j_nmPyVK">Sous-interfaces VLAN (Router-on-a-stick, labo 04+)</h3><pre data-block-id="OJs4-tv8" data-indent-type="space" data-indent-length="2"><code>R1(config)# interface gigabitEthernet 0/0
+R1(config-if)# no shutdown
+R1(config-if)# exit
+
+R1(config)# interface gigabitEthernet 0/0.10
+R1(config-subif)# encapsulation dot1q 10        ← n° du VLAN, doit matcher !
+R1(config-subif)# ip address 192.168.1.1 255.255.255.128
+
+R1(config)# interface gigabitEthernet 0/0.20
+R1(config-subif)# encapsulation dot1q 20
+R1(config-subif)# ip address 192.168.1.129 255.255.255.128
+</code></pre><h3 data-block-id="sUiPzhBt">Sauvegarde config (à faire SYSTÉMATIQUEMENT)</h3><pre data-block-id="2LOrtwBJ" data-indent-type="space" data-indent-length="2"><code>Router# copy running-config startup-config
+                  ↑                   ↑
+            actuelle (RAM)       démarrage (NVRAM)
+
+! Raccourci :
+Router# copy run start
+</code></pre><hr><h2 data-block-id="2-tIlXaG">6. VLANs</h2><h3 data-block-id="sUDXPs_x">Création des VLANs sur un switch</h3><pre data-block-id="hKGIHTNY" data-indent-type="space" data-indent-length="2"><code>SW1(config)# vlan 10
+SW1(config-vlan)# name Users10
+SW1(config-vlan)# exit
+SW1(config)# vlan 20
+SW1(config-vlan)# name Users20
+SW1(config-vlan)# exit
+SW1(config)# vlan 99
+SW1(config-vlan)# name Management
+</code></pre><h3 data-block-id="NVjAyL63">Port en mode access (vers PC, imprimante…)</h3><pre data-block-id="RL36z92k" data-indent-type="space" data-indent-length="2"><code>SW1(config)# interface fastEthernet 0/1
+SW1(config-if)# switchport mode access
+SW1(config-if)# switchport access vlan 10
+SW1(config-if)# switchport nonegotiate           ← désactive DTP (sécurité)
+</code></pre><p data-block-id="cXL027mK" data-spacing="double"><strong>Pour plusieurs ports d'un coup</strong> :</p><pre data-block-id="rFLevPUg" data-indent-type="space" data-indent-length="2"><code>SW1(config)# interface range fa0/1 - 5
+SW1(config-if-range)# switchport mode access
+SW1(config-if-range)# switchport access vlan 10
+SW1(config-if-range)# switchport nonegotiate
+</code></pre><h3 data-block-id="8a0m6INn">Port en mode trunk (vers routeur, autre switch, serveur 802.1q)</h3><pre data-block-id="047EelVr" data-indent-type="space" data-indent-length="2"><code>SW1(config)# interface gigabitEthernet 0/1
+SW1(config-if)# switchport mode trunk
+SW1(config-if)# switchport trunk allowed vlan 10,20,99   ← restriction recommandée
+SW1(config-if)# switchport trunk native vlan 99          ← bonne pratique sécurité
+</code></pre><h3 data-block-id="UPIH0oOO">SVI (interface virtuelle pour management du switch)</h3><pre data-block-id="g3uP6ey5" data-indent-type="space" data-indent-length="2"><code>SW1(config)# interface vlan 99
+SW1(config-if)# ip address 192.168.99.10 255.255.255.0
+SW1(config-if)# no shutdown
+SW1(config-if)# exit
+SW1(config)# ip default-gateway 192.168.99.1   ← pour répondre hors VLAN
+</code></pre><h3 data-block-id="A1Pux0Kj">Vérification</h3><pre data-block-id="YBtEm0bX" data-indent-type="space" data-indent-length="2"><code>SW1# show vlan brief                          ← VLANs et leurs ports
+SW1# show interfaces trunk                    ← détails sur les trunks
+SW1# show interfaces fa0/1 switchport         ← détails d'un port
+</code></pre><hr><h2 data-block-id="2mjdmtS-">7. Routage statique</h2><h3 data-block-id="D0L50h9A">Syntaxe générale</h3><pre data-block-id="hcGv1uqc" data-indent-type="space" data-indent-length="2"><code>R1(config)# ip route &lt;réseau destination&gt; &lt;masque&gt; &lt;next-hop&gt;
+</code></pre><h3 data-block-id="f0KuQjLw">Exemples</h3><pre data-block-id="Hil4CgFT" data-indent-type="space" data-indent-length="2"><code>! Route vers un réseau distant
+R1(config)# ip route 192.168.2.0 255.255.255.0 192.168.10.2
+
+! Route par défaut (TOUTES les destinations inconnues)
+R1(config)# ip route 0.0.0.0 0.0.0.0 80.70.60.1
+
+! Route flottante (backup, distance admin élevée)
+R1(config)# ip route 192.168.10.0 255.255.255.0 192.168.5.2 200
+                                                              ↑
+                                                   distance admin (défaut: 1)
+</code></pre><h3 data-block-id="SnTGU4t4">Lecture de la table de routage</h3><pre data-block-id="pn1jT5-y" data-indent-type="space" data-indent-length="2"><code>Codes: C - connected, S - static, R - RIP, *  - candidate default
+
+C    192.168.1.0/24    is directly connected, GigabitEthernet0/0
+S    192.168.2.0/24    [1/0] via 192.168.10.2
+S*   0.0.0.0/0         [1/0] via 80.70.60.1                ← route par défaut
+R    192.168.4.0/24    [120/2] via 192.168.10.2            ← route apprise par RIP
+R*   0.0.0.0/0         [120/1] via 192.168.10.1            ← route par défaut RIP
+</code></pre><table data-block-id="zK94S_xI" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Code</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Source</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">C</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Connecté</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">S</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Statique</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">R</p></td><td colspan="1" rowspan="1"><p data-spacing="double">RIP</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">*</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Candidate default (route par défaut)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">[1/0]</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">[distance administrative / métrique]</p></td></tr></tbody></table><h3 data-block-id="xBcLWTQh">Distance administrative</h3><table data-block-id="NYkN-vqX" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Source</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Distance admin</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Connecté (C)</p></td><td colspan="1" rowspan="1"><p data-spacing="double">0</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Statique (S)</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>1</strong></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">EIGRP</p></td><td colspan="1" rowspan="1"><p data-spacing="double">90</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">OSPF</p></td><td colspan="1" rowspan="1"><p data-spacing="double">110</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>RIP (R)</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>120</strong></p></td></tr></tbody></table><p data-block-id="kb2j7Gak" data-spacing="double">→ Plus c'est bas, plus c'est fiable. Si conflit, le <strong>plus petit gagne</strong>.</p><h3 data-block-id="ru4UmlZR">Les 3 principes fondamentaux</h3><ol data-block-id="JirYabH_"><li><p data-spacing="double"><strong>Chaque routeur décide tout seul</strong> (ne consulte pas les autres)</p></li><li><p data-spacing="double"><strong>Vue partielle</strong> (ne connaît pas la topologie globale)</p></li><li><p data-spacing="double"><strong>Aller-retour pas garanti</strong> (penser à la <strong>route retour</strong> : c'est l'erreur n°1)</p></li></ol><hr><h2 data-block-id="OfaKp0y6">8. Routage dynamique RIP</h2><h3 data-block-id="EpCxTYrQ">Configuration RIPv2 (le standard à utiliser)</h3><pre data-block-id="bi6GtEmh" data-indent-type="space" data-indent-length="2"><code>R1(config)# router rip
+R1(config-router)# version 2
+R1(config-router)# no auto-summary               ← OBLIGATOIRE avec subnetting
+R1(config-router)# network 192.168.1.0           ← réseaux DIRECTEMENT connectés
+R1(config-router)# network 192.168.4.0           ← jamais des réseaux distants !
+R1(config-router)# network 192.168.6.0
+</code></pre><h3 data-block-id="Gt1RLje2">Caractéristiques RIP à connaître</h3><table data-block-id="FKLRA7Qn" style="min-width: 40px"><colgroup><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Aspect</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Valeur</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Métrique</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Hop count (nombre de routeurs)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Maximum</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>15 sauts</strong> (16 = injoignable)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Mises à jour</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Toutes les <strong>30 secondes</strong></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Distance admin</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>120</strong></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">RIPv1 / RIPv2</p></td><td colspan="1" rowspan="1"><p data-spacing="double">RIPv2 = supporte VLSM</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Convergence</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Lente</p></td></tr></tbody></table><h3 data-block-id="E0z1Nf67">Vérification</h3><pre data-block-id="5fgBFwge" data-indent-type="space" data-indent-length="2"><code>R1# show ip route                    ! routes apprises (R = RIP)
+R1# show ip protocols                ! détails du protocole RIP
+R1# show ip rip database             ! base de données RIP
+R1# debug ip rip                     ! voir les annonces en temps réel
+R1# undebug all                      ! arrêter le debug
+</code></pre><h3 data-block-id="NPKXJkpz">Test de tolérance aux pannes</h3><ol data-block-id="BekbkIAd"><li><p data-spacing="double">Lancer un ping continu d'un PC à un autre</p></li><li><p data-spacing="double">Couper un lien</p></li><li><p data-spacing="double">Pings perdus pendant ~30 secondes (convergence)</p></li><li><p data-spacing="double">Reprise auto via le chemin alternatif</p></li></ol><hr><h2 data-block-id="5Xr-71bR">9. NAT (Network Address Translation)</h2><h3 data-block-id="6eJWMdTf">Configuration NAT Overload (PAT) — le cas standard</h3><pre data-block-id="I7HkpBxO" data-indent-type="space" data-indent-length="2"><code>! Étape 1 : ACL pour définir QUI peut être traduit
+R1(config)# ip access-list standard 1
+R1(config-std-nacl)# permit 192.168.1.0 0.0.0.255          ← tout le /24
+R1(config-std-nacl)# exit
+
+! ⚠️ Wildcard mask = inverse du masque !
+! /24 (255.255.255.0)  → wildcard 0.0.0.255
+! /27 (255.255.255.224) → wildcard 0.0.0.31
+
+! Étape 2 : Activer le NAT
+R1(config)# ip nat inside source list 1 interface gigabitEthernet 0/1 overload
+                                                            ↑           ↑
+                                                       interface WAN   PAT
+
+! Étape 3 : Désigner les interfaces
+R1(config)# interface gigabitEthernet 0/1
+R1(config-if)# ip nat outside              ← interface WAN (vers FAI)
+R1(config-if)# exit
+
+R1(config)# interface gigabitEthernet 0/0.10
+R1(config-if)# ip nat inside               ← interfaces LAN (chaque sous-int VLAN)
+
+R1(config)# interface gigabitEthernet 0/0.20
+R1(config-if)# ip nat inside
+
+! Etc. pour chaque sous-interface interne
+</code></pre><h3 data-block-id="ZgH6j-B1">Vérification</h3><pre data-block-id="wdj7tZ2v" data-indent-type="space" data-indent-length="2"><code>R1# show ip nat translations             ! voir les translations en cours
+R1# show ip nat statistics                ! statistiques NAT
+R1# clear ip nat translation *            ! vider la table (pour debug)
+R1# debug ip nat                          ! voir le NAT en temps réel
+</code></pre><h3 data-block-id="sd5QqGM7">Les 3 types de NAT</h3><table data-block-id="9ZeF1P6C" style="min-width: 60px"><colgroup><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Type</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Mapping</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Usage</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Statique</p></td><td colspan="1" rowspan="1"><p data-spacing="double">1 IP privée ↔ 1 IP publique fixe</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Exposer un serveur interne</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Dynamique</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Pool d'IPs publiques</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Plusieurs IPs publiques disponibles</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Overload (PAT)</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Toutes IPs privées → 1 IP publique (ports différents)</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>90% des cas (box maison)</strong></p></td></tr></tbody></table><h3 data-block-id="nu5193Ut">Effet immédiat</h3><p data-block-id="kXY2FLie" data-spacing="double"><strong>Sans NAT</strong> : le FAI a besoin de routes vers les IPs privées (jamais en vrai !). <strong>Avec NAT</strong> : le FAI ne connaît que ton IP publique. Plus simple, plus sécurisé, plus réaliste.</p><hr><h2 data-block-id="S2OB9PRV">10. Distribution route par défaut via RIP</h2><p data-block-id="JlcIA1hA" data-spacing="double"><strong>Le combo gagnant</strong> : statique vers le FAI + RIP en interne + propagation auto.</p><h3 data-block-id="HDfxhvwd">Sur le routeur de bordure</h3><pre data-block-id="50eFXcOE" data-indent-type="space" data-indent-length="2"><code>! Route statique par défaut vers le FAI
+R-Bordure(config)# ip route 0.0.0.0 0.0.0.0 70.70.70.1
+
+! RIP avec distribution
+R-Bordure(config)# router rip
+R-Bordure(config-router)# version 2
+R-Bordure(config-router)# no auto-summary
+R-Bordure(config-router)# network 192.168.10.0      ← liens internes UNIQUEMENT
+R-Bordure(config-router)# default-information originate    ← ✨ LA COMMANDE CLÉ
+</code></pre><h3 data-block-id="p2GlLm5n">Résultat sur les routeurs internes</h3><pre data-block-id="aftH8wgW" data-indent-type="space" data-indent-length="2"><code>R*   0.0.0.0/0 [120/1] via 192.168.10.1
+                                          ↑
+                              R = appris par RIP
+                              * = candidate default
+</code></pre><p data-block-id="dG-Ezpdb" data-spacing="double">Les routeurs internes reçoivent automatiquement la route par défaut. Plus besoin de la configurer en statique sur chacun !</p><h3 data-block-id="rEBLrJHf">Règle absolue</h3><blockquote data-block-id="tZAL3dxG"><p data-spacing="double"><strong>NE JAMAIS</strong> annoncer le réseau du FAI dans RIP (<code spellcheck="false">network 70.70.70.0</code> interdit). Sinon : leak d'infos internes vers le FAI + pollution.</p></blockquote><hr><h2 data-block-id="SE-SiL_w">11. IPv6</h2><h3 data-block-id="-YsUD3mN">Format et simplification</h3><pre data-block-id="_U9u_9be" data-indent-type="space" data-indent-length="2"><code>Forme complète : 2001:0DB8:ABCD:0001:0000:0000:0000:0001
+Règle 1 (zéros initiaux) : 2001:DB8:ABCD:1:0:0:0:1
+Règle 2 (compression ::) : 2001:DB8:ABCD:1::1
+</code></pre><p data-block-id="4usvjTS3" data-spacing="double">⚠️ <strong><code spellcheck="false">::</code> une seule fois</strong> par adresse (sinon ambigu).</p><h3 data-block-id="CGjXmdKU">Types d'adresses</h3><table data-block-id="X5x8iPq5" style="min-width: 60px"><colgroup><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Type</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Préfixe</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Usage</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Global Unicast</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">2000::/3</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Routable Internet</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Link-Local</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">FE80::/10</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Auto, sur le lien uniquement</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Unique Local</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">FC00::/7</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Privé interne (peu utilisé)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Multicast</strong></p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">FF00::/8</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">Remplace le broadcast IPv4</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">FF02::1</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">All-nodes</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Tous les hôtes IPv6</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">FF02::2</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">All-routers</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Tous les routeurs IPv6</p></td></tr></tbody></table><h3 data-block-id="jN4C4qO0">Configuration</h3><pre data-block-id="JMbCd2T6" data-indent-type="space" data-indent-length="2"><code>! ⚠️ Étape OBLIGATOIRE sur chaque routeur — souvent oubliée !
+R1(config)# ipv6 unicast-routing
+
+! Configurer une interface
+R1(config)# interface gigabitEthernet 0/0
+R1(config-if)# ipv6 address 2001:DB8:ABCD:1::1/64
+R1(config-if)# ipv6 address FE80::1 link-local
+R1(config-if)# no shutdown
+
+! Route statique IPv6
+R1(config)# ipv6 route 2001:DB8:ABCD:2::/64 2001:DB8:ABCD:4::2
+</code></pre><h3 data-block-id="eUh5JvGB">Vérification</h3><pre data-block-id="MhfgfaU9" data-indent-type="space" data-indent-length="2"><code>R1# show ipv6 interface brief
+R1# show ipv6 route
+R1# show ipv6 neighbors        ! équivalent ARP
+R1# ping ipv6 2001:DB8:ABCD:2::1
+</code></pre><h3 data-block-id="5Y5jIaDR">Différences IPv4 / IPv6 — TL;DR</h3><table data-block-id="BUF_2MEV" style="min-width: 60px"><colgroup><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double"><br></p></th><th colspan="1" rowspan="1"><p data-spacing="double">IPv4</p></th><th colspan="1" rowspan="1"><p data-spacing="double">IPv6</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Taille</p></td><td colspan="1" rowspan="1"><p data-spacing="double">32 bits</p></td><td colspan="1" rowspan="1"><p data-spacing="double">128 bits</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Activation routeur</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Auto</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong><code spellcheck="false">ipv6 unicast-routing</code> requis</strong></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Broadcast</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Oui</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Non</strong> (multicast à la place)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Auto-config</p></td><td colspan="1" rowspan="1"><p data-spacing="double">DHCP</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>SLAAC</strong> (sans serveur)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Adresses par interface</p></td><td colspan="1" rowspan="1"><p data-spacing="double">1</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>≥ 2</strong> (link-local + global)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">ARP</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Oui</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Non</strong> (NDP à la place)</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">Subnetting standard</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Variable</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Quasi toujours <strong>/64</strong></p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double">NAT</p></td><td colspan="1" rowspan="1"><p data-spacing="double">Indispensable</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><strong>Inutile</strong></p></td></tr></tbody></table><hr><h2 data-block-id="G38ZOlmz">12. Services : DHCP, HTTP, DNS</h2><h3 data-block-id="yeYJa8np">DHCP (Packet Tracer Server-PT)</h3><ol data-block-id="7tif21cC"><li><p data-spacing="double">Server-PT → Onglet <strong>Services</strong> → <strong>DHCP</strong></p></li><li><p data-spacing="double">Renseigner :</p><ul><li><p data-spacing="double">Pool name : ex. <code spellcheck="false">LAN_VLAN10</code></p></li><li><p data-spacing="double">Default Gateway : IP du routeur côté ce VLAN</p></li><li><p data-spacing="double">DNS Server : IP du serveur DNS interne</p></li><li><p data-spacing="double">Start IP Address : ex. <code spellcheck="false">192.168.1.10</code></p></li><li><p data-spacing="double">Subnet Mask : ex. <code spellcheck="false">255.255.255.128</code></p></li><li><p data-spacing="double">Maximum users : nombre d'IPs disponibles</p></li></ul></li><li><p data-spacing="double"><strong>Save</strong> + <strong>Service ON</strong></p></li></ol><p data-block-id="-Ifu9KJ3" data-spacing="double">Sur les PCs : passer en <strong>DHCP</strong> dans IP Configuration.</p><h3 data-block-id="YzyYv5M6">HTTP (serveur web Packet Tracer)</h3><ol data-block-id="ir34hLKN"><li><p data-spacing="double">Server-PT → Onglet <strong>Services</strong> → <strong>HTTP</strong></p></li><li><p data-spacing="double">Activer HTTP (et HTTPS si voulu)</p></li><li><p data-spacing="double">Personnaliser <code spellcheck="false">index.html</code> si besoin</p></li></ol><p data-block-id="-J_NUReM" data-spacing="double">Test : sur PC → onglet <strong>Desktop</strong> → <strong>Web Browser</strong> → IP ou URL.</p><h3 data-block-id="kBNuIRbr">DNS (serveur DNS Packet Tracer)</h3><ol data-block-id="V67ug12R"><li><p data-spacing="double">Server-PT → Onglet <strong>Services</strong> → <strong>DNS</strong></p></li><li><p data-spacing="double"><strong>DNS Service : ON</strong></p></li><li><p data-spacing="double">Resource Record :</p><ul><li><p data-spacing="double">Name : <code spellcheck="false">www.test.com</code></p></li><li><p data-spacing="double">Type : <code spellcheck="false">A Record</code></p></li><li><p data-spacing="double">Address : <code spellcheck="false">80.70.60.10</code> (IP du serveur web)</p></li></ul></li><li><p data-spacing="double"><strong>Add</strong></p></li></ol><p data-block-id="IY_Az9_7" data-spacing="double">Sur les PCs : renseigner <strong>DNS Server</strong> dans IP Configuration.</p><p data-block-id="ob5fd85a" data-spacing="double">Test :</p><pre data-block-id="WYCzgUqg" data-indent-type="space" data-indent-length="2"><code>PC&gt; nslookup www.test.com
+PC&gt; ping www.test.com
+PC&gt; (Web Browser) http://www.test.com
+</code></pre><hr><h2 data-block-id="JzBkFFFz">13. Management IT et SSH</h2><h3 data-block-id="5dmpYN5i">Configuration SSH (à connaître par cœur)</h3><pre data-block-id="qa27pEr-" data-indent-type="space" data-indent-length="2"><code>! 1. Hostname et nom de domaine (REQUIS pour les clés RSA)
+SW1(config)# hostname SW1
+SW1(config)# ip domain-name labo.local
+
+! 2. Génération des clés RSA
+SW1(config)# crypto key generate rsa
+                How many bits in the modulus [512]: 1024
+
+! 3. Compte local
+SW1(config)# username admin secret cisco
+SW1(config)# enable secret class
+
+! 4. Lignes VTY (telnet/SSH distant)
+SW1(config)# line vty 0 4
+SW1(config-line)# transport input ssh        ← SSH only (pas telnet)
+SW1(config-line)# login local                ← utiliser usernames locaux
+SW1(config-line)# exec-timeout 10            ← déco auto après 10 min
+SW1(config-line)# exit
+
+! 5. Forcer SSH v2 (plus sécurisé)
+SW1(config)# ip ssh version 2
+</code></pre><h3 data-block-id="M8xvVvm2">Test depuis un PC dans Packet Tracer</h3><pre data-block-id="UWl2YNpU" data-indent-type="space" data-indent-length="2"><code>PC&gt; Command Prompt
+PC&gt; ssh -l admin 192.168.99.10
+Password: cisco
+SW1&gt;
+</code></pre><h3 data-block-id="qXA5xbYd">Mots de passe imposés (cohérence labos)</h3><ul data-block-id="k6Kvtbni"><li><p data-spacing="double">Console et VTY : <strong><code spellcheck="false">cisco</code></strong></p></li><li><p data-spacing="double">Enable secret : <strong><code spellcheck="false">class</code></strong></p></li></ul><hr><h2 data-block-id="_jGP3Ok0">14. Règles de l'art Cisco</h2><p data-block-id="UoJVr_Dg" data-spacing="double">À appliquer <strong>systématiquement</strong> sur chaque équipement.</p><pre data-block-id="HVYczvrS" data-indent-type="space" data-indent-length="2"><code>! Hostname significatif
+Router(config)# hostname R-Bruxelles
+
+! Pas de recherche DNS (évite délais sur les fautes de frappe)
+R-Bruxelles(config)# no ip domain-lookup
+
+! Banner d'avertissement
+R-Bruxelles(config)# banner motd % This is a secured system. Authorized Access ONLY !!! %
+
+! Mot de passe console
+R-Bruxelles(config)# line console 0
+R-Bruxelles(config-line)# password cisco
+R-Bruxelles(config-line)# login
+R-Bruxelles(config-line)# logging synchronous   ← logs ne coupent pas la saisie
+R-Bruxelles(config-line)# exec-timeout 15
+R-Bruxelles(config-line)# exit
+
+! Mot de passe enable secret (chiffré)
+R-Bruxelles(config)# enable secret class
+
+! Chiffrer TOUS les mots de passe (y compris ceux en clair)
+R-Bruxelles(config)# service password-encryption
+
+! Description sur chaque interface utilisée
+R-Bruxelles(config)# interface g0/0
+R-Bruxelles(config-if)# description To Switch SW1
+
+! Désactiver les interfaces non-utilisées
+R-Bruxelles(config)# interface g0/2
+R-Bruxelles(config-if)# shutdown
+</code></pre><h3 data-block-id="0BMkaB5h">Checklist règles de l'art</h3><ul data-block-id="_T_7iJPz"><li><p data-spacing="double">☐ hostname significatif</p></li><li><p data-spacing="double">☐ no ip domain-lookup</p></li><li><p data-spacing="double">☐ banner motd</p></li><li><p data-spacing="double">☐ password console</p></li><li><p data-spacing="double">☐ enable secret</p></li><li><p data-spacing="double">☐ service password-encryption</p></li><li><p data-spacing="double">☐ description sur interfaces utilisées</p></li><li><p data-spacing="double">☐ shutdown sur interfaces non-utilisées</p></li><li><p data-spacing="double">☐ SSH configuré (si management requis)</p></li><li><p data-spacing="double">☐ copy run start</p></li></ul><hr><h2 data-block-id="skjkI-KX">15. Diagnostic et debug</h2><h3 data-block-id="HDoaUUbK">La séquence de tests (TOUJOURS dans cet ordre)</h3><pre data-block-id="whn_FSCO" data-indent-type="space" data-indent-length="2"><code>1. Intra-sous-réseau     : PC1 → autre PC du même VLAN
+2. PC → sa gateway       : PC1 → IP du routeur
+3. Inter-VLAN intra-site : PC VLAN 10 → PC VLAN 20
+4. Inter-site            : PC LAN 1 → PC LAN 2
+5. Internet par IP       : PC → 8.8.8.8
+6. Internet par nom      : PC → www.test.com (test DNS)
+</code></pre><p data-block-id="brpi8PuU" data-spacing="double">Si une étape <strong>échoue, arrête-toi là</strong> et débogue avant d'avancer.</p><h3 data-block-id="P4O2R2Gs">Les 5 commandes de diagnostic essentielles</h3><pre data-block-id="1pnFbhUF" data-indent-type="space" data-indent-length="2"><code>! État de TOUTES les interfaces (UP/DOWN, IP)
+Router# show ip interface brief
+
+! Table de routage complète
+Router# show ip route
+
+! Configuration en cours (RAM)
+Router# show running-config
+
+! Détails sur un protocole de routage
+Router# show ip protocols
+
+! Test ping/traceroute
+Router# ping 192.168.1.10
+Router# traceroute 192.168.1.10
+</code></pre><h3 data-block-id="Qxwyryg5">Sur un switch en plus</h3><pre data-block-id="BMWr-BYN" data-indent-type="space" data-indent-length="2"><code>SW1# show vlan brief
+SW1# show interfaces trunk
+SW1# show interfaces fa0/1 switchport
+SW1# show mac address-table
+</code></pre><h3 data-block-id="QHr2yXJu">Pour le NAT</h3><pre data-block-id="LEKf2xgy" data-indent-type="space" data-indent-length="2"><code>R1# show ip nat translations
+R1# show ip nat statistics
+R1# clear ip nat translation *
+</code></pre><h3 data-block-id="o2hoor3w">Pour IPv6</h3><pre data-block-id="eYhlAxtV" data-indent-type="space" data-indent-length="2"><code>R1# show ipv6 interface brief
+R1# show ipv6 route
+R1# show ipv6 neighbors
+</code></pre><h3 data-block-id="nXjyVtPR">Méthode "5 questions" quand un ping échoue</h3><ol data-block-id="Dj7jH6Nj"><li><p data-spacing="double"><strong>L'interface est-elle UP ?</strong> → <code spellcheck="false">show ip interface brief</code></p></li><li><p data-spacing="double"><strong>L'IP est-elle correcte ?</strong> → vérifier dans la conf</p></li><li><p data-spacing="double"><strong>Le routeur connaît-il le réseau destination ?</strong> → <code spellcheck="false">show ip route</code></p></li><li><p data-spacing="double"><strong>Le retour est-il configuré ?</strong> → vérifier la table de routage du routeur distant</p></li><li><p data-spacing="double"><strong>Les ACL ou NAT bloquent-ils ?</strong> → <code spellcheck="false">show ip nat translations</code> / ACLs</p></li></ol><hr><h2 data-block-id="lz7C77YX">16. Top 30 des pièges récurrents</h2><h3 data-block-id="RSNVcTw2">Configuration de base</h3><ol data-block-id="vxy0iWO9"><li><p data-spacing="double">❌ Oublier <code spellcheck="false">no shutdown</code> sur une interface → reste DOWN</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">copy run start</code> → tout perdu au reload</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">delete vlan.dat</code> au reset switch → VLANs ressuscitent</p></li><li><p data-spacing="double">❌ Oublier la <strong>gateway</strong> sur un PC → ping local OK, distant KO</p></li><li><p data-spacing="double">❌ Confondre <code spellcheck="false">running-config</code> et <code spellcheck="false">startup-config</code></p></li></ol><h3 data-block-id="OkyQXMmM">Subnetting et adressage</h3><ol data-block-id="YS9rz1sM" start="6"><li><p data-spacing="double">❌ Oublier le <strong>−2</strong> dans le calcul des hôtes (réseau + broadcast)</p></li><li><p data-spacing="double">❌ Mettre une IP dans la plage réservée (.0 réseau ou .255 broadcast)</p></li><li><p data-spacing="double">❌ Confondre /25, /26, /27 dans les commandes</p></li><li><p data-spacing="double">❌ Mauvais wildcard (255 - X !)</p></li></ol><h3 data-block-id="gCFmtKqV">VLANs</h3><ol data-block-id="wHdNg6yf" start="10"><li><p data-spacing="double">❌ Oublier <code spellcheck="false">encapsulation dot1q X</code> sur les sous-interfaces</p></li><li><p data-spacing="double">❌ Numéro dot1q ≠ numéro de VLAN sur le switch</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">switchport mode access</code> (port reste en dynamic auto)</p></li><li><p data-spacing="double">❌ Mettre des PCs dans le VLAN 1</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">ip default-gateway</code> sur le switch pour SSH inter-VLAN</p></li></ol><h3 data-block-id="3DwFCPgu">Routage</h3><ol data-block-id="4hVtnjkD" start="15"><li><p data-spacing="double">❌ Oublier la <strong>route retour</strong> (l'erreur n°1 du routage statique !)</p></li><li><p data-spacing="double">❌ Mettre une route statique pour un réseau directement connecté</p></li><li><p data-spacing="double">❌ Mauvais next-hop dans <code spellcheck="false">ip route</code></p></li><li><p data-spacing="double">❌ RIP : oublier <code spellcheck="false">no auto-summary</code> avec VLSM</p></li><li><p data-spacing="double">❌ RIP : annoncer un réseau distant dans <code spellcheck="false">network</code></p></li><li><p data-spacing="double">❌ Tester avant la convergence (~30 secondes pour RIP)</p></li></ol><h3 data-block-id="Tz_IsLWW">NAT</h3><ol data-block-id="SfaCv4IW" start="21"><li><p data-spacing="double">❌ Wildcard mask au lieu du masque réseau dans l'ACL</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">overload</code> → mode "1 translation à la fois"</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">ip nat inside</code> sur <strong>toutes</strong> les sous-interfaces</p></li><li><p data-spacing="double">❌ Oublier <code spellcheck="false">ip nat outside</code> sur l'interface WAN</p></li></ol><h3 data-block-id="alKKT5B4">Distribution route (labo 09 et 10)</h3><ol data-block-id="0j7eLybG" start="25"><li><p data-spacing="double">❌ Oublier <code spellcheck="false">default-information originate</code> → routes par défaut bloquées</p></li><li><p data-spacing="double">❌ Annoncer le réseau du FAI dans RIP (interdit !)</p></li></ol><h3 data-block-id="rTzJJCBd">IPv6</h3><ol data-block-id="anQcS6Dz" start="27"><li><p data-spacing="double">❌ 🚨 Oublier <code spellcheck="false">ipv6 unicast-routing</code> sur le routeur (le piège n°1 d'IPv6)</p></li><li><p data-spacing="double">❌ Utiliser link-local comme next-hop sans préciser l'interface</p></li><li><p data-spacing="double">❌ Compression <code spellcheck="false">::</code> utilisée 2 fois dans une adresse</p></li></ol><h3 data-block-id="X78_1sd7">SSH</h3><ol data-block-id="a2KDmbXY" start="30"><li><p data-spacing="double">❌ Oublier <code spellcheck="false">crypto key generate rsa</code> avant <code spellcheck="false">transport input ssh</code></p></li></ol><hr><h2 data-block-id="SFakuQ-6">17. Mémo de commandes ultra-condensé</h2><h3 data-block-id="Yt0gcep7">Commandes "10 secondes" pour gagner du temps</h3><pre data-block-id="p5uxl8Hm" data-indent-type="space" data-indent-length="2"><code>! Entrée mode config rapide
+en
+conf t
+
+! Configuration interface rapide
+int g0/0
+ip add 192.168.1.1 255.255.255.0
+no sh
+exit
+
+! Sauvegarde
+do wr        ← raccourci pour copy run start
+copy r s
+
+! Voir l'état des interfaces
+do sh ip int br      ← depuis n'importe quel mode
+
+! Voir la table de routage
+do sh ip route
+
+! Sortir directement au mode #
+end
+</code></pre><h3 data-block-id="zWJq5yFm">Configuration d'une interface VLAN en 4 lignes</h3><pre data-block-id="04A1FAAa" data-indent-type="space" data-indent-length="2"><code>int g0/0.10
+encap dot1q 10
+ip add 192.168.1.1 255.255.255.128
+exit
+</code></pre><h3 data-block-id="MH61nNkT">NAT minimal (à connaître par cœur)</h3><pre data-block-id="8nAOpBTj" data-indent-type="space" data-indent-length="2"><code>! ACL
+ip access-list standard 1
+permit 192.168.0.0 0.0.255.255
+
+! NAT
+ip nat inside source list 1 interface g0/1 overload
+
+! Sur interfaces
+int g0/1
+ip nat outside
+
+int g0/0.10
+ip nat inside
+</code></pre><h3 data-block-id="zW3ponzq">Configuration RIP minimale</h3><pre data-block-id="jWUjqa_8" data-indent-type="space" data-indent-length="2"><code>router rip
+version 2
+no auto-summary
+network 192.168.1.0
+network 192.168.10.0
+default-information originate     ← si tu es le routeur de bordure
+</code></pre><h3 data-block-id="nnTo1SoI">Activation IPv6 en 3 lignes</h3><pre data-block-id="gp5eNMe8" data-indent-type="space" data-indent-length="2"><code>ipv6 unicast-routing       ← À NE PAS OUBLIER
+
+int g0/0
+ipv6 add 2001:DB8::1/64
+ipv6 add FE80::1 link-local
+no sh
+</code></pre><hr><h2 data-block-id="G0SUHuKj">🎯 Le mot de la fin</h2><p data-block-id="2MhvnARX" data-spacing="double">Cette synthèse couvre <strong>TOUT</strong> ce que tu as fait pratiquement durant le quadrimestre. À l'examen :</p><ol data-block-id="yGLfHyx1"><li><p data-spacing="double"><strong>Garde ta calme</strong> : applique la démarche universelle (§1)</p></li><li><p data-spacing="double"><strong>Calcule d'abord</strong> le subnetting, <strong>avant</strong> de toucher Packet Tracer</p></li><li><p data-spacing="double"><strong>Teste en cascade</strong> : intra-VLAN → inter-VLAN → inter-site → Internet</p></li><li><p data-spacing="double"><strong>Une étape échoue → tu ne passes pas à la suivante</strong></p></li><li><p data-spacing="double"><strong>Règles de l'art</strong> = derniers 10 points faciles à gratter</p></li></ol><p data-block-id="gs3gxw-g" data-spacing="double"><strong>Bonne chance ! 🍀</strong></p><hr><p data-block-id="WLl1oYeH" data-spacing="double"><em>Synthèse générée à partir des labos 00 à 10 du cours Réseaux Informatiques Q2.</em> <em>Complémentaire de la synthèse théorique <code spellcheck="false">ClaudeSynthèse_reseau_complet.md</code>.</em></p>
+  </body>
+</html>
