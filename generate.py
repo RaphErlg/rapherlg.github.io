@@ -7,6 +7,12 @@ ICON = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%
 MONTHS = ["janvier","février","mars","avril","mai","juin",
           "juillet","août","septembre","octobre","novembre","décembre"]
 
+# Marqueurs pour retrouver et remplacer les blocs injectés à chaque run
+STYLE_START = "<!-- site-style-start -->"
+STYLE_END   = "<!-- site-style-end -->"
+NAV_START   = "<!-- site-nav-start -->"
+NAV_END     = "<!-- site-nav-end -->"
+
 def read_file(path):
     with open(path, encoding="utf-8") as f:
         return f.read()
@@ -23,8 +29,13 @@ def extract_meta(html, name):
     m = re.search(rf'<meta\s+name="{name}"\s+content="(.*?)"', html, re.IGNORECASE)
     return m.group(1).strip() if m else None
 
+def strip_between(html, start_marker, end_marker):
+    """Supprime tout ce qui est entre deux marqueurs (inclus), pour pouvoir réinjecter proprement."""
+    pattern = re.escape(start_marker) + r".*?" + re.escape(end_marker)
+    return re.sub(pattern, "", html, flags=re.DOTALL)
+
 def format_date(raw):
-    """'17-05-2026 03:23 PM' → 'mai 2026'"""
+    """'17-05-2026 03:23 PM' -> 'mai 2026'"""
     if not raw:
         return ""
     parts = raw.split(" ")[0].split("-")
@@ -37,22 +48,103 @@ def today_fr():
     return f"{MONTHS[d.month - 1]} {d.year}"
 
 def get_course_title(course_path):
-    """Read title from existing index.html, stripping the ' — Synthèses' suffix."""
+    """Lit le titre depuis l'index.html existant du cours."""
     index_path = os.path.join(course_path, "index.html")
     if os.path.exists(index_path):
         title = extract_tag(read_file(index_path), "title")
         if title:
             return title.replace(" — Synthèses", "").strip()
-    # Fallback: format folder name
     return os.path.basename(course_path).replace("-", " ").capitalize()
 
 def get_synthesis_info(filepath):
-    """Return (title, date) for a Notesnook HTML file."""
+    """Retourne (titre, date) pour un fichier HTML Notesnook."""
     html = read_file(filepath)
     title = extract_tag(html, "title") or os.path.basename(filepath).replace(".html", "")
-    title = title[0].upper() + title[1:]  # capitalize first letter
+    title = title[0].upper() + title[1:]
     raw_date = extract_meta(html, "updated-at")
     return title, format_date(raw_date)
+
+def inject_site_style(html):
+    """
+    Injecte dans <head> le style.css du site + un bloc d'overrides
+    qui uniforme le fond, la largeur et les couleurs des synthèses Notesnook.
+    Supprime d'abord toute injection précédente pour éviter les doublons.
+    """
+    html = strip_between(html, STYLE_START, STYLE_END)
+
+    injected = f"""{STYLE_START}
+<link rel="stylesheet" href="../../style.css">
+<style>
+  body {{
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    max-width: 720px;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem 4rem !important;
+  }}
+  h1, h2, h3, h4, h5, h6 {{
+    color: var(--ink) !important;
+  }}
+  /* Code inline : fond adapté au thème */
+  code:not(pre code) {{
+    background-color: var(--line-soft) !important;
+    color: var(--ink) !important;
+    border-color: var(--line) !important;
+  }}
+  /* Blocs de code sans colorisation syntaxique */
+  pre:not([class*=language-]) {{
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }}
+  /* Blocs de code avec colorisation Prism : on force le thème sombre Dracula */
+  pre[class*=language-], :not(pre) > code[class*=language-] {{
+    background: #282a36 !important;
+    color: #f8f8f2 !important;
+  }}
+  /* Tableaux */
+  table th {{
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }}
+  table td, table th {{
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+  }}
+  /* Blockquote */
+  blockquote {{
+    border-left-color: var(--accent) !important;
+    color: var(--ink-soft) !important;
+  }}
+</style>
+{STYLE_END}"""
+
+    return re.sub(r"</head>", injected + "\n</head>", html, count=1, flags=re.IGNORECASE)
+
+def inject_site_nav(html, course_title):
+    """
+    Injecte la barre de navigation du site juste après <body>.
+    Supprime d'abord toute injection précédente.
+    """
+    html = strip_between(html, NAV_START, NAV_END)
+
+    nav = f"""{NAV_START}
+<nav class="breadcrumb">
+  <a href="../../">Accueil</a>
+  <span class="breadcrumb-sep">/</span>
+  <a href="./">{course_title}</a>
+</nav>
+{NAV_END}"""
+
+    return re.sub(r"<body>", "<body>\n" + nav, html, count=1, flags=re.IGNORECASE)
+
+def process_synthesis(filepath, course_title):
+    """Lit le fichier Notesnook et y injecte le style et la nav du site."""
+    html = read_file(filepath)
+    html = inject_site_style(html)
+    html = inject_site_nav(html, course_title)
+    write_file(filepath, html)
+
+# --- Génération des pages d'index ---
 
 def generate_synthesis_item(filename, title, syn_date):
     return f"""\
@@ -177,6 +269,7 @@ for course_name in sorted(os.listdir(COURS_DIR)):
         filepath = os.path.join(course_path, filename)
         title, syn_date = get_synthesis_info(filepath)
         syntheses.append((filename, title, syn_date))
+        process_synthesis(filepath, course_title)
         print(f"  [{course_name}] {filename} -> \"{title}\" ({syn_date})")
 
     write_file(os.path.join(course_path, "index.html"), generate_course_index(course_title, syntheses))

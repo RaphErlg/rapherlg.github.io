@@ -176,8 +176,64 @@
     <style>
       code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
     </style>
-  </head>
+  
+
+<!-- site-style-start -->
+<link rel="stylesheet" href="../../style.css">
+<style>
+  body {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    max-width: 720px;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem 4rem !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--ink) !important;
+  }
+  /* Code inline : fond adapté au thème */
+  code:not(pre code) {
+    background-color: var(--line-soft) !important;
+    color: var(--ink) !important;
+    border-color: var(--line) !important;
+  }
+  /* Blocs de code sans colorisation syntaxique */
+  pre:not([class*=language-]) {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  /* Blocs de code avec colorisation Prism : on force le thème sombre Dracula */
+  pre[class*=language-], :not(pre) > code[class*=language-] {
+    background: #282a36 !important;
+    color: #f8f8f2 !important;
+  }
+  /* Tableaux */
+  table th {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  table td, table th {
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+  }
+  /* Blockquote */
+  blockquote {
+    border-left-color: var(--accent) !important;
+    color: var(--ink-soft) !important;
+  }
+</style>
+<!-- site-style-end -->
+</head>
   <body>
+<!-- site-nav-start -->
+<nav class="breadcrumb">
+  <a href="../../">Accueil</a>
+  <span class="breadcrumb-sep">/</span>
+  <a href="./">Programmation</a>
+</nav>
+<!-- site-nav-end -->
+
+
     <h1>fichier atelier</h1>
     <p data-block-id="HW13TGLA" data-spacing="double"><br></p><h1 data-block-id="MYKZO6yW">Fichiers en C — Synthèse</h1><h2 data-block-id="SKgyUDvV">Les 3 étapes obligatoires</h2><p data-block-id="rr2kAzch" data-spacing="double">Chaque manipulation de fichier suit toujours le même schéma :</p><ol data-block-id="UauQOqpG"><li><p data-spacing="double"><strong>Ouvrir</strong> le fichier avec <code spellcheck="false">fopen</code></p></li><li><p data-spacing="double"><strong>Lire ou écrire</strong> avec <code spellcheck="false">fscanf</code>, <code spellcheck="false">fgets</code> ou <code spellcheck="false">fprintf</code></p></li><li><p data-spacing="double"><strong>Fermer</strong> le fichier avec <code spellcheck="false">fclose</code></p></li></ol><hr><h2 data-block-id="T9RT7QGu">Les types et fonctions essentielles</h2><h3 data-block-id="Lfb8tcfp"><code spellcheck="false">FILE*</code> — la variable fichier</h3><pre data-block-id="4EyITDiE" data-indent-type="space" data-indent-length="2" class="language-c"><code>FILE<span class="token operator">*</span> fichier<span class="token punctuation">;</span>
 </code></pre><p data-block-id="vqnZYQBm" data-spacing="double">Une variable spéciale qui représente le lien entre ton programme et un fichier sur le disque. Pense-y comme un signet qui pointe vers le fichier.</p><h3 data-block-id="JZzRooFv"><code spellcheck="false">fopen</code> — ouvrir un fichier</h3><pre data-block-id="plnjBmuC" data-indent-type="space" data-indent-length="2" class="language-c"><code>fichier <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"nom_du_fichier.txt"</span><span class="token punctuation">,</span> <span class="token string">"mode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

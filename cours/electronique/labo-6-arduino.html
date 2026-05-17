@@ -176,8 +176,64 @@
     <style>
       code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
     </style>
-  </head>
+  
+
+<!-- site-style-start -->
+<link rel="stylesheet" href="../../style.css">
+<style>
+  body {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    max-width: 720px;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem 4rem !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--ink) !important;
+  }
+  /* Code inline : fond adapté au thème */
+  code:not(pre code) {
+    background-color: var(--line-soft) !important;
+    color: var(--ink) !important;
+    border-color: var(--line) !important;
+  }
+  /* Blocs de code sans colorisation syntaxique */
+  pre:not([class*=language-]) {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  /* Blocs de code avec colorisation Prism : on force le thème sombre Dracula */
+  pre[class*=language-], :not(pre) > code[class*=language-] {
+    background: #282a36 !important;
+    color: #f8f8f2 !important;
+  }
+  /* Tableaux */
+  table th {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  table td, table th {
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+  }
+  /* Blockquote */
+  blockquote {
+    border-left-color: var(--accent) !important;
+    color: var(--ink-soft) !important;
+  }
+</style>
+<!-- site-style-end -->
+</head>
   <body>
+<!-- site-nav-start -->
+<nav class="breadcrumb">
+  <a href="../../">Accueil</a>
+  <span class="breadcrumb-sep">/</span>
+  <a href="./">Electronique</a>
+</nav>
+<!-- site-nav-end -->
+
+
     <h1>labo 6 arduino</h1>
     <p data-block-id="94X4cGSO" data-spacing="double"><br></p><h1 data-block-id="ZT3uBRwq">📡 Labo 6 — Communication Série Arduino</h1><h2 data-block-id="3r_MTlTW">🎯 Objectif général</h2><p data-block-id="5Jy8brZ5" data-spacing="double">Apprendre à faire <strong>communiquer l'Arduino avec le PC</strong> via la liaison série (UART sur USB). Cela permet d'afficher des valeurs dans le <strong>Moniteur Série</strong> de l'IDE Arduino (pour debug ou affichage de capteurs) et de <strong>recevoir des commandes</strong> depuis le PC.</p><hr><h2 data-block-id="1EjLUEBz">🛠️ Matériel &amp; outils</h2><h3 data-block-id="ibUECTG0">Logiciel</h3><ul data-block-id="WepkNwSa"><li><p data-spacing="double"><strong>Arduino IDE</strong> → tout ce qu'il faut (écrire le code, téléverser, ouvrir le Moniteur Série)</p></li><li><p data-spacing="double">Wokwi / VS Code → optionnel, simulateur ou alternative</p></li></ul><h3 data-block-id="oR4X_SZm">Matériel</h3><ul data-block-id="ixaN3Uq0"><li><p data-spacing="double">Carte Arduino Uno (ou Elegoo Uno R3, 100% compatible)</p></li><li><p data-spacing="double">Câble USB</p></li><li><p data-spacing="double">Breadboard</p></li><li><p data-spacing="double">1 bouton poussoir</p></li><li><p data-spacing="double">1 LED</p></li><li><p data-spacing="double">1 photorésistance (LDR)</p></li><li><p data-spacing="double">Résistances : <strong>10 kΩ</strong> (pull-down et pont diviseur), <strong>330 Ω</strong> (protection LED)</p></li><li><p data-spacing="double">Câbles mâle-mâle</p></li></ul><hr><h2 data-block-id="rgt38k7c">⚙️ Configuration de l'IDE Arduino (à faire 1 fois)</h2><ol data-block-id="bThk1urB"><li><p data-spacing="double">Brancher l'Arduino en USB</p></li><li><p data-spacing="double"><strong>Outils → Type de carte</strong> → <em>Arduino Uno</em></p></li><li><p data-spacing="double"><strong>Outils → Port</strong> → sélectionner le port COM correspondant</p></li><li><p data-spacing="double">Tester avec <strong>Fichier → Exemples → 01.Basics → Blink</strong> : si la LED de la carte clignote → tout fonctionne ✅</p></li></ol><blockquote data-block-id="sl5waCYX"><p data-spacing="double">💡 <strong>Astuce port COM</strong> : débranche l'Arduino, regarde les ports listés, rebranche-le → le nouveau port qui apparaît est le bon.</p></blockquote><hr><h2 data-block-id="ZwLjIEP4">📚 Théorie — La communication série</h2><p data-block-id="mCMMxhC7" data-spacing="double">L'Arduino n'a pas d'écran → pour afficher des messages, il les envoie au PC via <strong>UART</strong> (couche liaison) sur <strong>USB</strong> (couche physique).</p><p data-block-id="p8L07Brv" data-spacing="double">Pour que la communication fonctionne, les deux côtés doivent utiliser la même <strong>vitesse de transmission</strong> (baud rate), typiquement <strong>9600</strong>.</p><h3 data-block-id="rTbBcg-Q">Fonctions principales</h3><pre data-block-id="SlNdaCtv" data-indent-type="space" data-indent-length="2" class="language-cpp"><code>Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// Initialise la connexion (dans setup())</span>
 

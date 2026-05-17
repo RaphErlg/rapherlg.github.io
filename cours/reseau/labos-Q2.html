@@ -176,8 +176,64 @@
     <style>
       code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
     </style>
-  </head>
+  
+
+<!-- site-style-start -->
+<link rel="stylesheet" href="../../style.css">
+<style>
+  body {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    max-width: 720px;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem 4rem !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--ink) !important;
+  }
+  /* Code inline : fond adapté au thème */
+  code:not(pre code) {
+    background-color: var(--line-soft) !important;
+    color: var(--ink) !important;
+    border-color: var(--line) !important;
+  }
+  /* Blocs de code sans colorisation syntaxique */
+  pre:not([class*=language-]) {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  /* Blocs de code avec colorisation Prism : on force le thème sombre Dracula */
+  pre[class*=language-], :not(pre) > code[class*=language-] {
+    background: #282a36 !important;
+    color: #f8f8f2 !important;
+  }
+  /* Tableaux */
+  table th {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  table td, table th {
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+  }
+  /* Blockquote */
+  blockquote {
+    border-left-color: var(--accent) !important;
+    color: var(--ink-soft) !important;
+  }
+</style>
+<!-- site-style-end -->
+</head>
   <body>
+<!-- site-nav-start -->
+<nav class="breadcrumb">
+  <a href="../../">Accueil</a>
+  <span class="breadcrumb-sep">/</span>
+  <a href="./">Reseau</a>
+</nav>
+<!-- site-nav-end -->
+
+
     <h1>labos Q2</h1>
     <p data-block-id="-s3khVfX" data-spacing="double"><br></p><h1 data-block-id="YXo_zAE8">🎓 Synthèse Finale — Labos Réseau Q2</h1><blockquote data-block-id="h528jc2m"><p data-spacing="double"><strong>Document focalisé PRATIQUE</strong> : commandes Cisco, démarches-type, pièges.</p><p data-spacing="double"><strong>Complémentaire</strong> de la synthèse théorique (<code spellcheck="false">ClaudeSynthèse_reseau_complet.md</code>).</p><p data-spacing="double">Pour la théorie en profondeur → renvois vers <code spellcheck="false">1Reseau_2.pdf</code> ou la synthèse complète.</p></blockquote><hr><h2 data-block-id="sL5cF7Kf">📋 Table des matières</h2><ol data-block-id="TaMJHBS2"><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#1-d%C3%A9marche-universelle-pour-tout-labo">Démarche universelle pour tout labo</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#2-les-modes-cisco-ios">Les modes Cisco IOS</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#3-reset-des-%C3%A9quipements">Reset des équipements</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#4-subnetting-express">Subnetting express</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#5-configuration-interfaces">Configuration interfaces</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#6-vlans">VLANs</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#7-routage-statique">Routage statique</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#8-routage-dynamique-rip">Routage dynamique RIP</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#9-nat-network-address-translation">NAT (Network Address Translation)</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#10-distribution-route-par-d%C3%A9faut-via-rip">Distribution route par défaut via RIP</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#11-ipv6">IPv6</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#12-services--dhcp-http-dns">Services : DHCP, HTTP, DNS</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#13-management-it-et-ssh">Management IT et SSH</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#14-r%C3%A8gles-de-lart-cisco">Règles de l'art Cisco</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#15-diagnostic-et-debug">Diagnostic et debug</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#16-top-30-des-pi%C3%A8ges-r%C3%A9currents">Top 30 des pièges récurrents</a></p></li><li><p data-spacing="double"><a target="_blank" rel="noopener noreferrer nofollow" spellcheck="false" href="https://claude.ai/chat/d4457dae-2560-49a4-8755-73077999ca81#17-m%C3%A9mo-de-commandes-ultra-condens%C3%A9">Mémo de commandes ultra-condensé</a></p></li></ol><hr><h2 data-block-id="94fzscVc">1. Démarche universelle pour tout labo</h2><p data-block-id="5I7gk6b1" data-spacing="double"><strong>Cette démarche s'applique à TOUS les labos et à l'examen</strong> :</p><pre data-block-id="FiGRtdQE" data-indent-type="space" data-indent-length="2"><code>1. LIRE l'énoncé en entier (2 fois si nécessaire)
 2. DESSINER la topologie sur papier si pas fournie
