@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Cheat Sheet C — Q1 + Q2</title>
+    <meta name="created-at" content="21-05-2026 01:03 PM" />
+    <meta name="updated-at" content="21-05-2026 01:04 PM" />
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://app.notesnook.com/assets/editor-styles.css?d=1690887574068">
+
+    <style>
+
+    .image-container {
+      display: block;
+    }
+    .image-container.align-right {
+      display: flex;
+      justify-content: end;
+    }
+    .image-container.align-center {
+      display: flex;
+      justify-content: center;
+    }
+    .image-container.float {
+      float: left;
+    }
+    .image-container.float.align-right {
+      float: right;
+    }
+
+    body {
+      background-color: transparent !important;
+      color: #202124;
+      font-family: "Open Sans", "Noto Sans", Frutiger, Calibri, Myriad, Arial, Ubuntu, Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .math-block {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #212121;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+    
+    p[data-spacing="double"] {
+      margin-top: 1em;
+    }
+    
+    p[data-spacing="single"] {
+      margin-top: 0px;
+    }
+
+    p[data-spacing="single"]:empty {
+      margin-top: 1em;
+    }
+    
+    pre.codeblock {
+      overflow-x: auto;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+      background-color: transparent !important;
+    }
+    
+    li > p {
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    
+    .checklist > li {
+      list-style: none;
+      margin: 0.25em 0;
+    }
+    
+    .checklist > li::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+      cursor: pointer;
+      height: 1.1em;
+      margin-left: -2.5em;
+      margin-top: 0em;
+      position: absolute;
+      width: 1.5em;
+      padding-left: 1em;
+    }
+    
+    .checklist li.checked::before {
+      content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23008837%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+    }
+    
+    .checklist li.checked {
+      color: #505050;
+    }
+    
+    [dir="rtl"] .checklist > li::before {
+      margin-left: 0;
+      margin-right: -1.5em;
+    }
+    
+    blockquote {
+      border-left: 5px solid #e5e5e5;
+      padding-left: 10px;
+      margin-top: 0px;
+    }
+    
+    code:not(pre code) {
+      background-color: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 3px 5px 0px 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+      font-size: 10pt !important;
+    }
+    
+    .ProseMirror code > span {
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+    }
+    
+    pre {
+      padding: 10px;
+      background-color: #e5e5e5;
+      border-radius: 5px;
+      font-family: Hack, Consolas, "Andale Mono", "Lucida Console", "Liberation Mono", "Courier New", Courier, monospace !important;
+        margin-bottom: 16px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      overflow: hidden;
+      table-layout: fixed;
+    }
+    
+    table td,
+    table th {
+      border: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 3px 5px;
+      position: relative;
+      vertical-align: top;
+    }
+    
+    table td > *,
+    table th > * {
+      margin-bottom: 0;
+    }
+    
+    table th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+      text-align: left;
+    }
+    table p {
+      margin: 0;
+    }
+    </style>
+    <style>
+      code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:0 0;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#282a36}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#6272a4}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#ff79c6}.token.boolean,.token.number{color:#bd93f9}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#50fa7b}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#f1fa8c}.token.keyword{color:#8be9fd}.token.important,.token.regex{color:#ffb86c}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+    </style>
+  <!-- site-style-start -->
+<link rel="stylesheet" href="../../style.css">
+<style>
+  body {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    max-width: 720px;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem 4rem !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--ink) !important;
+  }
+  /* Code inline : fond adapté au thème */
+  code:not(pre code) {
+    background-color: var(--line-soft) !important;
+    color: var(--ink) !important;
+    border-color: var(--line) !important;
+  }
+  /* Blocs de code sans colorisation syntaxique */
+  pre:not([class*=language-]) {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  /* Blocs de code avec colorisation Prism : on force le thème sombre Dracula */
+  pre[class*=language-], :not(pre) > code[class*=language-] {
+    background: #282a36 !important;
+    color: #f8f8f2 !important;
+  }
+  /* Tableaux */
+  table th {
+    background-color: var(--bg-elevated) !important;
+    color: var(--ink) !important;
+  }
+  table td, table th {
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+  }
+  /* Blockquote */
+  blockquote {
+    border-left-color: var(--accent) !important;
+    color: var(--ink-soft) !important;
+  }
+</style>
+<!-- site-style-end -->
+</head>
+  <body>
+<!-- site-nav-start -->
+<nav class="breadcrumb">
+  <a href="../../">Accueil</a>
+  <span class="breadcrumb-sep">/</span>
+  <a href="./">Programmation</a>
+</nav>
+<!-- site-nav-end -->
+    <h1>Cheat Sheet C — Q1 + Q2</h1>
+    <p data-block-id="p2" data-spacing="double"><br></p><blockquote data-block-id="blockquote1"><p data-block-id="p2" data-spacing="double">Syntaxe brute, sans explications. À imprimer ou à garder sur un 2e écran. Pour les détails et le "pourquoi", voir <strong><code spellcheck="false">Memo_C_Q1_Q2.md</code></strong>.</p></blockquote><hr><h2 data-block-id="h23">🏗️ Structure d'un fichier</h2><pre data-block-id="pre4" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdbool.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TAILLE</span> <span class="token expression"><span class="token number">50</span></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">date</span> Date<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">date</span> <span class="token punctuation">{</span> <span class="token keyword">int</span> j<span class="token punctuation">,</span> m<span class="token punctuation">,</span> a<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">couleur</span> Couleur<span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">couleur</span> <span class="token punctuation">{</span> ROUGE<span class="token punctuation">,</span> VERT<span class="token punctuation">,</span> BLEU <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span>  <span class="token function">somme</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment">// prototypes</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+</code></pre><p data-block-id="p5" data-spacing="double"><strong>Conventions :</strong> variables = <code spellcheck="false">camelCase</code>, constantes/enum = <code spellcheck="false">UPPER_CASE</code>, alias = <code spellcheck="false">PascalCase</code>, pointeurs = <code spellcheck="false">pXxx</code>.</p><hr><h2 data-block-id="h26">📦 Variables</h2><pre data-block-id="pre7" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span>    n     <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> prix  <span class="token operator">=</span> <span class="token number">9.99</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span>   c     <span class="token operator">=</span> <span class="token char">'A'</span><span class="token punctuation">;</span>
+bool   ok    <span class="token operator">=</span> true<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+</code></pre><hr><h2 data-block-id="h28">🖨️ I/O — printf / scanf</h2><pre data-block-id="pre9" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Age : %d\n"</span><span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>  <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// &amp; pour types simples</span>
+<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>prix<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// %lf pour lire un double</span>
+<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">" %c"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// espace pour ignorer le \n</span>
+<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> nom<span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// pas de &amp;, taille buffer</span>
+<span class="token function">gets_s</span><span class="token punctuation">(</span>nom<span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// chaîne avec espaces</span>
+<span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment">// mange 1 char du buffer</span>
+</code></pre><h3 data-block-id="h310">Formats</h3><table data-block-id="uzb7_qBY" style="min-width: 80px"><colgroup><col><col><col><col></colgroup><tbody><tr><th colspan="1" rowspan="1"><p data-spacing="double">Format</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Type</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Format</p></th><th colspan="1" rowspan="1"><p data-spacing="double">Type</p></th></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%d</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">int</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%c</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">char</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%f</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">double (écriture)</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%s</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">chaîne</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%lf</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">double (lecture)</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%p</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">pointeur</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%5d</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">largeur 5</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%-5d</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">gauche</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%05d</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">rempli de 0</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%.2f</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">2 décimales</p></td></tr><tr><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%zu</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">size_t</p></td><td colspan="1" rowspan="1"><p data-spacing="double"><code spellcheck="false">%%</code></p></td><td colspan="1" rowspan="1"><p data-spacing="double">%</p></td></tr></tbody></table><h3 data-block-id="h311">Échappement</h3><p data-block-id="p12" data-spacing="double"><code spellcheck="false">\n</code> <code spellcheck="false">\t</code> <code spellcheck="false">\"</code> <code spellcheck="false">\\</code> <code spellcheck="false">\0</code></p><h3 data-block-id="h313">Codes ANSI couleur</h3><pre data-block-id="pre14" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;31m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// rouge</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;32m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// vert</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;33m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// jaune</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\033[1;0m"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// reset (TOUJOURS à la fin)</span>
+</code></pre><hr><h2 data-block-id="h215">⚡ Opérateurs</h2><pre data-block-id="pre16" data-indent-type="space" data-indent-length="2"><code>Arith   : + - * /  %        (% = modulo)
+Comp    : == != &lt; &gt; &lt;= &gt;=
+Logique : &amp;&amp; || !
+Bit     : &amp; | ^ ~ &lt;&lt; &gt;&gt;
+Compose : += -= *= /= %= |= &amp;=
+Ternaire: cond ? si_vrai : si_faux
+sizeof  : sizeof(x), sizeof(tab)/sizeof(tab[0])
+</code></pre><p data-block-id="p17" data-spacing="double"><strong>Priorités (haut → bas) :</strong> <code spellcheck="false">! ++ --</code> → <code spellcheck="false">* / %</code> → <code spellcheck="false">+ -</code> → <code spellcheck="false">&lt; &gt; &lt;= &gt;=</code> → <code spellcheck="false">== !=</code> → <code spellcheck="false">&amp;</code> → <code spellcheck="false">^</code> → <code spellcheck="false">|</code> → <code spellcheck="false">&amp;&amp;</code> → <code spellcheck="false">||</code> → <code spellcheck="false">?:</code> → <code spellcheck="false">=</code></p><p data-block-id="p18" data-spacing="double"><strong>Cast :</strong> <code spellcheck="false">(double)a / b</code></p><hr><h2 data-block-id="h219">🔁 Contrôle de flux</h2><pre data-block-id="pre20" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token comment">// if / else</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">)</span>      <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">else</span>             <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+<span class="token comment">// switch</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token char">'A'</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token char">'B'</span><span class="token operator">:</span>       <span class="token comment">// fall-through OK</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// for</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+<span class="token comment">// while</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>cond<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token keyword">do</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>cond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// break  → sort de la boucle / switch</span>
+<span class="token comment">// continue → itération suivante</span>
+<span class="token comment">// return → sort de la fonction</span>
+</code></pre><hr><h2 data-block-id="h221">🔧 Fonctions</h2><pre data-block-id="pre22" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span>  <span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// prototype</span>
+<span class="token keyword">void</span> <span class="token function">affiche</span><span class="token punctuation">(</span><span class="token keyword">int</span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> taille<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">&gt;</span> b<span class="token punctuation">)</span> <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Passage par valeur : int, double, char, struct</span>
+<span class="token comment">// Passage par adresse : tableau (implicite), pointeur (explicite)</span>
+</code></pre><hr><h2 data-block-id="h223">📋 Tableaux 1D</h2><pre data-block-id="pre24" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> tab<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>            <span class="token comment">// taille déduite</span>
+<span class="token keyword">int</span> zeros<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>                <span class="token comment">// que pour 0</span>
+tab<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>tab<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>tab<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">int</span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// signature</span>
+<span class="token function">f</span><span class="token punctuation">(</span>monTab<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment">// appel (sans &amp;)</span>
+</code></pre><hr><h2 data-block-id="h225">🔤 Chaînes de caractères</h2><pre data-block-id="pre26" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">char</span> nom<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Alice"</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+<span class="token function">strlen</span><span class="token punctuation">(</span>nom<span class="token punctuation">)</span>         <span class="token comment">// longueur (sans \0)</span>
+<span class="token keyword">sizeof</span><span class="token punctuation">(</span>nom<span class="token punctuation">)</span>         <span class="token comment">// taille mémoire (20)</span>
+<span class="token function">strcpy</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> s<span class="token punctuation">)</span>        <span class="token comment">// copie</span>
+<span class="token function">strcat</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> s<span class="token punctuation">)</span>        <span class="token comment">// concat</span>
+<span class="token function">strcmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span>   <span class="token comment">// sont égales ?</span>
+<span class="token function">strncpy</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment">// copie 3 chars</span>
+<span class="token function">strncmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>    <span class="token comment">// compare 3 chars</span>
+
+<span class="token comment">// Saisie</span>
+<span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> nom<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 1 mot</span>
+<span class="token function">gets_s</span><span class="token punctuation">(</span>nom<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment">// avec espaces</span>
+
+<span class="token comment">// Parcours</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>texte<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> i<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Test ASCII</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">&gt;=</span> <span class="token char">'0'</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">&lt;=</span> <span class="token char">'9'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token comment">// chiffre</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">&gt;=</span> <span class="token char">'A'</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">&lt;=</span> <span class="token char">'Z'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token comment">// majuscule</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;ctype.h&gt;</span></span>
+<span class="token function">isdigit</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">isalpha</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">toupper</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">tolower</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+</code></pre><hr><h2 data-block-id="h227">📐 Tableaux 2D</h2><pre data-block-id="pre28" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> grille<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+grille<span class="token punctuation">[</span>ligne<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Fonction : 2e dim OBLIGATOIRE</span>
+<span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">int</span> g<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> nbLignes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f</span><span class="token punctuation">(</span>grille<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// grille[2] = ligne 1D</span>
+
+<span class="token comment">// Parcours ligne par ligne</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> iL <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> iL <span class="token operator">&lt;</span> nbL<span class="token punctuation">;</span> iL<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> iC <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> iC <span class="token operator">&lt;</span> nbC<span class="token punctuation">;</span> iC<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> grille<span class="token punctuation">[</span>iL<span class="token punctuation">]</span><span class="token punctuation">[</span>iC<span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// Numéro 1D → 2D</span>
+ligne <span class="token operator">=</span> num <span class="token operator">/</span> T<span class="token punctuation">;</span>
+col   <span class="token operator">=</span> num <span class="token operator">%</span> T<span class="token punctuation">;</span>
+
+<span class="token comment">// Tableau de chaînes</span>
+<span class="token keyword">char</span> prenoms<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">25</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"alice"</span><span class="token punctuation">,</span> <span class="token string">"bob"</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+prenoms<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>       <span class="token comment">// chaîne complète</span>
+prenoms<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>    <span class="token comment">// un seul char</span>
+</code></pre><hr><h2 data-block-id="h229">🧱 Structures</h2><pre data-block-id="pre30" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">article</span> Article<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">article</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span>    code<span class="token punctuation">;</span>
+    <span class="token keyword">char</span>   nom<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> prix<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Article a <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">"crayon"</span><span class="token punctuation">,</span> <span class="token number">0.7</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment">// init à la déclaration</span>
+Article b<span class="token punctuation">;</span>
+<span class="token function">strcpy</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>nom<span class="token punctuation">,</span> <span class="token string">"stylo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// chaîne → strcpy</span>
+b<span class="token punctuation">.</span>code <span class="token operator">=</span> <span class="token number">11</span><span class="token punctuation">;</span>                          <span class="token comment">// simple → =</span>
+
+a<span class="token punctuation">.</span>code              <span class="token comment">// accès</span>
+cmd<span class="token punctuation">.</span>date<span class="token punctuation">.</span>annee      <span class="token comment">// imbriquée</span>
+cmd<span class="token punctuation">.</span>achats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>qte   <span class="token comment">// dans tableau</span>
+
+<span class="token comment">// Tableau de struct</span>
+Article catalogue<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">"crayon"</span><span class="token punctuation">,</span> <span class="token number">0.7</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token string">"stylo"</span><span class="token punctuation">,</span>  <span class="token number">0.9</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Fonctions</span>
+<span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span>Article a<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// par valeur (copie)</span>
+Article <span class="token function">g</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// retour OK</span>
+<span class="token keyword">void</span> <span class="token function">h</span><span class="token punctuation">(</span>Article<span class="token operator">*</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// par adresse (efficace)</span>
+</code></pre><hr><h2 data-block-id="h231">🏷️ Énumérations</h2><pre data-block-id="pre32" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token comment">// SIMPLE</span>
+<span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">jour</span> Jour<span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">jour</span> <span class="token punctuation">{</span> LUN<span class="token punctuation">,</span> MAR<span class="token punctuation">,</span> MER <span class="token punctuation">}</span><span class="token punctuation">;</span>       <span class="token comment">// 0, 1, 2</span>
+
+<span class="token comment">// Comme index</span>
+<span class="token keyword">char</span> noms<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"lun"</span><span class="token punctuation">,</span> <span class="token string">"mar"</span><span class="token punctuation">,</span> <span class="token string">"mer"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> noms<span class="token punctuation">[</span>jour<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Forcer une valeur</span>
+<span class="token keyword">enum</span> <span class="token class-name">prio</span> <span class="token punctuation">{</span> BAS <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> MOY <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> HAUT <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment">// HAUT = 6</span>
+
+<span class="token comment">// BINAIRE (puissances de 2)</span>
+<span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token class-name">salle</span> Salle<span class="token punctuation">;</span>
+<span class="token keyword">enum</span> <span class="token class-name">salle</span> <span class="token punctuation">{</span>
+    CHAMBRE <span class="token operator">=</span> <span class="token number">0</span>b0001<span class="token punctuation">,</span>
+    SALON   <span class="token operator">=</span> <span class="token number">0</span>b0010<span class="token punctuation">,</span>
+    SDB     <span class="token operator">=</span> <span class="token number">0</span>b0100<span class="token punctuation">,</span>
+    CUISINE <span class="token operator">=</span> <span class="token number">0</span>b1000
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4 manipulations</span>
+<span class="token keyword">int</span> c <span class="token operator">=</span> SALON <span class="token operator">|</span> CHAMBRE<span class="token punctuation">;</span>            <span class="token comment">// ALLUMER (combiner) : |</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>c <span class="token operator">&amp;</span> SALON<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>           <span class="token comment">// TESTER : &amp; + != 0 (parenthèses !)</span>
+c <span class="token operator">=</span> c <span class="token operator">&amp;</span> <span class="token operator">~</span>SALON<span class="token punctuation">;</span>                     <span class="token comment">// ÉTEINDRE : &amp; ~</span>
+c <span class="token operator">=</span> c <span class="token operator">^</span> SALON<span class="token punctuation">;</span>                      <span class="token comment">// BASCULER : ^</span>
+
+<span class="token comment">// Fonction de test</span>
+bool <span class="token function">estAllumee</span><span class="token punctuation">(</span><span class="token keyword">int</span> conf<span class="token punctuation">,</span> Salle s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>conf <span class="token operator">&amp;</span> s<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Masque (isoler plusieurs bits)</span>
+<span class="token keyword">int</span> masque <span class="token operator">=</span> <span class="token number">0</span>b01100000<span class="token punctuation">;</span>
+<span class="token keyword">int</span> zone   <span class="token operator">=</span> carac <span class="token operator">&amp;</span> masque<span class="token punctuation">;</span>
+</code></pre><hr><h2 data-block-id="h233">🎯 Pointeurs</h2><pre data-block-id="pre34" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span>  n <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span><span class="token operator">*</span> p <span class="token operator">=</span> <span class="token operator">&amp;</span>n<span class="token punctuation">;</span>        <span class="token comment">// p = adresse de n</span>
+
+<span class="token operator">*</span>p              <span class="token comment">// valeur à l'adresse = 5</span>
+<span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>        <span class="token comment">// modifie n</span>
+
+<span class="token comment">// Fonction avec pointeur</span>
+<span class="token keyword">void</span> <span class="token function">incr</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token operator">++</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token function">incr</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Sur struct : flèche -&gt;</span>
+Article<span class="token operator">*</span> pa <span class="token operator">=</span> <span class="token operator">&amp;</span>article<span class="token punctuation">;</span>
+pa<span class="token operator">-&gt;</span>prix <span class="token operator">=</span> <span class="token number">1.5</span><span class="token punctuation">;</span>             <span class="token comment">// = (*pa).prix</span>
+
+<span class="token comment">// Tableaux = pointeurs</span>
+<span class="token keyword">int</span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span><span class="token operator">*</span> p <span class="token operator">=</span> tab<span class="token punctuation">;</span>               <span class="token comment">// = &amp;tab[0]</span>
+p<span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token comment">// avance d'1 cellule</span>
+<span class="token operator">*</span>p              <span class="token comment">// = tab[1]</span>
+tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">*</span><span class="token punctuation">(</span>tab <span class="token operator">+</span> i<span class="token punctuation">)</span>
+
+<span class="token comment">// Priorités piégeuses : METTRE DES PARENTHÈSES</span>
+<span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token operator">++</span>          <span class="token comment">// incrémente la valeur</span>
+<span class="token operator">*</span>p<span class="token operator">++</span>            <span class="token comment">// incrémente le pointeur</span>
+<span class="token operator">++</span><span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span>          <span class="token comment">// pré-incr valeur</span>
+<span class="token operator">*</span><span class="token operator">++</span>p            <span class="token comment">// pré-incr pointeur</span>
+
+<span class="token comment">// NULL = "pointe vers rien"</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre><hr><h2 data-block-id="h235">📁 Fichiers</h2><pre data-block-id="pre36" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_CRT_SECURE_NO_WARNINGS</span>    <span class="token comment">// pour VS2022</span></span>
+
+FILE<span class="token operator">*</span> f <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/* erreur */</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Écriture</span>
+<span class="token function">fprintf</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">"Total : %.2f\n"</span><span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Lecture mot par mot</span>
+<span class="token function">fscanf</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fscanf</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">"%s"</span><span class="token punctuation">,</span> chaine<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment">// pas de &amp;</span>
+
+<span class="token comment">// Lecture ligne entière (avec espaces)</span>
+<span class="token keyword">char</span> ligne<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">fgets</span><span class="token punctuation">(</span>ligne<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// inclut le \n</span>
+
+<span class="token comment">// Boucle de lecture (2 versions)</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>                          <span class="token comment">// attention au piège</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">fgets</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> f<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>          <span class="token comment">// plus robuste</span>
+
+<span class="token function">fclose</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Modes : "r" lecture, "w" écriture (écrase)</span>
+</code></pre><h3 data-block-id="h337">Ligne de commande</h3><pre data-block-id="pre38" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// args[0] = nom du programme</span>
+    <span class="token comment">// args[1], args[2]... = arguments</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/* erreur */</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="h339">Le piège <code spellcheck="false">feof</code></h3><pre data-block-id="pre40" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token comment">// Pattern : lecture AVANT et À LA FIN</span>
+<span class="token function">fscanf</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">"%c"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// traitement</span>
+    <span class="token function">fscanf</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token string">"%c"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><hr><h2 data-block-id="h241">🎁 Patterns essentiels</h2><h3 data-block-id="h342">Validation d'entrée</h3><pre data-block-id="pre43" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> <span class="token function">valide</span><span class="token punctuation">(</span><span class="token keyword">int</span> min<span class="token punctuation">,</span> <span class="token keyword">int</span> max<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> min <span class="token operator">||</span> n <span class="token operator">&gt;</span> max<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Recommencez : "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">scanf_s</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="h344">Recherche linéaire (sans break)</h3><pre data-block-id="pre45" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> <span class="token function">indice</span><span class="token punctuation">(</span><span class="token keyword">int</span> cle<span class="token punctuation">,</span> T tab<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>code <span class="token operator">!=</span> cle<span class="token punctuation">)</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> i<span class="token punctuation">;</span>       <span class="token comment">// i == n si pas trouvé</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="h346">Tous identiques ?</h3><pre data-block-id="pre47" data-indent-type="space" data-indent-length="2" class="language-c"><code>bool <span class="token function">tousIdentiques</span><span class="token punctuation">(</span><span class="token keyword">char</span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> tab<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="h348">Compter occurrences</h3><pre data-block-id="pre49" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> <span class="token function">nbOcc</span><span class="token punctuation">(</span><span class="token keyword">int</span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> v<span class="token punctuation">)</span> c<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 data-block-id="h350">Indice du max</h3><pre data-block-id="pre51" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token keyword">int</span> iMax <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> tab<span class="token punctuation">[</span>iMax<span class="token punctuation">]</span><span class="token punctuation">)</span> iMax <span class="token operator">=</span> i<span class="token punctuation">;</span>
+</code></pre><hr><h2 data-block-id="h252">⚠️ Pièges récurrents</h2><pre data-block-id="pre53" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token comment">// Syntaxe</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span>            <span class="token comment">// ❌  affectation au lieu de comparaison</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">PI</span> <span class="token expression"><span class="token operator">=</span> <span class="token number">3.14</span>     </span><span class="token comment">// ❌  pas de = dans #define</span></span>
+<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>        <span class="token comment">// ❌  manque &amp;</span>
+<span class="token keyword">struct</span> <span class="token class-name">s</span> <span class="token punctuation">{</span> <span class="token keyword">int</span> a<span class="token punctuation">;</span> <span class="token punctuation">}</span>   <span class="token comment">// ❌  manque ;</span>
+
+<span class="token comment">// Types</span>
+<span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">3</span>           <span class="token comment">// ⚠️  division entière si a, b sont int</span>
+<span class="token operator">%</span>d pour un <span class="token keyword">double</span>     <span class="token comment">// ❌</span>
+nom <span class="token operator">==</span> <span class="token string">"Alice"</span>        <span class="token comment">// ❌  compare des adresses</span>
+nom <span class="token operator">=</span> <span class="token string">"Alice"</span>         <span class="token comment">// ❌  utiliser strcpy</span>
+
+<span class="token comment">// Logique</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>c <span class="token operator">!=</span> <span class="token char">'A'</span> <span class="token operator">||</span> c <span class="token operator">!=</span> <span class="token char">'B'</span><span class="token punctuation">)</span>        <span class="token comment">// ❌  toujours vrai → &amp;&amp; au lieu de ||</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> tab<span class="token punctuation">[</span>i<span class="token punctuation">]</span>       <span class="token comment">// ❌  i = N hors limite</span>
+tab<span class="token punctuation">[</span>mois<span class="token punctuation">]</span>                            <span class="token comment">// ❌  si mois ∈ [1..12] → tab[mois - 1]</span>
+
+<span class="token comment">// Bits</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>config <span class="token operator">&amp;</span> SALON <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>            <span class="token comment">// ❌  parenthèses</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>config <span class="token operator">&amp;&amp;</span> SALON<span class="token punctuation">)</span>                <span class="token comment">// ❌  &amp;&amp; au lieu de &amp;</span>
+
+<span class="token comment">// Fichiers</span>
+fopen sans vérifier <span class="token constant">NULL</span>            <span class="token comment">// ❌</span>
+oublier fclose                       <span class="token comment">// ❌  données perdues</span>
+feof sans lecture avant la boucle   <span class="token comment">// ⚠️  dernière valeur dupliquée</span>
+
+<span class="token comment">// Pointeurs</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>tab<span class="token punctuation">)</span>                              <span class="token comment">// ❌  tableau = déjà adresse</span>
+<span class="token operator">*</span>p<span class="token operator">++</span> <span class="token function">vs</span> <span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token operator">++</span>                       <span class="token comment">// ⚠️  toujours mettre les ()</span>
+</code></pre><hr><h2 data-block-id="h254">📐 Position dans le fichier</h2><pre data-block-id="pre55" data-indent-type="space" data-indent-length="2"><code>1. #define _CRT_SECURE_NO_WARNINGS
+2. #include
+3. #define (constantes)
+4. typedef + struct / enum
+5. prototypes
+6. void main(void) { ... }
+7. définitions des fonctions
+</code></pre><hr><h2 data-block-id="h256">🎨 Bibliothèques courantes</h2><pre data-block-id="pre57" data-indent-type="space" data-indent-length="2" class="language-c"><code><span class="token operator">&lt;</span>stdio<span class="token punctuation">.</span>h<span class="token operator">&gt;</span>     printf<span class="token punctuation">,</span> scanf<span class="token punctuation">,</span> fopen<span class="token punctuation">,</span> fclose<span class="token punctuation">,</span> fprintf<span class="token punctuation">,</span> fscanf<span class="token punctuation">,</span> fgets<span class="token punctuation">,</span> feof<span class="token punctuation">,</span> getchar
+<span class="token operator">&lt;</span>stdbool<span class="token punctuation">.</span>h<span class="token operator">&gt;</span>   bool<span class="token punctuation">,</span> true<span class="token punctuation">,</span> false
+<span class="token operator">&lt;</span>string<span class="token punctuation">.</span>h<span class="token operator">&gt;</span>    strlen<span class="token punctuation">,</span> strcpy<span class="token punctuation">,</span> strcat<span class="token punctuation">,</span> strcmp<span class="token punctuation">,</span> strncpy
+<span class="token operator">&lt;</span>ctype<span class="token punctuation">.</span>h<span class="token operator">&gt;</span>     toupper<span class="token punctuation">,</span> tolower<span class="token punctuation">,</span> isdigit<span class="token punctuation">,</span> isalpha<span class="token punctuation">,</span> isupper<span class="token punctuation">,</span> islower<span class="token punctuation">,</span> isspace
+<span class="token operator">&lt;</span>math<span class="token punctuation">.</span>h<span class="token operator">&gt;</span>      sqrt<span class="token punctuation">,</span> pow<span class="token punctuation">,</span> sin<span class="token punctuation">,</span> cos<span class="token punctuation">,</span> <span class="token function">M_PI</span> <span class="token punctuation">(</span>avec #define _USE_MATH_DEFINES avant<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>stdlib<span class="token punctuation">.</span>h<span class="token operator">&gt;</span>    <span class="token constant">NULL</span><span class="token punctuation">,</span> abs<span class="token punctuation">,</span> rand
+</code></pre><hr><p data-block-id="p58" data-spacing="double"><strong>Fin de la cheat sheet.</strong> Pour le détail des concepts, mécanismes et pièges → <code spellcheck="false">Memo_C_Q1_Q2.md</code>.</p>
+  </body>
+</html>

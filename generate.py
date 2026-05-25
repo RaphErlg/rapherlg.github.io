@@ -13,6 +13,26 @@ STYLE_END   = "<!-- site-style-end -->"
 NAV_START   = "<!-- site-nav-start -->"
 NAV_END     = "<!-- site-nav-end -->"
 
+MATRIX_BG = """\
+<script>
+(function(){
+  var c=document.createElement('canvas');
+  c.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;';
+  document.body.insertBefore(c,document.body.firstChild);
+  var ctx=c.getContext('2d');
+  c.width=window.innerWidth; c.height=window.innerHeight;
+  var chars='アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+  var size=14;
+  ctx.font=size+'px monospace';
+  ctx.fillStyle='rgba(0,255,65,0.13)';
+  var cols=Math.ceil(c.width/size), rows=Math.ceil(c.height/size);
+  for(var col=0;col<cols;col++)
+    for(var row=0;row<rows;row++)
+      if(Math.random()>0.3)
+        ctx.fillText(chars[Math.floor(Math.random()*chars.length)],col*size,(row+1)*size);
+})();
+</script>"""
+
 def read_file(path):
     with open(path, encoding="utf-8") as f:
         return f.read()

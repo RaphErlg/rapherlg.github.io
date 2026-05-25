@@ -10,8 +10,8 @@
   --ink: #1c1a17;
   --ink-soft: #5a5450;
   --ink-muted: #8a847e;
-  --accent: #b8442e;
-  --accent-soft: #d97757;
+  --accent: #0e9e38;
+  --accent-soft: #3ab85a;
   --line: #d9d1c3;
   --line-soft: #e8e2d5;
   --shadow: 0 1px 0 rgba(28, 26, 23, 0.04), 0 8px 24px -12px rgba(28, 26, 23, 0.08);
@@ -30,8 +30,8 @@
     --ink: #f0ead9;
     --ink-soft: #b5ada0;
     --ink-muted: #7a736a;
-    --accent: #e09373;
-    --accent-soft: #d97757;
+    --accent: #2ecc57;
+    --accent-soft: #3ab85a;
     --line: #3a3633;
     --line-soft: #2a2725;
     --shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 8px 24px -12px rgba(0, 0, 0, 0.4);
@@ -51,8 +51,8 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   background-image:
-    radial-gradient(at 20% 10%, rgba(184, 68, 46, 0.04) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(184, 68, 46, 0.03) 0px, transparent 50%);
+    radial-gradient(at 20% 10%, rgba(14, 158, 56, 0.04) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(14, 158, 56, 0.03) 0px, transparent 50%);
   min-height: 100vh;
 }
 
@@ -313,14 +313,8 @@ body {
 /* ---- Page entry animation ---- */
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .site-header,
