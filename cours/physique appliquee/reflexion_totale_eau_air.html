@@ -1,0 +1,146 @@
+
+<style>
+  .rtwrap { padding: 1rem 0; font-family: var(--font-sans); }
+  .rt-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .rt-controls label { font-size: 13px; color: var(--color-text-secondary); }
+  .rt-stats { display: flex; gap: 12px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .rt-stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 14px; }
+  .rt-stat-label { font-size: 11px; color: var(--color-text-secondary); }
+  .rt-stat-val { font-size: 17px; font-weight: 500; font-family: var(--font-mono); }
+  .rt-banner { padding: 10px 14px; border-radius: var(--border-radius-md); font-size: 14px; margin-bottom: 1rem; font-weight: 500; }
+  .rt-refract { background: var(--color-background-info); color: var(--color-text-info); }
+  .rt-total { background: var(--color-background-warning); color: var(--color-text-warning); }
+</style>
+<div class="rtwrap">
+  <h2 class="sr-only">Animation de la réflexion totale à l'interface eau-air selon l'angle d'incidence</h2>
+  <div class="rt-controls">
+    <label>Angle d'incidence (dans l'eau)</label>
+    <input type="range" id="inc" min="0" max="89" value="30" step="1" style="flex:1; min-width:160px;" />
+    <span id="incOut" style="font-size:14px; font-weight:500; min-width:42px; font-family:var(--font-mono);">30°</span>
+  </div>
+  <div class="rt-stats">
+    <div class="rt-stat"><div class="rt-stat-label">angle incidence</div><div class="rt-stat-val" id="sInc" style="color:var(--color-text-primary)">30°</div></div>
+    <div class="rt-stat"><div class="rt-stat-label">angle limite</div><div class="rt-stat-val" style="color:#D85A30">48.8°</div></div>
+    <div class="rt-stat"><div class="rt-stat-label">angle réfracté (air)</div><div class="rt-stat-val" id="sRefr" style="color:#378ADD">41.7°</div></div>
+  </div>
+  <div id="banner" class="rt-banner rt-refract">La lumière sort dans l'air (réfraction) + un peu de reflet</div>
+  <canvas id="rtcv" width="660" height="340" style="width:100%; height:auto;"></canvas>
+</div>
+
+<script>
+const rtcv = document.getElementById('rtcv');
+const c = rtcv.getContext('2d');
+const inc = document.getElementById('inc');
+const incOut = document.getElementById('incOut');
+const sInc = document.getElementById('sInc');
+const sRefr = document.getElementById('sRefr');
+const banner = document.getElementById('banner');
+
+const n1 = 1.33, n2 = 1.00;
+const limit = Math.asin(n2 / n1) * 180 / Math.PI;
+
+const css = getComputedStyle(document.documentElement);
+const cMuted = css.getPropertyValue('--color-text-secondary').trim() || '#666';
+
+const BLUE = '#378ADD';
+const CORAL = '#D85A30';
+const GREEN = '#639922';
+
+const ox = 330, oy = 175;
+const L = 150;
+
+function draw(deg) {
+  c.clearRect(0, 0, rtcv.width, rtcv.height);
+
+  c.fillStyle = 'rgba(55,138,221,0.10)';
+  c.fillRect(0, oy, rtcv.width, rtcv.height - oy);
+  c.fillStyle = 'rgba(128,128,128,0.04)';
+  c.fillRect(0, 0, rtcv.width, oy);
+
+  c.strokeStyle = 'rgba(128,128,128,0.5)';
+  c.lineWidth = 1.5;
+  c.beginPath(); c.moveTo(0, oy); c.lineTo(rtcv.width, oy); c.stroke();
+
+  c.strokeStyle = 'rgba(128,128,128,0.4)';
+  c.setLineDash([5, 5]);
+  c.lineWidth = 1;
+  c.beginPath(); c.moveTo(ox, 20); c.lineTo(ox, rtcv.height - 20); c.stroke();
+  c.setLineDash([]);
+
+  c.fillStyle = cMuted;
+  c.font = '13px sans-serif';
+  c.fillText('AIR  (n = 1,00)', 16, 28);
+  c.fillText('EAU  (n = 1,33)', 16, oy + 26);
+  c.fillText('normale', ox + 6, 30);
+
+  const rad = deg * Math.PI / 180;
+
+  const ix = ox - L * Math.sin(rad);
+  const iy = oy + L * Math.cos(rad);
+  c.strokeStyle = GREEN;
+  c.lineWidth = 3;
+  c.beginPath(); c.moveTo(ix, iy); c.lineTo(ox, oy); c.stroke();
+  drawArrow(ix, iy, ox, oy, GREEN);
+  c.fillStyle = GREEN;
+  c.font = '12px sans-serif';
+  c.fillText('rayon incident', ix - 30, iy + 18);
+
+  const rx = ox + L * Math.sin(rad);
+  const ry = oy + L * Math.cos(rad);
+  const isTotal = deg >= limit;
+
+  c.strokeStyle = CORAL;
+  c.lineWidth = isTotal ? 4 : 2;
+  c.globalAlpha = isTotal ? 1 : 0.45;
+  c.beginPath(); c.moveTo(ox, oy); c.lineTo(rx, ry); c.stroke();
+  drawArrow(ox, oy, rx, ry, CORAL);
+  c.globalAlpha = 1;
+  c.fillStyle = CORAL;
+  c.fillText('rayon réfléchi', rx - 30, ry + 18);
+
+  if (!isTotal) {
+    const sinR = (n1 / n2) * Math.sin(rad);
+    const refrRad = Math.asin(Math.min(1, sinR));
+    const tx = ox + L * Math.sin(refrRad);
+    const ty = oy - L * Math.cos(refrRad);
+    c.strokeStyle = BLUE;
+    c.lineWidth = 3;
+    c.beginPath(); c.moveTo(ox, oy); c.lineTo(tx, ty); c.stroke();
+    drawArrow(ox, oy, tx, ty, BLUE);
+    c.fillStyle = BLUE;
+    c.fillText('rayon réfracté', tx + 6, ty);
+    sRefr.textContent = (refrRad * 180 / Math.PI).toFixed(1) + '°';
+  } else {
+    sRefr.textContent = '— (aucun)';
+  }
+
+  c.fillStyle = 'rgba(0,0,0,0.5)';
+  c.beginPath(); c.arc(ox, oy, 4, 0, 2*Math.PI); c.fill();
+
+  incOut.textContent = deg + '°';
+  sInc.textContent = deg + '°';
+
+  if (isTotal) {
+    banner.className = 'rt-banner rt-total';
+    banner.textContent = '⚡ Réflexion totale : 100% de la lumière reste dans l\'eau, rien ne sort !';
+  } else {
+    banner.className = 'rt-banner rt-refract';
+    banner.textContent = 'La lumière sort dans l\'air (réfraction) + un peu de reflet';
+  }
+}
+
+function drawArrow(x1, y1, x2, y2, color) {
+  const a = Math.atan2(y2 - y1, x2 - x1);
+  const len = 10;
+  c.fillStyle = color;
+  c.beginPath();
+  c.moveTo(x2, y2);
+  c.lineTo(x2 - len * Math.cos(a - 0.4), y2 - len * Math.sin(a - 0.4));
+  c.lineTo(x2 - len * Math.cos(a + 0.4), y2 - len * Math.sin(a + 0.4));
+  c.closePath();
+  c.fill();
+}
+
+inc.addEventListener('input', () => draw(parseInt(inc.value)));
+draw(30);
+</script>

@@ -1,0 +1,150 @@
+
+<style>
+  .sinwrap { padding: 1rem 0; font-family: var(--font-sans); }
+  .controls { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .controls label { font-size: 13px; color: var(--color-text-secondary); }
+  .readout { display: flex; gap: 16px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 14px; }
+  .stat-label { font-size: 11px; color: var(--color-text-secondary); }
+  .stat-val { font-size: 18px; font-weight: 500; color: var(--color-text-primary); font-family: var(--font-mono); }
+  .btn-row { display: flex; gap: 8px; margin-bottom: 1rem; }
+  button { font-size: 13px; }
+</style>
+<div class="sinwrap">
+  <h2 class="sr-only">Animation reliant le sinus d'un angle dans un cercle à la courbe sinusoïdale</h2>
+  <div class="btn-row">
+    <button id="playBtn"><i class="ti ti-player-play" aria-hidden="true"></i> Animer</button>
+    <button id="resetBtn"><i class="ti ti-refresh" aria-hidden="true"></i> Reset</button>
+  </div>
+  <div class="controls">
+    <label>Angle</label>
+    <input type="range" id="angle" min="0" max="360" value="40" step="1" style="flex:1; min-width:160px;" />
+    <span id="angleOut" style="font-size:14px; font-weight:500; min-width:42px; font-family:var(--font-mono);">40°</span>
+  </div>
+  <div class="readout">
+    <div class="stat"><div class="stat-label">angle</div><div class="stat-val" id="rAngle">40°</div></div>
+    <div class="stat"><div class="stat-label">sin(angle) = hauteur</div><div class="stat-val" id="rSin">0.64</div></div>
+  </div>
+  <canvas id="cv" width="660" height="300" style="width:100%; height:auto;"></canvas>
+</div>
+
+<script>
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+const angleSlider = document.getElementById('angle');
+const angleOut = document.getElementById('angleOut');
+const rAngle = document.getElementById('rAngle');
+const rSin = document.getElementById('rSin');
+const playBtn = document.getElementById('playBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+const css = getComputedStyle(document.documentElement);
+const cText = css.getPropertyValue('--color-text-primary').trim() || '#000';
+const cMuted = css.getPropertyValue('--color-text-secondary').trim() || '#666';
+const cBorder = css.getPropertyValue('--color-border-tertiary').trim() || 'rgba(0,0,0,0.15)';
+
+const BLUE = '#378ADD';
+const CORAL = '#D85A30';
+const TEAL = '#1D9E75';
+const GRAYLINE = 'rgba(128,128,128,0.25)';
+
+const cx = 95, cy = 150, R = 75;
+const waveX0 = 200, waveW = 430, waveMidY = 150, waveAmp = 75;
+
+let playing = false;
+let raf = null;
+
+function draw(deg) {
+  const rad = deg * Math.PI / 180;
+  ctx.clearRect(0, 0, cv.width, cv.height);
+
+  ctx.strokeStyle = GRAYLINE;
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(cx - R - 12, cy); ctx.lineTo(waveX0 + waveW, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, cy - R - 12); ctx.lineTo(cx, cy + R + 12); ctx.stroke();
+
+  ctx.strokeStyle = cBorder;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, 2 * Math.PI); ctx.stroke();
+
+  const px = cx + R * Math.cos(rad);
+  const py = cy - R * Math.sin(rad);
+
+  ctx.strokeStyle = cMuted;
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, py); ctx.stroke();
+
+  ctx.strokeStyle = cMuted;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(px, cy); ctx.stroke();
+
+  ctx.strokeStyle = CORAL;
+  ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(px, cy); ctx.lineTo(px, py); ctx.stroke();
+
+  ctx.strokeStyle = BLUE;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let d = 0; d <= deg; d += 1) {
+    const r = d * Math.PI / 180;
+    const wx = waveX0 + (d / 360) * waveW;
+    const wy = waveMidY - waveAmp * Math.sin(r);
+    if (d === 0) ctx.moveTo(wx, wy); else ctx.lineTo(wx, wy);
+  }
+  ctx.stroke();
+
+  const curWx = waveX0 + (deg / 360) * waveW;
+  const curWy = waveMidY - waveAmp * Math.sin(rad);
+
+  ctx.strokeStyle = GRAYLINE;
+  ctx.setLineDash([4, 4]);
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(curWx, curWy); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.strokeStyle = CORAL;
+  ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(curWx, waveMidY); ctx.lineTo(curWx, curWy); ctx.stroke();
+
+  ctx.fillStyle = TEAL;
+  ctx.beginPath(); ctx.arc(px, py, 5, 0, 2*Math.PI); ctx.fill();
+  ctx.beginPath(); ctx.arc(curWx, curWy, 5, 0, 2*Math.PI); ctx.fill();
+
+  ctx.fillStyle = cMuted;
+  ctx.font = '12px sans-serif';
+  ctx.fillText('cercle', cx - 18, cy + R + 28);
+  ctx.fillText('la vague (sinus déroulé) →', waveX0 + 4, cy + R + 28);
+
+  const s = Math.sin(rad);
+  angleOut.textContent = deg + '°';
+  rAngle.textContent = deg + '°';
+  rSin.textContent = (s >= 0 ? ' ' : '') + s.toFixed(2);
+}
+
+angleSlider.addEventListener('input', () => {
+  if (playing) stop();
+  draw(parseInt(angleSlider.value));
+});
+
+function step() {
+  let v = parseInt(angleSlider.value);
+  v = (v + 1) % 361;
+  angleSlider.value = v;
+  draw(v);
+  raf = requestAnimationFrame(() => setTimeout(step, 20));
+}
+function play() {
+  playing = true;
+  playBtn.innerHTML = '<i class="ti ti-player-pause" aria-hidden="true"></i> Pause';
+  step();
+}
+function stop() {
+  playing = false;
+  playBtn.innerHTML = '<i class="ti ti-player-play" aria-hidden="true"></i> Animer';
+  if (raf) cancelAnimationFrame(raf);
+}
+playBtn.addEventListener('click', () => { playing ? stop() : play(); });
+resetBtn.addEventListener('click', () => { stop(); angleSlider.value = 0; draw(0); });
+
+draw(40);
+</script>
