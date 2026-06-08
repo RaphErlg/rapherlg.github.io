@@ -149,17 +149,30 @@ def inject_site_nav(html, course_title):
 
     nav = f"""{NAV_START}
 <nav class="breadcrumb">
-  <a href="../../">Accueil</a>
+  <a href="../../index.html">Accueil</a>
   <span class="breadcrumb-sep">/</span>
-  <a href="./">{course_title}</a>
+  <a href="./index.html">{course_title}</a>
 </nav>
 {NAV_END}"""
 
     return re.sub(r"<body>", "<body>\n" + nav, html, count=1, flags=re.IGNORECASE)
 
+def localize_assets(html):
+    """
+    Remplace le CSS de l'editeur Notesnook charge depuis le CDN par la copie
+    locale vendorisee (voir vendor_assets.py), pour un rendu 100% hors ligne.
+    Les pages de synthese sont dans cours/<cours>/, d'ou le ../../ vers assets/.
+    """
+    return re.sub(
+        r'https://app\.notesnook\.com/assets/editor-styles\.css(\?[^"\']*)?',
+        "../../assets/notesnook-editor.css",
+        html,
+    )
+
 def process_synthesis(filepath, course_title):
     """Lit le fichier Notesnook et y injecte le style et la nav du site."""
     html = read_file(filepath)
+    html = localize_assets(html)
     html = inject_site_style(html)
     html = inject_site_nav(html, course_title)
     write_file(filepath, html)
@@ -194,7 +207,7 @@ def generate_course_index(course_title, syntheses):
   <div class="container">
 
     <nav class="breadcrumb">
-      <a href="../../">Accueil</a>
+      <a href="../../index.html">Accueil</a>
       <span class="breadcrumb-sep">/</span>
       <span>{course_title}</span>
     </nav>
@@ -213,7 +226,7 @@ def generate_course_index(course_title, syntheses):
     </ul>
 
     <footer class="site-footer">
-      <span><a href="../../">← Retour à l'accueil</a></span>
+      <span><a href="../../index.html">← Retour à l'accueil</a></span>
       <span>Mis à jour : {today_fr()}</span>
     </footer>
 
@@ -226,7 +239,7 @@ def generate_course_item(number, course_name, course_title, count):
     label = "1 synthèse" if count == 1 else f"{count} synthèses"
     return f"""\
       <li class="course-item">
-        <a class="course-link" href="cours/{course_name}/">
+        <a class="course-link" href="cours/{course_name}/index.html">
           <span class="course-number">{number:02d}</span>
           <span class="course-name">{course_title}<span class="course-arrow">→</span></span>
           <span class="course-meta">{label}</span>
