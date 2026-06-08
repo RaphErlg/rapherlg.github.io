@@ -12,6 +12,8 @@ STYLE_START = "<!-- site-style-start -->"
 STYLE_END   = "<!-- site-style-end -->"
 NAV_START   = "<!-- site-nav-start -->"
 NAV_END     = "<!-- site-nav-end -->"
+TOC_START   = "<!-- site-toc-start -->"
+TOC_END     = "<!-- site-toc-end -->"
 
 MATRIX_BG = """\
 <script>
@@ -135,6 +137,41 @@ def inject_site_style(html):
     border-left-color: var(--accent) !important;
     color: var(--ink-soft) !important;
   }}
+  /* Decalage pour que le titre vise ne colle pas au bord haut */
+  h1, h2, h3, h4, h5, h6 {{ scroll-margin-top: 1rem; }}
+  /* Sommaire flottant (navigation rapide) */
+  .toc-toggle {{
+    position: fixed; top: 1rem; right: 1rem; z-index: 1000;
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--line); background: var(--bg-elevated);
+    color: var(--ink); font-size: 1.25rem; line-height: 1; cursor: pointer;
+    box-shadow: var(--shadow);
+    display: flex; align-items: center; justify-content: center;
+    transition: color .15s, border-color .15s;
+  }}
+  .toc-toggle:hover {{ color: var(--accent); border-color: var(--accent); }}
+  .toc-float {{
+    position: fixed; top: 4rem; right: 1rem; z-index: 1000;
+    width: min(320px, calc(100vw - 2rem)); max-height: 75vh; overflow-y: auto;
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 1rem 1.25rem;
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .15s, transform .15s, visibility .15s;
+  }}
+  .toc-float.open {{ opacity: 1; visibility: visible; transform: translateY(0); }}
+  .toc-float-title {{
+    font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--ink-muted); margin: 0 0 .6rem;
+  }}
+  .toc-float ul {{ list-style: none; margin: 0; padding: 0; }}
+  .toc-float li a {{
+    display: block; padding: .25rem 0; font-size: .9rem; line-height: 1.35;
+    color: var(--ink-soft) !important; text-decoration: none !important;
+  }}
+  .toc-float li a:hover {{ color: var(--accent) !important; }}
+  .toc-float .toc-l1 a {{ font-weight: 600; color: var(--ink) !important; }}
+  .toc-float .toc-l3 a {{ padding-left: .9rem; font-size: .82rem; }}
 </style>
 {STYLE_END}"""
 
@@ -169,10 +206,116 @@ def localize_assets(html):
         html,
     )
 
+def localize_toc_links(html):
+    """
+    Les tables des matieres exportees pointent parfois vers l'URL de la
+    conversation source (claude.ai/chat/...#ancre) au lieu d'une ancre locale.
+    On ne garde que l'ancre (#...) pour que le clic reste dans la page.
+    Les autres liens externes (sites de reference, etc.) ne sont pas touches.
+    """
+    return re.sub(r'href="https://claude\.ai/[^"#]*#([^"]*)"', r'href="#\1"', html)
+
+def slugify_heading(text):
+    """
+    Reproduit le slug 'style GitHub' utilise par les tables des matieres :
+    minuscules, accents conserves, ponctuation/emoji retires, espaces -> tirets.
+    (Pas de fusion des tirets ni de rognage : le schema des TOC l'exige.)
+    """
+    text = text.strip().lower()
+    text = re.sub(r"[^\w\s-]", "", text, flags=re.UNICODE)  # garde lettres/chiffres/_/espaces/-
+    return text.replace(" ", "-")
+
+def add_heading_anchors(html):
+    """
+    Donne a chaque titre (h1..h6) un id correspondant au slug de son texte,
+    pour que les ancres des tables des matieres pointent au bon endroit.
+    Gere les doublons comme GitHub (slug, slug-1, slug-2, ...). Idempotent.
+    """
+    seen = {}
+
+    def repl(m):
+        lvl, attrs, inner = m.group("lvl"), m.group("attrs"), m.group("inner")
+        text = re.sub(r"<[^>]+>", "", inner)  # texte brut, sans balises internes
+        base = slugify_heading(text)
+        if not base:
+            return m.group(0)
+        n = seen.get(base, 0)
+        seen[base] = n + 1
+        slug = base if n == 0 else f"{base}-{n}"
+        attrs = re.sub(r'\s+id="[^"]*"', "", attrs)  # retire un id eventuel existant
+        return f'<h{lvl}{attrs} id="{slug}">{inner}</h{lvl}>'
+
+    return re.sub(
+        r"<h(?P<lvl>[1-6])(?P<attrs>[^>]*)>(?P<inner>.*?)</h(?P=lvl)>",
+        repl, html, flags=re.DOTALL,
+    )
+
+def strip_blank_targets(html):
+    """
+    Retire target="_blank" des liens internes (#ancre) pour qu'ils naviguent
+    dans la meme page au lieu d'ouvrir un nouvel onglet. Les liens externes
+    (sites de reference) gardent leur comportement d'origine.
+    """
+    def repl(m):
+        tag = m.group(0)
+        if 'href="#' in tag:
+            tag = re.sub(r'\s+target="[^"]*"', "", tag)
+        return tag
+    return re.sub(r"<a\b[^>]*>", repl, html)
+
+def build_floating_toc(html):
+    """
+    Construit un sommaire flottant (bouton + panneau repliable en haut a droite)
+    a partir des titres h1-h3 de la page, pour naviguer de partout. Idempotent.
+    A appeler APRES add_heading_anchors (utilise les id des titres).
+    """
+    html = strip_between(html, TOC_START, TOC_END)
+
+    items = []
+    pattern = (r'<h(?P<lvl>[1-3])(?P<attrs>[^>]*)\sid="(?P<id>[^"]+)"'
+               r'(?P<rest>[^>]*)>(?P<inner>.*?)</h(?P=lvl)>')
+    for m in re.finditer(pattern, html, flags=re.DOTALL):
+        text = re.sub(r"<[^>]+>", "", m.group("inner")).strip()
+        if not text:
+            continue
+        items.append(
+            f'<li class="toc-l{m.group("lvl")}">'
+            f'<a href="#{m.group("id")}">{text}</a></li>'
+        )
+
+    if not items:
+        return html
+
+    toc = (
+        TOC_START + "\n"
+        '<button class="toc-toggle" id="tocToggle" aria-label="Sommaire" '
+        'title="Sommaire">☰</button>\n'
+        '<nav class="toc-float" id="tocFloat">'
+        '<p class="toc-float-title">Sommaire</p><ul>'
+        + "".join(items) +
+        '</ul></nav>\n'
+        '<script>(function(){'
+        'var b=document.getElementById("tocToggle"),'
+        'p=document.getElementById("tocFloat");'
+        'if(!b||!p)return;'
+        'b.addEventListener("click",function(){p.classList.toggle("open");});'
+        'p.addEventListener("click",function(e){'
+        'if(e.target.closest("a"))p.classList.remove("open");});'
+        'document.addEventListener("keydown",function(e){'
+        'if(e.key==="Escape")p.classList.remove("open");});'
+        '})();</script>\n'
+        + TOC_END
+    )
+    return re.sub(r"<body>", "<body>\n" + toc, html, count=1, flags=re.IGNORECASE)
+
 def process_synthesis(filepath, course_title):
     """Lit le fichier Notesnook et y injecte le style et la nav du site."""
     html = read_file(filepath)
     html = localize_assets(html)
+    html = localize_toc_links(html)
+    html = strip_blank_targets(html)
+    html = add_heading_anchors(html)
+    html = build_floating_toc(html)
     html = inject_site_style(html)
     html = inject_site_nav(html, course_title)
     write_file(filepath, html)
